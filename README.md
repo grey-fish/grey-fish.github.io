@@ -7,6 +7,6 @@ This Blog serves two purpose:
   - Anyone who is looking for help on CTFs and wargames, might find it useful.
 
 ### ### Contents
-- Natas Writeups
+- [Natas Writeups](./Natas/index.html)
 - [HTB] (https://grey-fish.github.io/HTB.log/)
 - <a href=https://grey-fish.github.io/HTB.log/>HTB</a>
