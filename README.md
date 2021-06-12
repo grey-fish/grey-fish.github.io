@@ -9,3 +9,4 @@ This Blog serves two purpose:
 ### ### Contents
 - Natas Writeups
 - [HTB] (https://grey-fish.github.io/HTB.log/)
+- <a href=https://grey-fish.github.io/HTB.log/>HTB</a>
