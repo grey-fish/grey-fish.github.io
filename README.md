@@ -3,7 +3,7 @@ A Fellow Soul fascinated by and learning security.
 
 
 ## ## Contents
-- [Natas Writeups](./Natas/index.html)
+- [Natas Writeups](./Natas/index.md)
 - [Bandit Writeups](./Bandit/index.html)
 - [Hack the Box](./HTB/index.html)
 - [...](./README.md)
