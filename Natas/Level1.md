@@ -12,6 +12,6 @@ We are greeted with below page.
 Its fairly simple. The password is in the source code of the page.
 
 ![Level1 Solution](./images/Level1_solution.png)
-
+<br/>
 
 [<< Back](https://grey-fish.github.io/Natas/index.html)
