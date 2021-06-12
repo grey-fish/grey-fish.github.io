@@ -1,3 +1,4 @@
 # Natas Index page
 
 <a href=https://grey-fish.github.io/HTB.log/>Test<a>
+[Test](https://grey-fish.github.io/HTB.log/)
