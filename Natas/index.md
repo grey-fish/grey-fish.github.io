@@ -6,7 +6,7 @@ More about Natas can be found found at their [homepage.](https://overthewire.org
 
 # Writeups
 - [Level 1](./Level1.md) 
-- [Level 2](./Natas/Level2.md)
+- [Level 2](./Level2.md)
 - Level 3
 - Level 4
 - Level 5
