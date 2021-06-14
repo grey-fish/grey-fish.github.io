@@ -1,5 +1,5 @@
-# Level 1
-Level 1 is fairly simple. 
+# Level 0
+Level 0 is a piece of cake. 
 
 ## Quest 
 We are greeted with below page.
