@@ -102,6 +102,8 @@ usage: altdns [-h] -i INPUT -o OUTPUT [-w WORDLIST] [-r] [-n] [-e]
 
 ...
 ```
+<br/>
+
 ## What we Achieved
 Now we can run any python2 or python3 script on our system. Virtualenv give us power to use different python versions hassle free and without any conflict. 
 
