@@ -5,6 +5,7 @@ Natas is a wargame that teaches the basics of serverside web-security. My sole r
 More about Natas can be found found at their [homepage.](https://overthewire.org/wargames/natas/) ( _actually it doesn't say much_ ¯\\_(ツ )_/¯ )
 
 # Writeups
+- [Level 0](./Level0.md)
 - [Level 1](./Level1.md) 
 - [Level 2](./Level2.md)
 - Level 3
