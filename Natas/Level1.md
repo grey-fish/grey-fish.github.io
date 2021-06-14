@@ -2,14 +2,14 @@
 Level 1 is fairly simple. 
 
 ## Quest 
-We are greeted with below page.
+We are greeted a similar page but with right click disabled.
 
 ![Level1 Image](./images/Level1.png)
 
 <br/>
 
 ## Solution
-Its fairly simple. The password is in the source code of the page.
+Inspite of right click being disabled, we can view the source code using the developers console of our browser (in inspect tab), which revelas the password.
 
 ![Level1 Solution](./images/Level1_solution.png)
 
