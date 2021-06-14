@@ -15,7 +15,7 @@ Inspite of right click being disabled, we can view the source code of webpage us
 
 <dl>
 <dt>Note</dt>
-<dd>Password will be clearly visible if we are using a proxy like Burp.</dd>
+<dd>Password would have been also clearly visible if we were using a proxy like Burp.</dd>
 </dl>
 
 <br/>
