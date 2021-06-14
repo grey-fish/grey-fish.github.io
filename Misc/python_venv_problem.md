@@ -21,7 +21,7 @@ kali@kali:~$ sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-de
 
 kali@kali:~$ curl https://pyenv.run | bash
 ```
-<br\>
+<br/>
 
 2. Depending upon the shell, add following lines to your `.bashrc` or `.zshrc`
 
@@ -32,7 +32,7 @@ kali@kali:~$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 kali@kali:~$ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init --path)"\nfi' >> ~/.zshrc         # Note the slight change here
 kali@kali:~$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 ```
-<br\>
+<br/>
 
 3. Restart the Shell
 
@@ -40,7 +40,7 @@ kali@kali:~$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 kali@kali:~$ exec $SHELL
 ```
 Note: Restart if using GUI or log off and log in again if using GUI
-<br\>
+<br/>
 
 Now we have pyenv installed. We can check via `pyenv versions`
 
