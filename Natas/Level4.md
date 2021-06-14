@@ -8,7 +8,7 @@ We are presented with the following webpage.
 <br/>
 
 ## Solution
-It clearly mentions that we will be granted password, when we come from a particular URL. In HTTP, the Server uses `Referer` header to find out that which URL has made the request.
+It clearly mentions that we will be granted password, when we come from a particular URL. In HTTP, the Server uses `Referer` header to find out that which URL has made the request.<br/>
 So to solve this level, capture the request in burp, send it to the repeater and add a `Referer` header manually.
 
 ![Level 4 Solution](./images/Level4_solution.png)
