@@ -3,7 +3,7 @@
 ## Quest
 We are greeted with a simple message "There is nothing on this page".
 
-[Level 2 image](./images/Level2.png)
+![Level 2 image](./images/Level2.png)
 
 <br/>
 
