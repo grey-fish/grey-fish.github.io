@@ -13,7 +13,7 @@ We use `pyenv` to use different versions of python along with virtual environmen
 ## Explain in Detail
 First we look at how to install pyenv and then go to my workflow.
 
-### Installing pyenv
+#### Installing pyenv
 1.Installing Python ( For ubuntu or Kali )
 
 ```shell
@@ -50,7 +50,7 @@ kali@kali:~$ pyenv versions
   2.7.18
   
  # Install python 2.7.18 using below command
- kali@kali:~$ pyenv install 2.7.18           # Above we can see already done, so not installing here again
+ kali@kali:~$ pyenv install 2.7.18       # Above we can see already done, so not installing here again
  ...
 ```
 
@@ -58,7 +58,7 @@ Now we have two options, first is to switch python version globally from system 
 Instead we will make virtualenvs, that use Python 2. 
 
 ## My Workflow
-After Setting up pyenv and installing the desired python version. Lets make different version for different projects with help of virtuaenv.
+After Setting up `pyenv` and installing the desired python version. Lets make different version for different projects with help of `virtuaenv`.
 I'll explain workflow with help of a use case. 
 
 Suppose i want to install `altdns` (requires python2). So i do the following
@@ -102,3 +102,9 @@ usage: altdns [-h] -i INPUT -o OUTPUT [-w WORDLIST] [-r] [-n] [-e]
 
 ...
 ```
+## What we Achieved
+Now we can run any python2 or python3 script on our system. Virtualenv give us power to use different python versions hassle free and without any conflict. 
+
+<br/>
+
+[<< Back](https://grey-fish.github.io/Misc/)
