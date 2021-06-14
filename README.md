@@ -6,7 +6,7 @@ A Fellow Soul fascinated by and learning security.
 - [Natas Writeups](./Natas/index.md)
 - [Bandit Writeups](./Bandit/index.html)
 - [Hack the Box](./HTB/index.html)
-- [Miscellaneous](./README.md)
+- [Miscellaneous](./Misc/index.md)
 
 ### ### Why this Blog
 This Blog serves two purpose:
