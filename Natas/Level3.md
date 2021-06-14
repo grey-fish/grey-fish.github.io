@@ -14,7 +14,6 @@ There is a subtle hint in the line : "_Not even Google will find it this time...
 
 <br/>
 <br/>
-
 When we visit it, this finally reveals the password for next level.
 
 ![Level3 solution](./images/Level3_solution.png)
