@@ -34,7 +34,7 @@ kali@kali:~$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 ```
 <br/>
 
-3. Restart the Shell
+3.Restart the Shell
 
 ```shell
 kali@kali:~$ exec $SHELL
@@ -57,7 +57,7 @@ kali@kali:~$ pyenv versions
 Now we have two options, first is to switch python version globally from system default (Python3) to Python 2.7.18 (that we installed now), but we won't go to that route.
 Instead we will make virtualenvs, that use Python 2. 
 
-### My Workflow
+## My Workflow
 After Setting up pyenv and installing the desired python version. Lets make different version for different projects with help of virtuaenv.
 I'll explain workflow with help of a use case. 
 
