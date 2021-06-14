@@ -8,6 +8,8 @@ A Fellow Soul fascinated by and learning security.
 - [Hack the Box](./HTB/index.html)
 - [Miscellaneous](./Misc/index.md)
 
+<br/>
+
 ### ### Why this Blog
 This Blog serves two purpose:
   - It acts as a Log Book for my future self.
