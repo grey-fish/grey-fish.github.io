@@ -9,7 +9,7 @@ We are greeted a similar page but with right click disabled.
 <br/>
 
 ## Solution
-Inspite of right click being disabled, we can view the source code using the developers console of our browser (in inspect tab), which revelas the password.
+Inspite of right click being disabled, we can view the source code using the developers console of our browser (_in Elements tab_), which revelas the password.
 
 ![Level1 Solution](./images/Level1_solution.png)
 
