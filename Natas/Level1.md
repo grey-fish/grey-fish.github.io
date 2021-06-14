@@ -2,7 +2,7 @@
 Level 1 is fairly simple. 
 
 ## Quest 
-We are greeted a similar page but with right click disabled.
+We are greeted with a similar page but with right click disabled.
 
 ![Level1 Image](./images/Level1.png)
 
