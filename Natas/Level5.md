@@ -9,13 +9,14 @@ We are presented with a webpage with a simple message "_Access disallowed. You a
 
 ## Solution
 Below is the request and response in Burp
+
 ![Level 5 Solution](./images/Level5_solution.png)
 
-<br/>
 <br/>
 
 Notice the Header in the response : `Set-Cookie: loggedin=0`. The `Set-Cookie` header is used to set the cookies that will be sent in the subsequent requests.<br/>
 Perhaps this can help us if we change its value to `loggedin=1` indicating success (_means we have already logged in successfully_). 
+
 ![Level 5.1 Solution](./images/Level5.1_solution.png)
 <br/>
 
