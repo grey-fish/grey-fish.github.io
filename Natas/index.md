@@ -2,7 +2,7 @@
 
 Natas is a wargame that teaches the basics of serverside web-security. My sole reason for solving Natas is that its backend is written in PHP. Having done a bit of PHP recently, Natas seemed like a Natural choice to test my new found skill. It's divided into 34 Level, difficulty increases with each passing level.
 
-More about Natas can be found found at their [homepage.](https://overthewire.org/wargames/natas/) ( _actually it doesn't say much_ ¯\\_(ツ )_/¯ )
+More about Natas can be found found at their [Homepage.](https://overthewire.org/wargames/natas/) ( _actually it doesn't say much_ ¯\\_(ツ)_/¯ )
 
 # Writeups
 - [Level 0](./Level0.md)
