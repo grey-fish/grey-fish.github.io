@@ -14,7 +14,7 @@ We use `pyenv` to use different versions of python along with virtual environmen
 First we look at how to install pyenv and then go to my workflow.
 
 ### Installing pyenv
-1. Installing Python ( For ubuntu or Kali )
+1.Installing Python ( For ubuntu or Kali )
 
 ```shell
 kali@kali:~$ sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
@@ -23,7 +23,7 @@ kali@kali:~$ curl https://pyenv.run | bash
 ```
 <br/>
 
-2. Depending upon the shell, add following lines to your `.bashrc` or `.zshrc`
+2.Depending upon the shell, add following lines to your `.bashrc` or `.zshrc`
 
 ```shell
 # Here my default shell is zsh
