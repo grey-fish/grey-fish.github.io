@@ -105,7 +105,8 @@ usage: altdns [-h] -i INPUT -o OUTPUT [-w WORDLIST] [-r] [-n] [-e]
 <br/>
 
 ## What we Achieved
-Automatic switching of python version (_depending on our current working directory_). Meanwhile, Virtualenvs (_serving as isolated containers_) give us power to use different python versions without conflicting with eachother. 
+Automatic switching between different python versions (_depending on our current working directory_). <br/>
+Meanwhile, Virtualenvs (_serving as isolated containers_) give us power to use different python versions without conflicting with eachother. 
 
 <br/>
 
