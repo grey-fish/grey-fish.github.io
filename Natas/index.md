@@ -25,5 +25,5 @@ More about Natas can be found found at their [Homepage.](https://overthewire.org
 - Level 17
 
 ```
-                 Writeups for previous will soon be uploaded
+                             Writeups for previous Levels will soon be uploaded
 ```
