@@ -30,7 +30,7 @@ Terminate the `grep` command with `;` and view the password file and then termin
 
 As evident from below screenshot, this gets us password for next Level.
 
-![Level 9 Solution](./images/Level9_solution.png)
+![Level 9 solution](./images/Level9_solution.png)
 
 ### How the payload works
 ```shell
