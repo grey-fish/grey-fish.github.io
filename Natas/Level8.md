@@ -29,7 +29,7 @@ if(array_key_exists("submit", $_POST)) {
 
 ## Solution
 
-Look at the code, we're asked to input a value, which when encoded would be equal to `"3d3d516343746d4d6d6c315669563362"`<br/> 
+Look at the code, we're asked to input a value, which when encoded will be equal to `"3d3d516343746d4d6d6c315669563362"`<br/> 
 Fortunately, we can read the function used to perform encoding. Our task is to analyze it and reverse-engineer it.
 
 ```php
