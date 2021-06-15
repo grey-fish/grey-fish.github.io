@@ -51,7 +51,7 @@ echo hex2bin($encodedSecret);          // ==QcCtmMml1ViV3b
 
 echo strrev(hex2bin($encodedSecret));  // b3ViV1lmMmtCcQ==
 
-echo base64_decode(strrev(hex2bin($encodedSecret)));  // oubWYf2kBq
+echo base64_decode(strrev(hex2bin($encodedSecret)));  // oubWYf2kBq   <-- Fully decoded
 ```
 
 The final output `oubWYf2kBq` is the original string that we obtain after decoding the encoded secret.
