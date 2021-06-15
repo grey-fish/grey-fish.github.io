@@ -30,7 +30,7 @@ if(array_key_exists("submit", $_POST)) {
 ## Solution
 
 Look at the code, we're asked to input a value, which when encoded becomes `"3d3d516343746d4d6d6c315669563362"`<br/><br/>
-Fortunately, we can read the function used to perform encoding. Our task is to analyze it and reverse-engineer it.
+Fortunately, we can read the function used to perform encoding. Our task is to analyze and reverse-engineer it.
 
 ```php
 function encodeSecret($secret) {
@@ -40,10 +40,10 @@ function encodeSecret($secret) {
 Above function does the following<br/>
     secret -> `base64_encode` -> `strrev` -> `bin2hex` -> Encoded secret
 
-Now to get our secret we need to follow above steps in reverse order. Which basically means<br/>
+Now to get our secret we need to follow above steps in <u>reverse order</u>. Which basically means<br/>
     Encoded secret -> `hex2bin` -> `strrev` -> `base64_decode` -> secret
   
- Below i have done exactly that, To see different stages, i go step by step :
+ Below we go in reverse order, but step by step so that we can see intermediary stages also :
  ```php
  $encodedSecret = "3d3d516343746d4d6d6c315669563362";
 
@@ -54,7 +54,7 @@ echo strrev(hex2bin($encodedSecret));  // b3ViV1lmMmtCcQ==
 echo base64_decode(strrev(hex2bin($encodedSecret)));  // oubWYf2kBq
 ```
 
-The final output `oubWYf2kBq` is the original string that we obtain after deencoding the encoded secret.
+The final output `oubWYf2kBq` is the original string that we obtain after decoding the encoded secret.
 <br/>
 <br/>
 When we give this as input, the password for next level is revealed. 
