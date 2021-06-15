@@ -28,7 +28,7 @@ From the above code, we can see that user input is passed to OS command without 
 Our goal is to get password for the next level, i.e. access  `/etc/natas_webpass/natas10` .
 
 <span id="green">Our payload</span>     `; cat /etc/natas_webpass/natas10 ;` <br/>
-_Terminate the `grep` command with `;` and view the password file and then terminate `cat` command with `;` _
+_Terminate the `grep` command with `;` and view the password file and then terminate `cat` command with `;`_
 
 As evident from below screenshot, this gets us password for next Level.
 
