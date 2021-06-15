@@ -1,5 +1,5 @@
 # Level 6
-In this Level we get first taste of PHP
+In this Level we get our first taste of PHP
 
 ## Quest
 We are presented with a simple webpage contain a form with only one `input` element, as evident below.
@@ -7,7 +7,7 @@ We are presented with a simple webpage contain a form with only one `input` elem
 ![Level 6 Image](./images/Level6.png)
 
 We are also provided sourcecode (PHP) of the page. I'll comment the code below
-```PHP
+```php
 <?
 
 include "includes/secret.inc";               // Include code from file present in path "includes/secret.inc"
