@@ -4,7 +4,7 @@ This level requires basic PHP skills
 ## Quest
 We are presented with a similar page like in [Level 6](./Level6.md), but this time with a different backend code.
 
-![Level 8 Image](./images/Level8.md)
+![Level 8 Image](./images/Level8.png)
 
 Here is the new backend code
 ```php
