@@ -15,10 +15,10 @@ When we look at the page source, we see that password for next level is stored i
 
 ## Solution
 Look at the urls:<br/>
-  Home  : `http://natas7.natas.labs.overthewire.org/index.php?page=home`<br/>
+  Home : `http://natas7.natas.labs.overthewire.org/index.php?page=home`<br/>
   About : `http://natas7.natas.labs.overthewire.org/index.php?page=about`<br/>
   
-We'll check if query parameter `page` is vulnerable to Path Traversal (also called Directory Traversal) attack.<br/>
+We'll check if query parameter `page` is vulnerable to Path Traversal (also called Directory Traversal) attack.<br/><br/>
   Our payload :  `page=/etc/natas_webpass/natas8`
 
 ![Level 7 Solution](./images/Level7_solution.png)
