@@ -10,6 +10,8 @@ When we look at the page source, we see that password for next level is stored i
 
 ![Level 7.1 Image](./images/Level7.1.png)
 
+<br/>
+<br/>
 
 ## Solution
 Look at the urls:
