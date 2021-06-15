@@ -12,7 +12,7 @@ More about Natas can be found found at their [Homepage.](https://overthewire.org
 - [Level 4](./Level4.md)
 - [Level 5](./Level5.md)
 - [Level 6](./Level6.md)
-- Level 7
+- [Level 7](./Level7.md)
 - Level 8
 - Level 9
 - Level 10
