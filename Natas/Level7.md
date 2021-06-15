@@ -25,6 +25,8 @@ We'll check if query parameter <span id="yellow">page</span> is vulnerable to Pa
 
 As we can see above, our attack worked, the page is vulnerable to Directory traversal attack.
 
+Tip! - Try using any other file like `/etc/passwd`.
+
 <br/>
 
 [<< Back](https://grey-fish.github.io/Natas/index.html)
