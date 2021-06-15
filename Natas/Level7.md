@@ -2,7 +2,7 @@
 A Simple exercise in Path Traversal Vulnerability
 
 ## Quest
-We are present with a simple web page, with two link "Home" and "About". 
+We are presented with a simple web page, with two links "Home" and "About". 
 
 ![Level 7 Image](./images/Level7.png)
 
@@ -15,10 +15,10 @@ When we look at the page source, we see that password for next level is stored i
 
 ## Solution
 Look at the urls:<br/>
-  Home  : `http://natas7.natas.labs.overthewire.org/index.php?page=home`<br/>
+  Home  : `http://natas7.natas.labs.overthewire.org/index.php?page=home`<br/>
   About : `http://natas7.natas.labs.overthewire.org/index.php?page=about`<br/>
   
-We will check if the query parameter `page` is vulnerable to Path Traversal (also called Directory Traversal) attack.
+We'll check if query parameter `page` is vulnerable to Path Traversal (also called Directory Traversal) attack.<br/>
   Our payload :  `page=/etc/natas_webpass/natas8`
 
 ![Level 7 Solution](./images/Level7_solution.png)
