@@ -7,9 +7,11 @@ It began when i tried to install `altdns`  in Kali but couldn't as it relied on 
 ## What is the Problem?
 I want to be able to run / install a python program irrespective of what python version is installed on my pc. 
 <br/>
+<br/>
 
 ## Solution
 We use `pyenv` to use different versions of python along with virtual environments options for each project. 
+
 <br/>
 
 ## Explain in Detail
@@ -59,6 +61,8 @@ kali@kali:~$ pyenv versions
 Now we have two options, first is to switch python version globally from system default (Python3) to Python 2.7.18 (that we installed now), but we won't go to that route.
 Instead we will make virtualenvs, that use Python 2. 
 <br/>
+<br/>
+
 
 ## My Workflow
 After Setting up `pyenv` and installing the desired python version. Lets make different version for different projects with help of `virtuaenv`.
