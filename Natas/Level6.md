@@ -35,6 +35,5 @@ Now that we have value of `secret`, we simply put this into our input and this r
 ![Level 6.1 Solution](./images/Level6.1_solution.png)
 
 <br/>
-<br/>
 
 [<< Back](https://grey-fish.github.io/Natas/index.html)
