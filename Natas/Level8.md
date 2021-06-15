@@ -2,7 +2,7 @@
 This level requires basic PHP skills
 
 ## Quest
-We are presented with a similar page like in Level 6, but this time with different backend code.
+We are presented with a similar page like in [Level 6](./Level6.md), but this time with a different backend code.
 
 ![Level 8 Image](./images/Level8.md)
 
@@ -57,7 +57,7 @@ echo base64_decode(strrev(hex2bin($encodedSecret)));  // oubWYf2kBq
 The final output `oubWYf2kBq` is the original string that we obtain after deencoding the encoded secret.
 <br/>
 <br/>
-When we give this as input, the password for next level should be revealed. 
+When we give this as input, the password for next level is revealed. 
 
 ![Level 8 Image](./images/Level8_solution.png)
 <br/>
