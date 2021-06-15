@@ -22,15 +22,20 @@ include "includes/secret.inc";             // Include code from file present in 
 ?>
 ```
 
+<br/>
+
 ## Solution 
-In source code, the line `include "includes/secret.inc"` means there is a secret.inc file, which this page relies own. Lets check that
+In source code, the line `include "includes/secret.inc"` means there is a `secret.inc` file, which this page relies own. Lets check that
 
 ![Level 6 Solution](./images/Level6_solution.png)
+
+<br/>
 
 Now that we have value of `secret`, we simply put this into our input and this reveals the password.
 
 ![Level 6.1 Solution](./images/Level6.1_solution.png)
 
+<br/>
 <br/>
 
 [<< Back](https://grey-fish.github.io/Natas/index.html)
