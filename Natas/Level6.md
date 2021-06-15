@@ -9,7 +9,6 @@ We are presented with a simple webpage contain a form with only one `input` elem
 We are also provided sourcecode (PHP) of the page. I'll comment the code below
 ```php
 <?
-
 include "includes/secret.inc";             // Include code from file present in path "includes/secret.inc"
 
   if(array_key_exists("submit", $_POST)) { // Check if form is submitted
@@ -25,7 +24,7 @@ include "includes/secret.inc";             // Include code from file present in 
 <br/>
 
 ## Solution 
-In source code, the line `include "includes/secret.inc"` means there is a `secret.inc` file, which this page relies own. Lets check that
+In source code, the line `include "includes/secret.inc"` means there is a `secret.inc` file, which this page includes in its code. Lets check that
 
 ![Level 6 Solution](./images/Level6_solution.png)
 
