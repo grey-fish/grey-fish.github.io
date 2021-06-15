@@ -56,9 +56,13 @@ echo base64_decode(strrev(hex2bin($encodedSecret)));  // oubWYf2kBq
 
 The final output `oubWYf2kBq` is the original string that we obtain after deencoding the encoded secret.
 <br/>
+<br/>
 When we give this as input, the password for next level should be revealed. 
 
 ![Level 8 Image](./images/Level8_solution.png)
+<br/>
+<br/>
+This level forced me to read PHP documentation about the mentioned functions and i came to know about there counterparts.
 
 <br/>
 
