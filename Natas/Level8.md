@@ -29,21 +29,21 @@ if(array_key_exists("submit", $_POST)) {
 
 ## Solution
 
-Lets look at the code. We are asked to input a value, which when encoded would be equal to `"3d3d516343746d4d6d6c315669563362"`. Fortunately, we can read the function used to perform encoding.
-Our task is to analyze it and reverse-engineer it.
-The function
+Lets look at the code. We're asked to input a value, which when encoded would be equal to `"3d3d516343746d4d6d6c315669563362"`.<br/> 
+Fortunately, we can read the function used to perform encoding. Our task is to analyze it and reverse-engineer it.
+
 ```php
 function encodeSecret($secret) {
     return bin2hex(strrev(base64_encode($secret)));
 }
 ```
-Above function does the following
-  secret -> `base64_encode` -> `strrev` -> `bin2hex` -> Encoded secret
+Above function does the following<br/>
+    secret -> `base64_encode` -> `strrev` -> `bin2hex` -> Encoded secret
 
-Now to get our secret we need to follow above steps in reverse order. Which basically means 
-  Encoded secret -> `hex2bin` -> `strrev` -> `base64_decode` -> secret
+Now to get our secret we need to follow above steps in reverse order. Which basically means<br/>
+    Encoded secret -> `hex2bin` -> `strrev` -> `base64_decode` -> secret
   
- To see different stages, i go step by step here:
+ Below i have done exactly that, To see different stages, i go step by step :
  ```php
  $encodedSecret = "3d3d516343746d4d6d6c315669563362";
 
@@ -55,6 +55,11 @@ echo base64_decode(strrev(hex2bin($encodedSecret)));  // oubWYf2kBq
 ```
 
 The final output `oubWYf2kBq` is the original string that we obtain after deencoding the encoded secret.
+<br/>
 When we give this as input, the password for next level should be revealed. 
 
 ![Level 8 Image](./images/Level8_solution.png)
+
+<br/>
+
+[<< Back](https://grey-fish.github.io/Natas/index.html)
