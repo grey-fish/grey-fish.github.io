@@ -30,7 +30,7 @@ Our goal is to get password for the next level, i.e. access  `/etc/natas_webpass
 <span id="green">Our payload  --></span> `; cat /etc/natas_webpass/natas10 ;` <br/>
 _Terminate the `grep` command with `;` and view the password file and then terminate `cat` command with `;`_
 
-<br/>
+<br/><br/>
 As evident from below screenshot, this gets us password for next Level.
 
 ![Level 9 solution](./images/Level9_solution.png)
