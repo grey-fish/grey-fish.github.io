@@ -21,16 +21,21 @@ if($key != "") {                              // If key is not empty
 ?>
 ```
 
+<br/>
+
 ## Solution
 From the above code, we can see that user input is passed to OS command without any sanitization, this code should be vulnerable to command injection.<br/><br/>
 Our goal is to get password for the next level, i.e. access  `/etc/natas_webpass/natas10` .
 
-Our payload       `; cat /etc/natas_webpass/natas10 ;` <br/>
-Terminate the `grep` command with `;` and view the password file and then terminate `cat` command with `;` 
+<span id="green">Our payload</span>     `; cat /etc/natas_webpass/natas10 ;` <br/>
+_Terminate the `grep` command with `;` and view the password file and then terminate `cat` command with `;` _
 
 As evident from below screenshot, this gets us password for next Level.
 
 ![Level 9 solution](./images/Level9_solution.png)
+
+
+<br/>
 
 ### How the payload works
 ```shell
