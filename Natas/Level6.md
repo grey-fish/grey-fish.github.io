@@ -10,13 +10,13 @@ We are also provided sourcecode (PHP) of the page. I'll comment the code below
 ```php
 <?
 
-include "includes/secret.inc";               // Include code from file present in path "includes/secret.inc"
+include "includes/secret.inc";             // Include code from file present in path "includes/secret.inc"
 
-  if(array_key_exists("submit", $_POST)) {   // Check if form is submitted
-    if($secret == $_POST['secret']) {        // if in our POST request, value of param secret is equal to predefined var secret
-      print "Access granted. The password for natas7 is <censored>";     // Access is granted and password revealed
+  if(array_key_exists("submit", $_POST)) { // Check if form is submitted
+    if($secret == $_POST['secret']) {      // if in our POST request, value of param secret is equal to predefined var secret
+      print "Access granted. The password for natas7 is <censored>";  // Access is granted and password revealed
     } else {
-      print "Wrong secret";                  // Else, we output this message
+      print "Wrong secret";                // Else, we output this message
     }
   }
 ?>
