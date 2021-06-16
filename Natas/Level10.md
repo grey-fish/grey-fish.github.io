@@ -49,13 +49,13 @@ We love random things, not pseudo random ones.
 $ cat \                  # If we put a space after \  , command terminates
 cat: ' ': No such file or directory
 ```
-<span id="green">Takeaway:</span>
-    1. We can use `grep` to view the contents of a file
-    2. `\` is used in multiline linux commands to split command to next line when command is too long
-    3. But if we put a space after `\`, then it terminates the command
+<span id="green">Takeaway:</span><br/>
+    1. We can use `grep` to view the contents of a file<br/>
+    2. `\` is used in multiline linux commands to split command to next line when command is too long<br/>
+    3. But if we put a space after `\`, then it terminates the command<br/>
 
 So, Our payload becomes    `"" /etc/natas_webpass/natas11 \`
-<br/>Note that we don't need to add extra space at the end as its added for us when `grep` command is run.
+<br/>Note that we don't need to add extra space at the end as its added for us when `grep` command is run.<br/>
 
 Now, we put our payload in the form and it reveals the password for next Level
 
