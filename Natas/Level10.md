@@ -54,7 +54,7 @@ Takeaway:
   3. But if we put a space after `\`, then it terminates the command
 
 So, Our payload becomes `"" /etc/natas_webpass/natas11 \`
-Note: We don't need to add extra space at the end as its added for us when `grep` command is run.
+<br/>Note: We don't need to add extra space at the end as its added for us when `grep` command is run.
 
 Now, we put our payload in the form and it revelas the password for next Level
 
