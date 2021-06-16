@@ -54,8 +54,8 @@ cat: ' ': No such file or directory
     2. `\` is used in multiline linux commands to split command to next line when command is too long<br/>
     3. But if we put a space after `\`, then it terminates the command<br/>
 
-So, Our payload becomes    `"" /etc/natas_webpass/natas11 \`
-<br/>Note that we don't need to add extra space at the end as its added for us when `grep` command is run.<br/>
+So, Our payload becomes <span id="green">-></span> `"" /etc/natas_webpass/natas11 \`
+<br/>Note that we don't need to add extra space at the end as its added for us when `grep` command is run.<br/><br/>
 
 Now, we put our payload in the form and it reveals the password for next Level
 
