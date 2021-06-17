@@ -80,8 +80,8 @@ First, i'll layout the code flow (removing function definitions)<br/>
     4. Call `SaveData` function with `$data` as argument to Set the Cookie<br/>
     5. Lastly, if `$data["showpassword"] == "yes"`, then reveal the password for next level.<br/>
     
-Observation:
-    We can say that to reveal the password, `$data` should contain `["showpassword"=>"yes", "bgcolor"=>"#ffffff"]`
+Observation:<br/>
+    We can say that to reveal the password, `$data` should contain `["showpassword"=>"yes", "bgcolor"=>"#ffffff"]`<br/>
     Now `$data` gets its value from `loadData` function, so lets take a look at it.<br/>
 
 `loadData` takes in the `defaultarray` and if no Cookie is present in the request, it returns the same default array. But in case a Cookie is sent, the Cookie is decrypted and an array is constructed, which is then returned. So, to change value of $data we set a cookie with value as `["showpassword"=>"yes", "bgcolor"=>"#ffffff"]`
