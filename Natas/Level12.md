@@ -84,7 +84,7 @@ We Test our shell by adding the query parameter `cmd=ifconfig`. We see that comm
 
 Finally, we try to get the password for next Level
 ![Level 12.3 Solution](./images/Level12.3_solution.png)
-<span id=green>Sucess!</span>
+<span id=green>Nice!</span>
 <br/>
 
 [<< Back](https://grey-fish.github.io/Natas/index.html)
