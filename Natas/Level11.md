@@ -140,3 +140,11 @@ echo base64_encode(xor_encrypt($newA, $B));   // ClVLIh4ASCsCBE8lAxMacFMOXTlTWxo
 
 // This is our Cookie
 ```
+
+Sending our newly created C as the Cookie reveals the password, see below image.
+
+![Level11.1 Solution](./images/Level11.1_solution.png)
+
+<br/>
+
+[<< Back](https://grey-fish.github.io/Natas/index.html)
