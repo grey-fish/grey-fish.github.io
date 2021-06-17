@@ -65,8 +65,10 @@ if($data["showpassword"] == "yes") {
 }
 ?>
 ```
+<br/>
+
 ## Solution
-Before diving into the code, here is request and response in Burp, i'll highlight some important things
+Before diving into the code, here is request and response in Burp
 
 ![Level 11 Solution](./images/Level11_solution.png)
 
@@ -78,8 +80,9 @@ First, i'll layout the code flow (removing function definitions)<br/>
     4. Call `SaveData` function with `$data` as argument to Set the Cookie<br/>
     5. Lastly, if `$data["showpassword"] == "yes"`, then reveal the password for next level.<br/>
     
-Firstly, we can say that if we have to reveal the password, `$data` should contain `["showpassword"=>"yes", "bgcolor"=>"#ffffff"]`
-Now `$data` gets its value from `loadData` function, so lets take a look at it.<br/>
+Observation:
+    We can say that to reveal the password, `$data` should contain `["showpassword"=>"yes", "bgcolor"=>"#ffffff"]`
+    Now `$data` gets its value from `loadData` function, so lets take a look at it.<br/>
 
 `loadData` takes in the `defaultarray` and if no Cookie is present in the request, it returns the same default array. But in case a Cookie is sent, the Cookie is decrypted and an array is constructed, which is then returned. So, to change value of $data we set a cookie with value as `["showpassword"=>"yes", "bgcolor"=>"#ffffff"]`
 
