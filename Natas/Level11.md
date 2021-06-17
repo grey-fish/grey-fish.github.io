@@ -74,7 +74,7 @@ Before diving into the code, here is request and response in Burp, i'll highligh
 First, i'll layout the code flow (removing function definitions)<br/>
     1. Declare default array : `["showpassword"=>"no", "bgcolor"=>"#ffffff"]`<br/>
     2. Call `loadData` and save its output to variable `$data`<br/>
-    3. Modify `$data[bgcolor]` value as recieved in the request.
+    3. Modify `$data[bgcolor]` value as recieved in the request.<br/>
     4. Call `SaveData` function with `$data` as argument to Set the Cookie<br/>
     5. Lastly, if `$data["showpassword"] == "yes"`, then reveal the password for next level.<br/>
     
@@ -83,17 +83,19 @@ Now `$data` gets its value from `loadData` function, so lets take a look at it.<
 
 `loadData` takes in the `defaultarray` and if no Cookie is present in the request, it returns the same default array. But in case a Cookie is sent, the Cookie is decrypted and an array is constructed, which is then returned. So, to change value of $data we set a cookie with value as `["showpassword"=>"yes", "bgcolor"=>"#ffffff"]`
 
-Now to next part, we can't set cookie directly like this as it is XOR encrypted, So we now look at XOR encryption.
-Look at this page to understand more. Simply put, The binary operation XOR (eXclusive OR) will compare two bits and will produce one bit in return. That bit will be equal to 1 if two compared bits were different, 0 if they were equal. 
+Onto the next part, we can't set cookie directly like above as it is XOR encrypted, So we look at XOR encryption function.
+Look at this [page](https://en.wikipedia.org/wiki/XOR_cipher) to understand more.<br/>Simply put, The binary operation XOR (eXclusive OR) will compare two bits and will produce one bit in return. That bit will be equal to 1 if two compared bits were different, 0 if they were equal. 
 ```
+We A ^ B Below to produce C     // ^ denotes XOR
+
 A -> 00110101 01101010      // lets say with is our text  (plaintext)
 B -> 00001110 10100010      //  this is our key           ( key     )
 ----------------------
 C -> 00111011 11001000      // Our encrypted output       ( cipher  )
 ----------------------
 
-Now, above, A^B = C . According to XOR property,  C^A = B  or C^B = A  .
-If we know A and C, we can get B, that is our key by simply doing a XOR again with A.
+Now, above, A^B = C . According to XOR property,  C^A = B  or C^B = A 
+If we know A and C, we can get back B, which is our "key", by simply doing a XOR again with A. (shown below)
 
 C -> 00111011 11001000
 A -> 00110101 01101010
@@ -101,13 +103,13 @@ A -> 00110101 01101010
 B -> 00001110 10100010      // Here we get our key back, if we XOR cipher with plaintext again
 ----------------------
 ```
-At this moment, we know A (plaintext, i.e. array) and C (Ciphertext, i.e cookie data). Now we will use the xor encrypt function to get B .i.e. key
+
+<br/>At this moment, we know A (plaintext, i.e. array) and C (Ciphertext, i.e cookie data). Now we will use the xor encrypt function to get B .i.e. key
 
 ```php
 $A = json_encode(array( "showpassword"=>"no", "bgcolor"=>"#ffffff"));   
 $C = base64_decode("ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV57Q0ReaAw=");  // Cookie taken from burp
-
-// Above we removed the preprosessing before xoring as same happens in source code.
+// Above we removed the preprosessing before XORing as same happens in source code.
 
 // Copied code from sourcecode and modified slightly
 function xor_encrypt($in, $key) {
@@ -127,7 +129,7 @@ echo xor_encrypt($C, $A);   // gives output qw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8J
 // This is our key as to do xor 'qw8J' is repreated
 ```
 
-Now that we have key, .i.e. B and we know A, we can create a valid new C
+<br/>Now that we have key, .i.e. B and we know A, we can create a valid new C
 
 ```php
 $newA = json_encode(array( "showpassword"=>"yes", "bgcolor"=>"#ffffff"));
@@ -141,7 +143,7 @@ echo base64_encode(xor_encrypt($newA, $B));   // ClVLIh4ASCsCBE8lAxMacFMOXTlTWxo
 // This is our Cookie
 ```
 
-Sending our newly created C as the Cookie reveals the password, see below image.
+<br/>Sending our newly created C as the Cookie reveals the password, see below image.
 
 ![Level11.1 Solution](./images/Level11.1_solution.png)
 
