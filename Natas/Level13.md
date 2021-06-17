@@ -54,11 +54,11 @@ Now we need to edit first couple of bytes of the file to jpeg signature. I follo
 
 Below is a visual log of above process. 
   ![Level 13 Solution](./images/Level13_solution.png)
-  ![Level 13.2 Solution](./images/Level13.1_solution.png)
-  ![Level 13.3 Solution](./images/Level13.2_solution.png)
+  ![Level 13.2 Solution](./images/Level13.2_solution.png)
+  ![Level 13.3 Solution](./images/Level13.3_solution.png)
 
 Now we upload this file, and follow the steps we followed in previous level.
-    ![Level 13.4 Solution](./images/Level13.2_solution.png)
-  ![Level 13.5 Solution](./images/Level13.2_solution.png)
+    ![Level 13.4 Solution](./images/Level13.4_solution.png)
+  ![Level 13.5 Solution](./images/Level13.5_solution.png)
 
   
