@@ -84,10 +84,10 @@ Observation:<br/>
     We can say that to reveal the password, `$data` should contain `["showpassword"=>"yes", "bgcolor"=>"#ffffff"]`<br/>
     Now `$data` gets its value from `loadData` function, so lets take a look at it.<br/>
 
-`loadData` takes in the `defaultarray` and if no Cookie is present in the request, it returns the same default array. But in case a Cookie is sent, the Cookie is decrypted and an array is constructed, which is then returned. So, to change value of $data we set a cookie with value as `["showpassword"=>"yes", "bgcolor"=>"#ffffff"]`
+`loadData` takes in the `defaultarray` and if no Cookie is present in the request, it returns the same default array. But in case a Cookie is sent, the Cookie is decrypted and an array is constructed, which is then returned. So, to change value of `$data` we set a cookie with value as `["showpassword"=>"yes", "bgcolor"=>"#ffffff"]`
 
 Onto the next part, we can't set cookie directly like above as it is XOR encrypted, So we look at XOR encryption function.
-Look at this [page](https://en.wikipedia.org/wiki/XOR_cipher) to understand more.<br/>Simply put, The binary operation XOR (eXclusive OR) will compare two bits and will produce one bit in return. That bit will be equal to 1 if two compared bits were different, 0 if they were equal. 
+Look at this [Wiki page](https://en.wikipedia.org/wiki/XOR_cipher) to understand more.<br/>Simply put, The binary operation XOR (eXclusive OR) will compare two bits and will produce one bit in return. That bit will be equal to 1 if two compared bits were different, 0 if they were equal. 
 ```
 We A ^ B Below to produce C     // ^ denotes XOR
 
@@ -146,7 +146,7 @@ echo base64_encode(xor_encrypt($newA, $B));   // ClVLIh4ASCsCBE8lAxMacFMOXTlTWxo
 // This is our Cookie
 ```
 
-<br/>Sending our newly created C as the Cookie reveals the password, see below image.
+<br/>Using Burp Repeater, send our newly created C as the Cookie, which reveals the password as seen below.
 
 ![Level11.1 Solution](./images/Level11.1_solution.png)
 
