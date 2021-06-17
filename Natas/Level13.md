@@ -1,0 +1,64 @@
+# Level 13
+I learned new tricks while solving this level. It is just awesome.
+
+## Quest
+We are presented with a webpage similar to previous level, but with additional message "For security reasons, we now only accept image files!". 
+![Level13 Image](./images/Level13.png)
+
+The backened code is exactly like previous level, except one change, i'll highlight that below
+```php
+if(array_key_exists("filename", $_POST)) {
+    $target_path = makeRandomPathFromFilename("upload", $_POST["filename"]);
+    
+    $err=$_FILES['uploadedfile']['error'];
+    if($err){
+        if($err === 2){
+            echo "The uploaded file exceeds MAX_FILE_SIZE";
+        } else{
+            echo "Something went wrong :/";
+        }
+    } else if(filesize($_FILES['uploadedfile']['tmp_name']) > 1000) {
+        echo "File is too big";
+    } else if (! exif_imagetype($_FILES['uploadedfile']['tmp_name'])) { // Here is the difference, they use exif_imagetype 
+        echo "File is not an image";                                    // to check uploaded image
+    } else {
+        if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
+            echo "The file <a href=\"$target_path\">$target_path</a> has been uploaded";
+        } else{
+            echo "There was an error uploading the file, please try again!";
+        }
+    }
+```
+
+## Solution
+We know a new function has been added, that checks if the uploaded image is actually an image, let read its documentation. It can be found [here](https://www.php.net/manual/en/function.exif-imagetype.php)
+From the docs:
+> exif_imagetype() reads the first bytes of an image and checks its signature.
+
+Now, if i can change first few bytes of an image, i might be able to fool this function.
+I searched the internet if this could be done and it led me to concept of magic Numbers.
+
+> Magic numbers are the first few bytes of a file that are unique to a particular file type. These unique bits are referred to as magic numbers,  also sometimes referred to as a  file signature.
+
+Magic number of zip file  -> 50 4b 03 04
+Magic number of PNG file  -> 8950 4e47 0d0a 1a0a
+Magic number of JPEG file -> ffd8 ffe0
+
+Now we need to edit first couple of bytes of the file to jpeg signature. I followed below steps
+
+  1. Insert some blank space at the start of our file
+  2. Open the binary file normally with vim vim <file name>
+  3. Convert them to xxd-human readable format :%!xxd
+  4. Edit the hex part in the left, where there is now space hex code
+  5. Convert xxd-human readable format back to binary :%!xxd -r > newshell.php
+
+Below is a visual log of above process. 
+  ![Level 13 Solution](./images/Level13_solution.png)
+  ![Level 13.2 Solution](./images/Level13.1_solution.png)
+  ![Level 13.3 Solution](./images/Level13.2_solution.png)
+
+Now we upload this file, and follow the steps we followed in previous level.
+    ![Level 13.4 Solution](./images/Level13.2_solution.png)
+  ![Level 13.5 Solution](./images/Level13.2_solution.png)
+
+  
