@@ -36,7 +36,7 @@ A new function `exif_imagetype()` was been added, it checks if the uploaded imag
 > exif_imagetype() reads the first bytes of an image and checks its signature.
 
 Now, if we change first few bytes of an image, that might be able to fool this function.
-Searching the internet more about this led me to concept of <u>Magic Numbers</u>.
+Searching the internet more about this led me to concept of [Magic Numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)#In_files)
 
 > Magic numbers are the first few bytes of a file that are unique to a particular file type. These unique bits are referred to as magic numbers,  also sometimes referred to as a  file signature.
 
