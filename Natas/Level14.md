@@ -33,7 +33,10 @@ Before going into the solution, lets look at the request that is sent when we lo
 ![Level 14 Solution](./images/Level14_solution.png)
 
 Let look at this line :
-    `$query = "SELECT * from users where username=\"".$_REQUEST["username"]."\" and password=\"".$_REQUEST["password"]."\"";`
+```sql
+$query = "SELECT * from users where username=\"".$_REQUEST["username"]."\" and password=\"".$_REQUEST["password"]."\"";
+```
+
 If we enter both username and password as `admin`, our resulting query becomes:
 ```sql
 SELECT * from users where username="admin" and password = "admin";
