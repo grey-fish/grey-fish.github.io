@@ -89,28 +89,30 @@ So, Above query will return a row if the ASCII code of first character of the na
 
 Now we build our payload accordingly.<br/>
 Our payload -> `GET /index.php?username=natas16" AND ASCII(SUBSTRING(password,1,1))=65;#&debug=true HTTP/1.1`
-Just like above, we are checking if the first character of password of user natas16 has ascii code of 65 .i.e. its A
-Below we send this to Burp, our failed attempt
+Just like above, we are checking if the first character of password of user natas16 has ascii code of 65 .i.e. its A<br/>
+
+Below is screenshot of our failed attempt in Burp
 
 ![Level 15 solution](./images/Level15_solution.png)
 
-Our successfull attempt, Now we know, our password begins with word 'W', ascii code 87.
+Below is our successfull attempt, Now we know our password begins with word 'W', ascii code 87.
 
 ![Level 15.1 solution](./images/Level15.1_solution.png)
 
 Now instead of doing every character one by one, we use Burp intruder. we manually change the `password(1,1)` -> `password(2,1)` for finding second character and so on. This process will repeat till we find all characters. Here password is 32 characters long. On 33rd attempt, intruder will not find any character and we know that we are done.
 
+Intruder settings are shown below
 ![Level 15.2 solution](./images/Level15.2_solution.png)
 
-Payload settings
+Intruder Payload settings are below
 ![Level 15.3 solution](./images/Level15.3_solution.png)
 
-We found the second password character.
+Below is the screenshot of when we found the second password character.
 ![Level 14.4 solution](./images/Level15.4_solution.png)
 
 We repeat this process 32 times to get the complete password for next Level. <br/>It took me about an hour to smuggle password char by char with Burp community addition, so i decided to write a script to do the same, just for the fun of it.
-
-
+<br/>
+This script does blind mysql injection till password is revealed
 ```python
  1 #!/usr/bin/env python3
  2
@@ -154,12 +156,14 @@ We repeat this process 32 times to get the complete password for next Level. <br
 40     pos += 1
 41 # todo: refactor the code
 ```
+<br/>
 
 I Added a cool effect that displays the found characters and also searches for next character.
 
 Here is the script in action
 [![asciicast](https://asciinema.org/a/ZCwEXkII8MAP1uguwL5OJDLjN.svg)](https://asciinema.org/a/ZCwEXkII8MAP1uguwL5OJDLjN)
 
+This was my longest writeup yet, time to rest.
 
 <br/>
 
