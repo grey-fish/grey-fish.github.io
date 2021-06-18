@@ -70,9 +70,9 @@ Below is a visual log of above process.
   ![Level 13.5 Solution](./images/Level13.5_solution.png)
 <br/>
 
-#### Takeaways
- - We can use vim as a Hex editor
- - Magic Numbers are used to identify file types
+<span id=green>Takeaways:</span>
+    - We can use vim as a Hex editor
+    - Magic Numbers are used to identify file types
  
 <br/>
 
