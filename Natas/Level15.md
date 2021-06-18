@@ -39,7 +39,7 @@ if(array_key_exists("username", $_REQUEST)) {
 } else {
 ?>
 ```
-<br/><br/>
+<br/>
 ## Solution
 From the source code, we can see that<br/>
  - Again unsanitized user input is inserted into query.<br/>
@@ -50,7 +50,7 @@ From the source code, we can see that<br/>
 
 Here is what was done.
 1. Firstly, check if user `natas16` exist, it does, and we want its password.
-2. Below is a log from my local linux lab to make use of `ascii` and `substring` function to smuggle password.
+2. Below is a log from my local linux lab to make use of `ascii` and `substring` function to smuggle password.<br/>
 ```sql
 # Testing query in Lab
 # Our Sample table
@@ -77,6 +77,7 @@ mysql> select * from books where name = 'Big Magic' and ASCII(SUBSTRING(author, 
 mysql> select * from books where name = 'Big Magic' and ASCII(SUBSTRING(author, 1, 1)) = 70;
 Empty set (0.00 sec)
 ```
+
 Lets focus on second query
 ```sql
 select * from books where name = 'Big Magic' and ASCII(SUBSTRING(author, 1, 1)) = 69;
