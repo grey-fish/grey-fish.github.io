@@ -1,8 +1,8 @@
 # Level 13
-I learned new tricks while solving this level. It is just awesome.
+Learned new tricks while solving this level. It's good.
 
 ## Quest
-We are presented with a webpage similar to previous level, but with additional message "For security reasons, we now only accept image files!". 
+We are presented with a webpage similar to previous level, but with additional message. 
 ![Level13 Image](./images/Level13.png)
 
 The backened code is exactly like previous level, except one change, i'll highlight that below
@@ -29,37 +29,46 @@ if(array_key_exists("filename", $_POST)) {
         }
     }
 ```
+<br/><br/>
 
 ## Solution
-We know a new function has been added, that checks if the uploaded image is actually an image, let read its documentation. It can be found [here](https://www.php.net/manual/en/function.exif-imagetype.php)
-From the docs:
+A new function `exif_imagetype()` was been added, it checks if the uploaded image is actually an image. Below definition is from its documentation, it can be found [here](https://www.php.net/manual/en/function.exif-imagetype.php):
 > exif_imagetype() reads the first bytes of an image and checks its signature.
 
-Now, if i can change first few bytes of an image, i might be able to fool this function.
-I searched the internet if this could be done and it led me to concept of magic Numbers.
+Now, if we change first few bytes of an image, that might be able to fool this function.
+Searching the internet more about this led me to concept of <u>Magic Numbers</u>.
 
 > Magic numbers are the first few bytes of a file that are unique to a particular file type. These unique bits are referred to as magic numbers,  also sometimes referred to as a  file signature.
 
 Magic number of <br/>
-    zip file  -> 50 4b 03 04<br/>
-    PNG file  -> 8950 4e47 0d0a 1a0a<br/>
-    JPEG file -> ffd8 ffe0<br/>
+  zip file  -> `504b` `0304`<br/>
+  PNG file  -> `8950` `4e47` `0d0a` `1a0a`<br/>
+  JPEG file -> `ffd8` `ffe0`<br/>
 
-Now we need to edit first couple of bytes of the file to jpeg signature. I followed below steps
+Now we need to edit first couple of bytes of the file to match the jpeg signature. I followed below steps
 
-  1. Insert some blank space at the start of our file
-  2. Open the binary file normally with vim vim <file name>
-  3. Convert them to xxd-human readable format :%!xxd
-  4. Edit the hex part in the left, where there is now space hex code
-  5. Convert xxd-human readable format back to binary :%!xxd -r > newshell.php
+  1. Insert some blank space at the start of our file
+  2. Open the binary file normally with vim `vim <file name>`
+  3. Convert them to xxd-human readable format `:%!xxd`
+  4. Edit the hex part in the left, where there is now space hex code
+  5. Convert xxd-human readable format back to binary `:%!xxd -r > newshell.php`
 
 Below is a visual log of above process. 
+1. Opened our shell.php in vim and convert to hex code using `xxd`
   ![Level 13 Solution](./images/Level13_solution.png)
+  
+2. Put 4 spaces at beginning of our shell code
   ![Level 13.2 Solution](./images/Level13.2_solution.png)
+  
+3. Insert JPEG Magic numbers instead of space
   ![Level 13.3 Solution](./images/Level13.3_solution.png)
 
-Now we upload this file, and follow the steps we followed in previous level.
+4. Now we upload this file, intercept the response, and change filename so that it ends with `.php`.
     ![Level 13.4 Solution](./images/Level13.4_solution.png)
+5. Navigate to upload path and execute shell with `cmd` parameter to reveal password for next Level
   ![Level 13.5 Solution](./images/Level13.5_solution.png)
 
   
+<br/>
+
+[<< Back](https://grey-fish.github.io/Natas/index.html)
