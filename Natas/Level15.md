@@ -51,6 +51,8 @@ From the source code, we can see that<br/>
 Here is what was done.
 1. Firstly, check if user `natas16` exist, it does, and we want its password.
 2. Below is a log from my local linux lab to make use of `ascii` and `substring` function to smuggle password.<br/>
+
+
 ```sql
 # Testing query in Lab
 # Our Sample table
