@@ -71,8 +71,8 @@ Below is a visual log of above process.
 <br/>
 
 <span id=green>Takeaways:</span><br/>
-    - We can use vim as a Hex editor<br/>
-    - Magic Numbers are used to identify file types
+    - We can use vim as a Hex editor<br/>
+    - Magic Numbers are used to identify file types
  
 <br/>
 
