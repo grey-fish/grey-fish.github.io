@@ -45,13 +45,13 @@ Magic number of <br/>
   PNG file  -> `8950` `4e47` `0d0a` `1a0a`<br/>
   JPEG file -> `ffd8` `ffe0`<br/>
 
-Now we need to edit first couple of bytes of the file to match the jpeg signature. I followed below steps
+Now we need to edit first couple of bytes of the file to match the jpeg signature. I followed below steps:
 
-  1. Insert some blank space at the start of our file
-  2. Open the binary file normally with vim `vim <file name>`
-  3. Convert them to xxd-human readable format `:%!xxd`
-  4. Edit the hex part in the left, where there is now space hex code
-  5. Convert xxd-human readable format back to binary `:%!xxd -r > newshell.php`
+  1. Insert some blank space at the start of our file<br/>
+  2. Open the binary file normally with vim `vim <file name>`<br/>
+  3. Convert them to xxd-human readable format `:%!xxd`<br/>
+  4. Edit the hex part in the left, where there is now space hex code<br/>
+  5. Convert xxd-human readable format back to binary `:%!xxd -r > newshell.php`<br/>
 
 Below is a visual log of above process. 
 1. Opened our shell.php in vim and convert to hex code using `xxd`
@@ -65,10 +65,14 @@ Below is a visual log of above process.
 
 4. Now we upload this file, intercept the response, and change filename so that it ends with `.php`.
     ![Level 13.4 Solution](./images/Level13.4_solution.png)
+    
 5. Navigate to upload path and execute shell with `cmd` parameter to reveal password for next Level
   ![Level 13.5 Solution](./images/Level13.5_solution.png)
 
-  
+ ###### Takeaways
+ - We can use vim as a Hex editor
+ - Magic Numbers are used to identify file types
+ 
 <br/>
 
 [<< Back](https://grey-fish.github.io/Natas/index.html)
