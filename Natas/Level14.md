@@ -33,7 +33,7 @@ Before going into the solution, lets look at the request that is sent when we lo
 ![Level 14 Solution](./images/Level14_solution.png)
 
 Let look at this line :
-```sql
+```php
 $query = "SELECT * from users where username=\"".$_REQUEST["username"]."\" and password=\"".$_REQUEST["password"]."\"";
 ```
 
