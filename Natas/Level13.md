@@ -41,9 +41,9 @@ Searching the internet more about this led me to concept of [Magic Numbers](http
 > Magic numbers are the first few bytes of a file that are unique to a particular file type. These unique bits are referred to as magic numbers,  also sometimes referred to as a  file signature.
 
 Magic number of <br/>
-  zip file  -> `504b` `0304`<br/>
-  PNG file  -> `8950` `4e47` `0d0a` `1a0a`<br/>
-  JPEG file -> `ffd8` `ffe0`<br/>
+   zip file  -> `504b` `0304`<br/>
+   PNG file  -> `8950` `4e47` `0d0a` `1a0a`<br/>
+   JPEG file -> `ffd8` `ffe0`<br/>
 
 Now we need to edit first couple of bytes of the file to match the jpeg signature. I followed below steps:
 
@@ -70,8 +70,8 @@ Below is a visual log of above process.
   ![Level 13.5 Solution](./images/Level13.5_solution.png)
 <br/>
 
-<span id=green>Takeaways:</span>
-    - We can use vim as a Hex editor
+<span id=green>Takeaways:</span><br/>
+    - We can use vim as a Hex editor<br/>
     - Magic Numbers are used to identify file types
  
 <br/>
