@@ -161,9 +161,9 @@ This script does blind mysql injection till password is revealed
 I Added a cool effect that displays the found characters and also searches for next character.
 
 Here is the script in action
-[![asciicast](https://asciinema.org/a/ZCwEXkII8MAP1uguwL5OJDLjN.svg)](https://asciinema.org/a/ZCwEXkII8MAP1uguwL5OJDLjN)
 
 <img src="https://grey-fish.github.io/Natas/images/natas15.gif">
+
 This was my longest writeup yet, time to rest.
 
 <br/>
