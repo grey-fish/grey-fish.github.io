@@ -43,12 +43,12 @@ SELECT * from users where username="admin" and password = "admin";
 ```
 If above query produces any output (rows), then we log in, otherwise we get access denied.
 
-Now, in order to do SQL injection we enter a basic payload -> `john" or 1=1;#`
+Now, in order to do SQL injection we enter a basic <span id=green>payload -></span> `john" or 1=1;#`
 Our query becomes
 ```sql
 SELECT * from users where username="john" or 1=1;#" and password="";
 ```
-Note: Above query is now reduced to `SELECT * from users where username="john" or 1=1;`, as `#` is a comment in mysql and anything after it is ignored. This will always produce an output as long there are any rows in `users` table because `1=1` is always true.
+Note: Above query is now reduced to `SELECT * from users where username="john" or 1=1;`, as `#` is a comment in mysql and anything after it is ignored.<br/>This will always produce an output as long as there are rows in `users` table because `1=1` is always true.
 
 From Backend code:
 ```php
