@@ -28,11 +28,13 @@ if(array_key_exists("username", $_REQUEST)) {  // Checks if username parameter e
 ?>
 ```
 
+<br/>
+
 ## Solution
 Before going into the solution, lets look at the request that is sent when we log in. (_captured in Burp_)
 ![Level 14 Solution](./images/Level14_solution.png)
 
-Let look at this line :
+Let look at below line from backend code:
 ```php
 $query = "SELECT * from users where username=\"".$_REQUEST["username"]."\" and password=\"".$_REQUEST["password"]."\"";
 ```
@@ -43,12 +45,12 @@ SELECT * from users where username="admin" and password = "admin";
 ```
 If above query produces any output (rows), then we log in, otherwise we get access denied.
 
-Now, in order to do SQL injection we enter a basic <span id=green>payload -></span> `john" or 1=1;#`
-Our query becomes
+Now, to perform SQL injection we enter a basic <span id=green>payload -></span> `john" or 1=1;#`
+.Our query becomes
 ```sql
 SELECT * from users where username="john" or 1=1;#" and password="";
 ```
-Note: Above query is now reduced to
+Above query is now reduced to
 ```sql
 SELECT * from users where username="john" or 1=1;
 ```
@@ -64,6 +66,8 @@ As now our query will produce an output, password for next Level will be reveale
 
 Below see this in action, our request/response in Burp along with our payload. (_it has been URL encoded_)
 ![Level14.1_solution](./images/Level14.1_solution.png)
+
+<br/><span id=green>We successfully performed SQL injection!</span>
 
 <br/>
 
