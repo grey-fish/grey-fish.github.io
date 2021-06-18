@@ -48,7 +48,11 @@ Our query becomes
 ```sql
 SELECT * from users where username="john" or 1=1;#" and password="";
 ```
-Note: Above query is now reduced to `SELECT * from users where username="john" or 1=1;`, as `#` is a comment in mysql and anything after it is ignored.<br/>This will always produce an output as long as there are rows in `users` table because `1=1` is always true.
+Note: Above query is now reduced to
+```sql
+SELECT * from users where username="john" or 1=1;
+```
+`#` is a comment in mysql and anything after it is ignored.<br/>This will always produce an output as long as there are rows in `users` table because `1=1` is always true.
 
 From Backend code:
 ```php
