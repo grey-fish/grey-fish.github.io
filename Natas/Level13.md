@@ -68,10 +68,9 @@ Below is a visual log of above process.
     
 5. Navigate to upload path and execute shell with `cmd` parameter to reveal password for next Level
   ![Level 13.5 Solution](./images/Level13.5_solution.png)
+<br/>
 
-
- #### Takeaways
- 
+###### Takeaways
  - We can use vim as a Hex editor
  - Magic Numbers are used to identify file types
  
