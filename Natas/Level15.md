@@ -42,8 +42,8 @@ if(array_key_exists("username", $_REQUEST)) {
 <br/><br/>
 ## Solution
 From the source code, we can see that
-  * Again unsanitized user input is inserted into query.
-  * Although no output is displayed after query execution, we can make use of blind SQL injection.
-  * When our query succeeds, we get user exists, and when it fails, we get user doesn't exist. we can leverage this functionality
-  * Additionally we can see that there is a debug parameter, which displays query on screen.
-  * Lastly, there is a users table with username and password column.
+ - Again unsanitized user input is inserted into query.
+ - Although no output is displayed after query execution, we can make use of blind SQL injection.
+ - When our query succeeds, we get user exists, and when it fails, we get user doesn't exist. we can leverage this functionality
+ - Additionally we can see that there is a debug parameter, which displays query on screen.
+ - Lastly, there is a users table with username and password column.
