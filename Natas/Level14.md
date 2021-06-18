@@ -28,24 +28,33 @@ if(array_key_exists("username", $_REQUEST)) {  // Checks if username parameter e
 ?>
 ```
 
+<br/>
+
 ## Solution
 Before going into the solution, lets look at the request that is sent when we log in. (_captured in Burp_)
 ![Level 14 Solution](./images/Level14_solution.png)
 
-Let look at this line :
-    `$query = "SELECT * from users where username=\"".$_REQUEST["username"]."\" and password=\"".$_REQUEST["password"]."\"";`
+Let look at below line from backend code:
+```php
+$query = "SELECT * from users where username=\"".$_REQUEST["username"]."\" and password=\"".$_REQUEST["password"]."\"";
+```
+
 If we enter both username and password as `admin`, our resulting query becomes:
 ```sql
 SELECT * from users where username="admin" and password = "admin";
 ```
 If above query produces any output (rows), then we log in, otherwise we get access denied.
 
-Now, in order to do SQL injection we enter a basic payload -> `john" or 1=1;#`
-Our query becomes
+Now, to perform SQL injection we enter a basic <span id=green>payload -></span> `john" or 1=1;#`
+.Our query becomes
 ```sql
 SELECT * from users where username="john" or 1=1;#" and password="";
 ```
-Note: Above query is now reduced to `SELECT * from users where username="john" or 1=1;`, as `#` is a comment in mysql and anything after it is ignored. This will always produce an output as long there are any rows in `users` table because `1=1` is always true.
+Above query is now reduced to
+```sql
+SELECT * from users where username="john" or 1=1;
+```
+`#` is a comment in mysql and anything after it is ignored.<br/>This will always produce an output as long as there are rows in `users` table because `1=1` is always true.
 
 From Backend code:
 ```php
@@ -55,10 +64,10 @@ if(mysql_num_rows(mysql_query($query, $link)) > 0) { // If we found any table, t
 ```
 As now our query will produce an output, password for next Level will be revealed.
 
-Below is the same thing in action.
-
-1. We can see our request/response in Burp with our payload. (_it has been URL encoded_)
+Below see this in action, our request/response in Burp along with our payload. (_it has been URL encoded_)
 ![Level14.1_solution](./images/Level14.1_solution.png)
+
+<br/><span id=green>We successfully performed SQL injection!</span>
 
 <br/>
 
