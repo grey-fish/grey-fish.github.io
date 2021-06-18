@@ -163,6 +163,7 @@ I Added a cool effect that displays the found characters and also searches for n
 Here is the script in action
 [![asciicast](https://asciinema.org/a/ZCwEXkII8MAP1uguwL5OJDLjN.svg)](https://asciinema.org/a/ZCwEXkII8MAP1uguwL5OJDLjN)
 
+![giftest](./images/natas15.gif)
 This was my longest writeup yet, time to rest.
 
 <br/>
