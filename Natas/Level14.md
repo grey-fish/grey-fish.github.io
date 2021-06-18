@@ -58,9 +58,7 @@ if(mysql_num_rows(mysql_query($query, $link)) > 0) { // If we found any table, t
 ```
 As now our query will produce an output, password for next Level will be revealed.
 
-Below is the same thing in action.
-
-1. We can see our request/response in Burp with our payload. (_it has been URL encoded_)
+Below see this in action, our request/response in Burp along with our payload. (_it has been URL encoded_)
 ![Level14.1_solution](./images/Level14.1_solution.png)
 
 <br/>
