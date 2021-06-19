@@ -114,7 +114,7 @@ Below is the screenshot of discovering the second password character.
 
 We repeat this process 32 times to get the complete password for next Level.<br/><br/>It took me about an hour to smuggle password char by char with Burp community addition, so i decided to write a script to do the same, just for the fun of it.
 <br/><br/>
-This script does blind mysql injection till password is revealed
+This script does blind mysql injection till all password characters are revealed
 ```python
  1 #!/usr/bin/env python3
  2
