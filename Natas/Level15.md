@@ -1,5 +1,5 @@
 # Level 15
-Pushing things further, here we do Blind SQL injection. Also, we'll make a python script to do the same.
+Pushing things further, this level deals with Blind SQL injection. We'll make a python script as well.
 
 ##  Quest
 We are presented with a simple page that checks if a user exists or not.
@@ -23,7 +23,7 @@ if(array_key_exists("username", $_REQUEST)) {
     if(array_key_exists("debug", $_GET)) {
         echo "Executing query: $query<br>";
     }
-
+    // If there is no error, we will get one of two response, depending on user input
     $res = mysql_query($query, $link);
     if($res) {
     if(mysql_num_rows($res) > 0) {
@@ -42,15 +42,15 @@ if(array_key_exists("username", $_REQUEST)) {
 <br/>
 ## Solution
 From the source code, we can see that<br/>
- - Again unsanitized user input is inserted into query.<br/>
- - Although no output is displayed after query execution, we can make use of blind SQL injection.<br/>
- - When query succeeds, we get _user exists_, and when it fails, we get _user doesn't exist_ msg. we'll leverage this behaviour<br/>
+ - Again <span id=yellow>unsanitized</span> user input is inserted into the query.<br/>
+ - Although no output is displayed after query execution, we can make use of <span id=green>blind SQL injection</span>.<br/>
+ - When query succeeds, we get _user exists_, and when it fails, we get _user doesn't exist_ msg.<br/>
  - Additionally, we can see that there is a debug parameter, which displays query on screen.<br/>
- - Lastly, there is a users table with username and password column.<br/>
+ - Lastly, there is a users table with `username` and `password` column.<br/>
 
 Here is what was done.
 1. Firstly, check if user `natas16` exist, it does, and we want its password.
-2. Below is a log from my local linux lab to make use of `ascii` and `substring` function to smuggle password.<br/>
+2. Below is log from local linux lab to make use of `ascii` and `substring` functions to smuggle the password.<br/>
 
 
 ```sql
@@ -66,7 +66,8 @@ mysql> select * from books;
 +---------+--------------+-----------+----------+
 3 rows in set (0.00 sec)
 
-# We compare first character of author name with ascii code  # Below is a successful attempt
+# We compare first character of author name with ascii code  
+-- Below is a successful attempt
 mysql> select * from books where name = 'Big Magic' and ASCII(SUBSTRING(author, 1, 1)) = 69;
 +---------+-----------+-----------+----------+
 | book_id | name      | author    | released |
@@ -88,36 +89,37 @@ select * from books where name = 'Big Magic' and ASCII(SUBSTRING(author, 1, 1)) 
 So, Above query will return a row if the ASCII code of first character of the name of author is equal to 69, i.e. E
 
 Now we build our payload accordingly.<br/>
-Our payload -> `GET /index.php?username=natas16" AND ASCII(SUBSTRING(password,1,1))=65;#&debug=true HTTP/1.1`
-Just like above, we are checking if the first character of password of user natas16 has ascii code of 65 .i.e. its A<br/>
+<span id=green>  Our payload -></span> `GET /index.php?username=natas16" AND ASCII(SUBSTRING(password,1,1))=65;#&debug=true HTTP/1.1`<br/>
+Here, we are checking if the first character of password of user <u>natas16</u> has ascii code of 65 .i.e. its A<br/>
 
-Below is screenshot of our failed attempt in Burp
+Below is screenshot of our failed attempt in Burp. (Note the response _user doesn't exist_)
 
 ![Level 15 solution](./images/Level15_solution.png)
 
-Below is our successfull attempt, Now we know our password begins with word 'W', ascii code 87.
+Below is a successfull attempt, So our password begins with word 'W', ascii code 87. (Note the response _user exists_)
 
 ![Level 15.1 solution](./images/Level15.1_solution.png)
 
-Now instead of doing every character one by one, we use Burp intruder. we manually change the `password(1,1)` -> `password(2,1)` for finding second character and so on. This process will repeat till we find all characters. Here password is 32 characters long. On 33rd attempt, intruder will not find any character and we know that we are done.
+Instead of manually searching for password char by char, we use <span id=green>Burp intruder</span>.<br/>
+We manually change `password(1,1)` -> `password(2,1)` for finding second character and so on. This process will repeat till we find all characters. Here password is 32 characters long. On 33rd attempt, intruder will not find any character and we know that we are done.
 
-Intruder settings are shown below
+Intruder settings for the same are shown below
 ![Level 15.2 solution](./images/Level15.2_solution.png)
 
-Intruder Payload settings are below
+Intruder Payload settings are below. Now we start attack!.
 ![Level 15.3 solution](./images/Level15.3_solution.png)
 
-Below is the screenshot of when we found the second password character.
+Below is the screenshot of discovering the second password character.
 ![Level 14.4 solution](./images/Level15.4_solution.png)
 
-We repeat this process 32 times to get the complete password for next Level. <br/>It took me about an hour to smuggle password char by char with Burp community addition, so i decided to write a script to do the same, just for the fun of it.
-<br/>
+We repeat this process 32 times to get the complete password for next Level.<br/><br/>It took me about an hour to smuggle password char by char with Burp community addition, so i decided to write a script to do the same, just for the fun of it.
+<br/><br/>
 This script does blind mysql injection till password is revealed
 ```python
  1 #!/usr/bin/env python3
  2
  3 import requests
- 4
+ 4 # Show have used auth, but it works for now.
  5 headers = {'Authorization': 'Basic bmF0YXMxNTpBd1dqMHc1Y3Z4clppT05nWjlKNXN0TlZrbXhkazM5Sg=='}
  6 proxy = {'http': 'http://localhost:8080'}
  7
@@ -157,14 +159,13 @@ This script does blind mysql injection till password is revealed
 41 # todo: refactor the code
 ```
 <br/>
-
 I Added a cool effect that displays the found characters and also searches for next character.
 
-Here is the script in action
+Below is a sample run of the script
 
 <img src="https://grey-fish.github.io/Natas/images/natas15.gif">
 
-This was my longest writeup yet, time to rest.
+Thats all folks!
 
 <br/>
 
