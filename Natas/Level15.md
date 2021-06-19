@@ -119,7 +119,7 @@ This script does blind mysql injection till password is revealed
  1 #!/usr/bin/env python3
  2
  3 import requests
- 4 # Show have used auth, but it works for now.
+ 4 # Should have used auth, but it works for now.
  5 headers = {'Authorization': 'Basic bmF0YXMxNTpBd1dqMHc1Y3Z4clppT05nWjlKNXN0TlZrbXhkazM5Sg=='}
  6 
  7
