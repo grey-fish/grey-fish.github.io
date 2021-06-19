@@ -1,4 +1,4 @@
-# Level 1
+# Natas Level 1
 Level 1 is fairly simple. 
 
 ## Quest 
