@@ -88,19 +88,19 @@ select * from books where name = 'Big Magic' and ASCII(SUBSTRING(author, 1, 1)) 
 `SUBSTRING(author, 1, 1)` refers to the first character and `ASCII` converts that first character to its ASCII code.
 So, Above query will return a row if the ASCII code of first character of the name of author is equal to 69, i.e. E
 
-Now we build our payload accordingly.<br/>
+We build our payload accordingly:<br/>
 <span id=green>  Our payload -></span> `GET /index.php?username=natas16" AND ASCII(SUBSTRING(password,1,1))=65;#&debug=true HTTP/1.1`<br/>
-Here, we are checking if the first character of password of user <u>natas16</u> has ascii code of 65 .i.e. its A<br/>
+Here, we are checking if the first character of password of user <u>natas16</u> has ascii code of 65 .i.e. A<br/>
 
 Below is screenshot of our failed attempt in Burp. (Note the response _user doesn't exist_)
 
 ![Level 15 solution](./images/Level15_solution.png)
 
-Below is a successfull attempt, So our password begins with word 'W', ascii code 87. (Note the response _user exists_)
+Below is a successfull attempt, our password begins with 'W', ascii code 87. (Note the response _user exists_)
 
 ![Level 15.1 solution](./images/Level15.1_solution.png)
 
-Instead of manually searching for password char by char, we use <span id=green>Burp intruder</span>.<br/>
+Instead of manually searching for password char by char, we use <span id=green>Burp intruder</span>.<br/><br/>
 We manually change `password(1,1)` -> `password(2,1)` for finding second character and so on. This process will repeat till we find all characters. Here password is 32 characters long. On 33rd attempt, intruder will not find any character and we know that we are done.
 
 Intruder settings for the same are shown below
@@ -165,7 +165,7 @@ Below is a sample run of the script
 
 <img src="https://grey-fish.github.io/Natas/images/natas15.gif">
 
-Thats all folks!
+<span id=green>Thats all folks!</span>
 
 <br/>
 
