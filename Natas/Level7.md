@@ -1,4 +1,4 @@
-# Level 7
+# Natas Level 7
 A Simple exercise in Path Traversal Vulnerability
 
 ## Quest
