@@ -1,4 +1,4 @@
-# Level 3
+# Natas Level 3
 
 ## Quest
 Now we are greeted with a webpage similar to previous level, but when we look at its source code, we see there are no obvious hints.
