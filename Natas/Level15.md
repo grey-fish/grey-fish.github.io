@@ -54,8 +54,8 @@ Here is what was done.
 
 
 ```sql
-# Testing query in Lab
-# Our Sample table
+-- Testing query in Lab
+-- Our Sample table
 mysql> select * from books;
 +---------+--------------+-----------+----------+
 | book_id | name         | author    | released |
@@ -66,7 +66,7 @@ mysql> select * from books;
 +---------+--------------+-----------+----------+
 3 rows in set (0.00 sec)
 
-# We compare first character of author name with ascii code  
+-- We compare first character of author name with ascii code  
 -- Below is a successful attempt
 mysql> select * from books where name = 'Big Magic' and ASCII(SUBSTRING(author, 1, 1)) = 69;
 +---------+-----------+-----------+----------+
@@ -76,7 +76,7 @@ mysql> select * from books where name = 'Big Magic' and ASCII(SUBSTRING(author, 
 +---------+-----------+-----------+----------+
 1 row in set (0.00 sec)
 
-# Below is an unsuccessful attempt
+-- Below is an unsuccessful attempt
 mysql> select * from books where name = 'Big Magic' and ASCII(SUBSTRING(author, 1, 1)) = 70;
 Empty set (0.00 sec)
 ```
