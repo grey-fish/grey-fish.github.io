@@ -1,4 +1,4 @@
-# Level 2
+# Natas Level 2
 
 ## Quest
 We are greeted with a simple message "There is nothing on this page".
