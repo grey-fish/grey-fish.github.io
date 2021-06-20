@@ -69,3 +69,15 @@ Now, this will work but we have a problem, actually we have 2 problems:
   
  We'll address them, first lets work with what we have in hand, and extract what we could.
  We use this payload ->  `^$(cut -c 1 /etc/natas_webpass/natas17)`
+
+First character            |  Second character
+:-------------------------:|:-------------------------:
+![](./images/Level16.2_solution.png)  |  ![](./images/Level16.3_solution.png)
+
+We repeat above process again and again. We put a `.` when we get no output and First letter, when we get on output. 
+Throwing some more screenshots here.
+Thirteenth character            |  Thirtieth character
+:-------------------------:|:-------------------------:
+![](./images/Level16.4_solution.png)  |  ![](./images/Level16.5_solution.png)
+
+Now
