@@ -43,21 +43,22 @@ if(array_key_exists("username", $_REQUEST)) {
 <br/><br/>
 ## Solution
 Reading the code, we can say that we are not presented with any output whatever maybe our input.
-So, for now only one thing comes to my mind - <span id=green>Time Based SQL Injection.</span><br/>
-
+> So, for now only one thing comes to my mind - <span id=green>Time Based SQL Injection.</span><br/>
 <br/>
   Our Payload -> `username=natas18" AND SLEEP(10);#`<br/>
 We recieve a delayed response if username `natas18` exists, our response comes after 10 seconds
 ![](./images/Level17_solution.png)
 
 Now we build a little complex query:<br/>
-  Our Payload -> `username=natas18" AND IF(ASCII('a')=97, SLEEP(10),0);#`<br/>
+  Our Payload -> `username=natas18" AND IF(ASCII('a')=97, SLEEP(10),0);#`
+  
 If username `natas18` exists and ascii code of 'a' is 97, return a delayed response. (We get delayed response)
 ![](./images/Level17.1_solution.png)
 
 
 So, our Final payload to smuggle passwords is as follow:<br/>
-    `username=natas18" AND IF(ASCII(SUBSTRING(password,1,1))=97,SLEEP(10),0);#`<br/>
+    `username=natas18" AND IF(ASCII(SUBSTRING(password,1,1))=97,SLEEP(10),0);#`
+    
 ![](./images/Level17.2_solution.png)
 Above, we found that first character of our password has ascii code 120, i.e. `x`. (using Burp intruder)<br/>
 Also note that we filter on "_Response recieved_" column, it conveys the time interval b/w request and response.
