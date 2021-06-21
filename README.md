@@ -19,8 +19,7 @@ This Blog serves two purpose:
 
 <br/>
 <br/>
-DM me on <img src="./assets/images/tweet.png" width="50" />@gr3yfish
-![](./assets/images/tweet.png)
+DM me on <img src="./assets/images/tweet.png" width="20" />@gr3yfish
 ```
 This blog is fairly new, i take it upon myself to upload two writeups a day. 
 ```
