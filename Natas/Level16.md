@@ -142,8 +142,8 @@ After we repeat this for all the `.` in our password, our password looks like th
 ![](./images/Level16.11_solution.png)
 
 Now to the final task, figure out the cases of letters. This was a tricky one and involved a bit of head banging.
-So after a lot of testing, i came up with this.
-We use `-c` flag of `grep`. It shows us the number of times or pattern appears. See below:
+So after a lot of testing, i came up with this.<br/>
+We use `-c` flag of `grep`. It shows us the number of times a pattern appears. See below:
 ```shell
 # Here i have a file
 $ cat secret          
@@ -157,22 +157,24 @@ $ grep -c ^h secret.txt   # Not true
 $ grep -c ^H secret.txt   # True
 1
 ```
-Now we place this into `^.\{$(<cmd>)\}$` Our cmd will be `grep -c ^8 /etc/natas_webpass/natas17`
-Final payload
-            `^.\{$(grep -c ^8 /etc/natas_webpass/natas17)\}$`
+Now we place this into `^.\{$(<cmd>)\}$` Our cmd will be `grep -c ^8 /etc/natas_webpass/natas17`<br/>
+Final payload<br/>
+          `^.\{$(grep -c ^8 /etc/natas_webpass/natas17)\}$`
             
 Lets break it down
-  - We will test it with our approximate password. 8PS3H0GWBN5RD9S7GMADGQNDKHPKQ9CW
-  - $(grep -c ^8 /etc/natas_webpass/natas17\}$ return 1 or 0 depending upon if first character is 8 or not
-  - which leaves our input like this ^.\{1\}$ or ^.\{0\}$ depending upon whether password starts with 8 or not
-  - So we will either see a one line output if starting of our password is correct or nothing if its wrong.
-  - We use this to determine case of the letter.
+  - We will test it with our approximate password. 8PS3H0GWBN5RD9S7GMADGQNDKHPKQ9CW
+  - $(grep -c ^8 /etc/natas_webpass/natas17\}$ return 1 or 0 depending upon if first character is 8 or not
+  - which leaves our input like this ^.\{1\}$ or ^.\{0\}$ depending upon whether password starts with 8 or not
+  - So we will either see a one line output if starting of our password is correct or nothing if its wrong.
+  - We use this to determine case of the letter.<br/>
 
 Below are the Screenshots
 ![](./images/Level16.12_solution.png)
 
 Now we check if second letter in our password is uppercase P or lower case p.
 ![](./images/Level16.13_solution.png)
+
+Finally! some good news!
 ![](./images/Level16.14_solution.png)
 
 
