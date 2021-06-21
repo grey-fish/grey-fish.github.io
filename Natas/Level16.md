@@ -125,8 +125,8 @@ If you see above, now we can control the output depending on input number, lets 
 Below we can see it works
 
 <p float="left">
-  <img src="./images/Level16.7_solution.png" width="540" />
-  <img src="./images/Level16.8_solution.png" width="540" /> 
+  <img src="./images/Level16.7_solution.png" width="530" />
+  <img src="./images/Level16.8_solution.png" width="530" /> 
 </p>
 
 
