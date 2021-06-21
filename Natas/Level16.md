@@ -80,4 +80,110 @@ Thirteenth character       |  Thirtieth character
 :-------------------------:|:-------------------------:
 ![](./images/Level16.4_solution.png)  |  ![](./images/Level16.5_solution.png)
 
-Now
+Now we repeat the above process 32 times (use Burp), i get a password that looks like this
+![](./images/Level16.6_solution.png)
+
+Note: In the above images, `.` represent numbers, which are not known yet and all the letters are uppercase because i don't know there cases yet.
+
+Now, let tackle the number problem first (_its relatively easier_)
+
+Our password contains numbers and dictionary words donot, so if we could somehow change the output depending on our input number, we might be in luck.
+Lets do some test in our local terminal
+```shell
+$ cat test.txt      
+a
+ab
+abc
+abcd
+
+# find words containing  2 letters
+$ grep -i "^.\{2\}$" test.txt                      
+ab
+
+# find words containing a single letter
+$ grep -i "^.\{1\}$" test.txt                                                                          
+a  
+
+# find words with containing 4 letters
+$ grep -i "^.\{4\}$" test.txt                                                                          
+abcd
+```
+If you see above, now we can control the output depending on input number, lets try that:
+
+
+>   ^ :    starts with <br/> 
+    . :    any character<br/>
+  {n} :    number of times that char is repeated<br/>
+    $ :    ends with<br/>
+    \ :    used to escape { and }
+    
+
+Below we can see it works 
+         2 character       |  5 character
+:-------------------------:|:-------------------------:
+![](./images/Level16.7_solution.png)  |  ![](./images/Level16.8_solution.png)
+
+Finaly let's try it, our payload -> `^.\{$(cut -c 1 /etc/natas_webpass/natas17)\}$`
+
+![](./images/Level16.9_solution.png)
+
+Once more
+![](./images/Level16.10_solution.png)
+
+After we repeat this for all the `.` in our password, our password looks like this
+![](./images/Level16.11_solution.png)
+
+Now to the final task, figure out the cases of letters. This was a tricky one and involved a bit of head banging.
+So after a lot of testing, i came up with this.
+We use `-c` flag of `grep`. It shows us the number of times or pattern appears. See below:
+```shell
+# Here i have a file
+$ cat secret          
+Hl2kjgl
+
+# line starts with h
+$ grep -c ^h secret.txt   # Not true
+0
+
+# line starts with H
+$ grep -c ^H secret.txt   # True
+1
+```
+Now we place this into `^.\{$(<cmd>)\}$` Our cmd will be `grep -c ^8 /etc/natas_webpass/natas17`
+Final payload
+            `^.\{$(grep -c ^8 /etc/natas_webpass/natas17)\}$`
+            
+Lets break it down
+  - We will test it with our approximate password. 8PS3H0GWBN5RD9S7GMADGQNDKHPKQ9CW
+  - $(grep -c ^8 /etc/natas_webpass/natas17\}$ return 1 or 0 depending upon if first character is 8 or not
+  - which leaves our input like this ^.\{1\}$ or ^.\{0\}$ depending upon whether password starts with 8 or not
+  - So we will either see a one line output if starting of our password is correct or nothing if its wrong.
+  - We use this to determine case of the letter.
+
+Below are the Screenshots
+![](./images/Level16.12_solution.png)
+
+Now we check if second letter in our password is uppercase P or lower case p.
+![](./images/Level16.13_solution.png)
+![](./images/Level16.14_solution.png)
+
+
+Now we can differentiate between the cases of characters and we will repeat this process 32 times for each password character, which will then reveal final password. Below are some random shots for this process
+![](./images/Level16.15_solution.png)
+
+Last one
+![](./images/Level16.16_solution.png)
+
+
+So we found our password, here is its journey.
+
+.PS.H.GWBN.RD.S.GMADGQNDKHPKQ.CW -> 8PS3H0GWBN5RD9S7GMADGQNDKHPKQ9CW -> 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
+
+And finally we are done.
+
+Thanks, this was a lot. I believe i have too much free time.
+
+
+<br/>
+
+[<< Back](https://grey-fish.github.io/Natas/index.html)
