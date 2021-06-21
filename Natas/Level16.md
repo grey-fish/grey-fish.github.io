@@ -87,7 +87,7 @@ Thirteenth character       |  Thirtieth character
 Now we repeat the above process 32 times (use Burp), i get a password that looks like this
 ![](./images/Level16.6_solution.png)
 
-Note: In the above images, `.` represent numbers, which are not known yet and all the letters are uppercase because i don't know there cases yet.
+Note: In the above image, `.` represent numbers, which are not known yet and all the letters are uppercase because we don't know there cases yet.
 
 Now, let tackle the number problem first (_its relatively easier_)
 
@@ -115,17 +115,20 @@ abcd
 If you see above, now we can control the output depending on input number, lets try that:
 
 
->   ^ :    starts with <br/> 
-    . :    any character<br/>
+>   ^  :    starts with <br/> 
+    .  :    any character<br/>
   {n} :    number of times that char is repeated<br/>
-    $ :    ends with<br/>
-    \ :    used to escape { and }
+    $  :    ends with<br/>
+    \  :    used to escape { and }
     
 
-Below we can see it works 
-         2 character       |  5 character
-:-------------------------:|:-------------------------:
-![](./images/Level16.7_solution.png)  |  ![](./images/Level16.8_solution.png)
+Below we can see it works
+
+<p float="left">
+  <img src="./images/Level16.7_solution.png" width="100" />
+  <img src="./images/Level16.8_solution.png" width="100" /> 
+</p>
+
 
 Finaly let's try it, our payload -> `^.\{$(cut -c 1 /etc/natas_webpass/natas17)\}$`
 
