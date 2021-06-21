@@ -43,8 +43,9 @@ if(array_key_exists("username", $_REQUEST)) {
 <br/><br/>
 ## Solution
 Reading the code, we can say that we are not presented with any output whatever maybe our input.
-> So, for now only one thing comes to my mind - <span id=green>Time Based SQL Injection.</span><br/>
-<br/>
+> So, for now only one thing comes to my mind - <span id=green>Time Based SQL Injection.</span>
+
+
   Our Payload -> `username=natas18" AND SLEEP(10);#`<br/>
 We recieve a delayed response if username `natas18` exists, our response comes after 10 seconds
 ![](./images/Level17_solution.png)
