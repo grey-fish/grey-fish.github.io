@@ -76,7 +76,7 @@ First character            |  Second character
 
 We repeat above process again and again. We put a `.` when we get no output and First letter, when we get on output. 
 Throwing some more screenshots here.
-Thirteenth character            |  Thirtieth character
+Thirteenth character       |  Thirtieth character
 :-------------------------:|:-------------------------:
 ![](./images/Level16.4_solution.png)  |  ![](./images/Level16.5_solution.png)
 
