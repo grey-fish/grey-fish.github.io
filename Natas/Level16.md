@@ -33,7 +33,7 @@ Above i've highlighted two main differences in the code, here they are again:<br
   - User input is now enclosed in quotes `"`<br/>
 Allowed characters that can be helpful are `$^({`. We will use them to get the password.
 
-> Now before we proceed, i must say that after completing this writeup, i'll search to see how other people did it because i certainly took the hard way and there is bound to be a simpler approach to this. Nonetheless, i did it and i want to document how it was done.
+> Before we proceed, i must say that after completing this writeup, i'll search to see how other people did it because i certainly took the hard way and there is bound to be a simpler approach to this. Nonetheless, i did it and i want to document how it was done.
 
 Now, looking at the PHP code, it seemed that this one would be easy like Level 10, but this took more time.
 
@@ -43,8 +43,8 @@ First, we check what we can do,  we can search for `^w` and `^w$` and it works j
 ![Level 16 solution](./images/Level16_solution.png)
 <br/>
 
-As backticks are allowed, we check if we can run a command using `$()`. We enter `^$(echo)`. This essentially converts to below command:
-`grep -i "^$(echo H)" dictionary.txt`  _// all words starting with letter H_
+As backticks are not allowed, we check if we can run a command using `$()`. We enter `^$(echo)`. 
+It translates to ->  `grep -i "^$(echo H)" dictionary.txt`  _// all words starting with letter H_
 ![Level 16 solution](./images/Level16.1_solution.png)
 
 <br/>
@@ -71,27 +71,27 @@ Now, this will work but we have a problem, actually we have 2 problems:<br/>
   ii. How will we differentiate between lowercase and uppercase letters as `grep` uses `-i` flag ?<br/>
   
 We'll address them, first lets work with what we have in hand, and extract what we could.<br/>
-  We use this payload ->  `^$(cut -c 1 /etc/natas_webpass/natas17)`
+  We use this <span id=green>payload -></span>  `^$(cut -c 1 /etc/natas_webpass/natas17)`
 
 First character            |  Second character
 :-------------------------:|:-------------------------:
 ![](./images/Level16.2_solution.png)  |  ![](./images/Level16.3_solution.png)
 
 We repeat above process 32 times. We put a `.` when we get no output and First letter, when we get on output. 
+<br/>
 Throwing some more screenshots here.
-
 Thirteenth character       |  Thirtieth character
 :-------------------------:|:-------------------------:
 ![](./images/Level16.4_solution.png)  |  ![](./images/Level16.5_solution.png)
 
-Now we repeat the above process 32 times (use Burp), i get a password that looks like this
+We repeat the above process 32 times (use Burp), i get a password that looks like this
 ![](./images/Level16.6_solution.png)
 
-Note: In the above image, `.` represent numbers, which are not known yet and all the letters are uppercase because we don't know there cases yet.
+<span id=green>Note:</span> In the above image, `.` represent numbers, which are not known yet and all the letters are uppercase because we don't know there cases yet.
 
-Now, let tackle the number problem first (_its relatively easier_)
+Now, let tackle the <u>number problem</u> first (_its relatively easier_)
 
-Our password contains numbers and dictionary words donot, so if we could somehow change the output depending on our input number, we might be in luck.
+Our password contains numbers and dictionary words donot,<span id=green> so if we could somehow change the output depending on our input number, we might be in luck.</span>
 Lets do some test in our local terminal
 ```shell
 $ cat test.txt      
@@ -112,7 +112,7 @@ a
 $ grep -i "^.\{4\}$" test.txt                                                                          
 abcd
 ```
-If you see above, now we can control the output depending on input number, lets try that:
+If you see above, now we can control the output depending on input number, payload break down below:
 
 
 >   ^  :    starts with <br/> 
@@ -121,8 +121,8 @@ If you see above, now we can control the output depending on input number, lets 
     $  :    ends with<br/>
     \  :    used to escape { and }
     
-
-Below we can see it works
+ <br/>
+Here we can see it works
 
 <p float="left">
   <img src="./images/Level16.7_solution.png" width="540" />
@@ -131,17 +131,17 @@ Below we can see it works
 
 <br/>
 
-Finaly let's try it, our payload -> `^.\{$(cut -c 1 /etc/natas_webpass/natas17)\}$`
+Finaly let's try it, <span id=green>our payload -></span> `^.\{$(cut -c 1 /etc/natas_webpass/natas17)\}$`
 
 ![](./images/Level16.9_solution.png)
 
-Once more
+Here we try for 30th password character (_which is a number_)
 ![](./images/Level16.10_solution.png)
 
-After we repeat this for all the `.` in our password, our password looks like this
+After we repeat this for all the `.`'s in our password, our password looks like this
 ![](./images/Level16.11_solution.png)
 
-Now to the final task, figure out the cases of letters. This was a tricky one and involved a bit of head banging.
+Now to the final task, <u>figure out the cases of letters</u>. This was a tricky one and involved a bit of head banging.
 So after a lot of testing, i came up with this.<br/>
 We use `-c` flag of `grep`. It shows us the number of times a pattern appears. See below:
 ```shell
@@ -158,13 +158,13 @@ $ grep -c ^H secret.txt   # True
 1
 ```
 Now we place this into `^.\{$(<cmd>)\}$` Our cmd will be `grep -c ^8 /etc/natas_webpass/natas17`<br/>
-Final payload<br/>
+<span id=green>Final payload</span><br/>
           `^.\{$(grep -c ^8 /etc/natas_webpass/natas17)\}$`
             
 Lets break it down<br/>
   - We will test it with our approximate password. 8PS3H0GWBN5RD9S7GMADGQNDKHPKQ9CW<br/>
-  - $(grep -c ^8 /etc/natas_webpass/natas17\}$ return 1 or 0 depending upon if first character is 8 or not<br/>
-  - which leaves our input like this ^.\{1\}$ or ^.\{0\}$ depending upon whether password starts with 8 or not<br/>
+  - `$(grep -c ^8 /etc/natas_webpass/natas17\}$` return `1` or `0` depending upon if first character is 8 or not<br/>
+  - which leaves our input like this` ^.\{1\}$` or `^.\{0\}$` depending upon whether password starts with 8 or not<br/>
   - So we will either see a one line output if starting of our password is correct or nothing if its wrong.<br/>
   - We use this to determine case of the letter.<br/>
 
@@ -174,7 +174,7 @@ Below are the Screenshots
 Now we check if second letter in our password is uppercase P or lower case p.
 ![](./images/Level16.13_solution.png)
 
-Finally! some good news!
+<span id=green>Finally!</span> some good news!
 ![](./images/Level16.14_solution.png)
 
 
@@ -191,7 +191,7 @@ So we found our password, here is its journey.
 
 And finally we are done.
 
-Thanks, this was a lot. I believe i have too much free time.
+Thanks, this was a lot. I believe i have too much free time. I am going to take a break!
 
 
 <br/>
