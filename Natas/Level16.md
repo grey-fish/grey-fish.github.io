@@ -161,11 +161,11 @@ Now we place this into `^.\{$(<cmd>)\}$` Our cmd will be `grep -c ^8 /etc/natas_
 Final payload<br/>
           `^.\{$(grep -c ^8 /etc/natas_webpass/natas17)\}$`
             
-Lets break it down
-  - We will test it with our approximate password. 8PS3H0GWBN5RD9S7GMADGQNDKHPKQ9CW
-  - $(grep -c ^8 /etc/natas_webpass/natas17\}$ return 1 or 0 depending upon if first character is 8 or not
-  - which leaves our input like this ^.\{1\}$ or ^.\{0\}$ depending upon whether password starts with 8 or not
-  - So we will either see a one line output if starting of our password is correct or nothing if its wrong.
+Lets break it down<br/>
+  - We will test it with our approximate password. 8PS3H0GWBN5RD9S7GMADGQNDKHPKQ9CW<br/>
+  - $(grep -c ^8 /etc/natas_webpass/natas17\}$ return 1 or 0 depending upon if first character is 8 or not<br/>
+  - which leaves our input like this ^.\{1\}$ or ^.\{0\}$ depending upon whether password starts with 8 or not<br/>
+  - So we will either see a one line output if starting of our password is correct or nothing if its wrong.<br/>
   - We use this to determine case of the letter.<br/>
 
 Below are the Screenshots
