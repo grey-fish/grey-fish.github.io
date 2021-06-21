@@ -80,9 +80,10 @@ First character            |  Second character
 We repeat above process 32 times. We put a `.` when we get no output and First letter, when we get on output. 
 <br/>
 Throwing some more screenshots here.
-Thirteenth character       |  Thirtieth character
-:-------------------------:|:-------------------------:
-![](./images/Level16.4_solution.png)  |  ![](./images/Level16.5_solution.png)
+<p float="left">
+  <img src="./images/Level16.4_solution.png" width="540" />
+  <img src="./images/Level16.5_solution.png" width="540" /> 
+</p>
 
 We repeat the above process 32 times (use Burp), i get a password that looks like this
 ![](./images/Level16.6_solution.png)
@@ -187,7 +188,7 @@ Last one
 
 So we found our password, here is its journey.
 
-.PS.H.GWBN.RD.S.GMADGQNDKHPKQ.CW -> 8PS3H0GWBN5RD9S7GMADGQNDKHPKQ9CW -> 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
+.PS.H.GWBN.RD.S.GMADGQNDKHPKQ.CW <span id=green>-></span> 8PS3H0GWBN5RD9S7GMADGQNDKHPKQ9CW <span id=green>-></span> 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
 
 And finally we are done.
 
