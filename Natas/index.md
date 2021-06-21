@@ -23,6 +23,11 @@ More about Natas can be found at their [Homepage.](https://overthewire.org/warga
 - [Level 15](./Level15.md)
 - [Level 16](./Level16.md)
 - Level 17
+- Level 18
+- Level 19
+- Level 20
+- Level 21
+- Level 22
 
 ```
              Writeups for previous Levels will soon be uploaded
