@@ -46,22 +46,26 @@ Reading the code, we can say that we are not presented with any output whatever 
 So, for now only one thing comes to my mind - <span id=green>Time Based SQL Injection.</span><br/>
 
 <br/>
-Our Payload -> `username=natas18" AND SLEEP(10);#`
-We recieve a delayed response if username `natas18` exists, which does and so our response comes after 10 seconds
+  Our Payload -> `username=natas18" AND SLEEP(10);#`<br/>
+We recieve a delayed response if username `natas18` exists, our response comes after 10 seconds
 ![](./images/Level17_solution.png)
 
-Now we build a little complex query:
-  Our Payload -> `username=natas18" AND IF(ASCII('a')=97, SLEEP(10),0);#`
+Now we build a little complex query:<br/>
+  Our Payload -> `username=natas18" AND IF(ASCII('a')=97, SLEEP(10),0);#`<br/>
 If username `natas18` exists and ascii code of 'a' is 97, return a delayed response. (We get delayed response)
 ![](./images/Level17.1_solution.png)
 
 
 So, our Final payload to smuggle passwords is as follow:<br/>
-    `username=natas18" AND IF(ASCII(SUBSTRING(password,1,1))=97,SLEEP(10),0);#`
+    `username=natas18" AND IF(ASCII(SUBSTRING(password,1,1))=97,SLEEP(10),0);#`<br/>
 ![](./images/Level17.2_solution.png)
-Above, we found that first character of our password has ascii code 120, i.e. `x`. (using Burp intruder)
-Also note that we filter using "_Response recieved_" column, that conveys the time interval b/w request and response.
+Above, we found that first character of our password has ascii code 120, i.e. `x`. (using Burp intruder)<br/>
+Also note that we filter on "_Response recieved_" column, it conveys the time interval b/w request and response.
 
 Burp intruder settings are exactly same as we did in [Level 15](./Level15.md)
 
 Repeat this 32 times, and we have our password. -> xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP
+
+<br/>
+
+[<< Back](https://grey-fish.github.io/Natas/index.html)
