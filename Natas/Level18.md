@@ -15,10 +15,8 @@ function isValidAdminLogin() {    // Always return 0
     /* This method of authentication appears to be unsafe and has been disabled for now. */
         //return 1;
     }
-
     return 0;
 }
-
 function isValidID($id) {      // Checkis if parameter is numeric
     return is_numeric($id);
 }
@@ -45,10 +43,9 @@ function my_session_start() {
         return true;
     }
     }
-
     return false;
 }
-function print_credentials() { /* {{{ */
+function print_credentials() { 
     if($_SESSION and array_key_exists("admin", $_SESSION) and $_SESSION["admin"] == 1) {
     print "You are an admin. The credentials for the next level are:<br>";
     print "<pre>Username: natas19\n";
