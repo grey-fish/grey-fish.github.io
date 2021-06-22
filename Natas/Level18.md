@@ -73,13 +73,14 @@ if(my_session_start()) {
 
 
 ## Solution
-I am listing brief purpose of all functions mentioned above
-`isValidAdminLogin()` : Return 0
-`isValidID($id)` : Checks if provided id is numeric 
-`createID()`     : Returns a random number b/w 1 and 640
-`debug($msg)`    : Prints msg
-`my_session_start()` : Checks if PHPSESSID exist and is vaild, if true, check if `admin` flag set in `$_SESSION`, if not set it to 0
-`print_credentials()` : Checks if `admin` key exist and print password for next Level, if its 1.
+Brief descrption of functions mentioned above<br/>
+`isValidAdminLogin()` : Return 0<br/>
+`isValidID($id)` : Checks if provided id is numeric<br/>
+`createID()`     : Returns a random number b/w 1 and 640<br/>
+`debug($msg)`    : Prints msg<br/>
+`my_session_start()` : Checks if PHPSESSID exist and is vaild, if true, check if `admin` flag set in `$_SESSION`, if not set it to 0<br/>
+`print_credentials()` : Checks if `admin` key exist and print password for next Level, if its 1.<br/>
+
 
 Now, Lets focus on below segment of code:
 ```php
@@ -101,10 +102,10 @@ if(my_session_start()) {
 In the else part of above code, `admin` key is set to zero and `print_credentials` is called. So we want the condition in `if` statement to be true so that we don't go to the else block.
 Simply, `my_session_start()` returns true if `PHPSESSID` is present.
 
-Now throughout the code we donot set `$_SESSION['admin']` to 1, we set it to 0 various times. So, As to reveal the password for next level
+Now throughout the code we never set `$_SESSION['admin']` to 1, we set it to 0 various times. So, As to reveal the password for next level
 it must be 1 and we can't set it, so i must already be admin.
 
-To find that admin session, we bruteforce over all possible PHPSESSID, to find one that belongs to admin.
+To find that admin session, we bruteforce over all possible `PHPSESSID`, to find one that belongs to admin.
 
 Below is a request (in Burp) sent, when we log in.
 ![](./images/Level18_solution.png)
