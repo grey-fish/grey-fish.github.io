@@ -80,8 +80,8 @@ Loose descrption of functions<br/>
   `isValidID($id)`   : Checks if provided id is numeric<br/>
   `createID()`      : Returns a random number b/w 1 and 640<br/>
   `debug($msg)`     : Prints msg<br/>
-  `my_session_start()` : if PHPSESSID exist, start_session() and if `admin` doesn't exist, set to 0<br/>
-  `print_credentials()` : Checks if `admin` key exist and print password for next Level, if its 1.<br/>
+  `my_session_start()`  : if PHPSESSID exist, start_session() and if `admin` doesn't exist, set to 0<br/>
+  `print_credentials()` : Checks if `admin` key exist and print password for next Level, if its<span id=green> 1</span>.<br/>
 
 
 Now, Lets focus on below segment of code:
