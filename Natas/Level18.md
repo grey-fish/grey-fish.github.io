@@ -19,19 +19,19 @@ function isValidAdminLogin() {    // Always return 0
     return 0;
 }
 
-function isValidID($id) { /* {{{ */       // Checkis if parameter is numeric
+function isValidID($id) {      // Checkis if parameter is numeric
     return is_numeric($id);
 }
-function createID($user) { /* {{{ */      // return a random number b/w 1 and 640
+function createID($user) {      // return a random number b/w 1 and 640
     global $maxid;
     return rand(1, $maxid);
 }
-function debug($msg) { /* {{{ */          // Display debug information
+function debug($msg) {       // Display debug information
     if(array_key_exists("debug", $_GET)) {
         print "DEBUG: $msg<br>";
     }
 }
-function my_session_start() { /* {{{ */    
+function my_session_start() {
     if(array_key_exists("PHPSESSID", $_COOKIE) and isValidID($_COOKIE["PHPSESSID"])) {
     if(!session_start()) {
         debug("Session start failed");
