@@ -71,15 +71,16 @@ if(my_session_start()) {
 } 
 ```
 
+<br/>
 
 ## Solution
 Brief descrption of functions mentioned above<br/>
-`isValidAdminLogin()` : Return 0<br/>
-`isValidID($id)` : Checks if provided id is numeric<br/>
-`createID()`     : Returns a random number b/w 1 and 640<br/>
-`debug($msg)`    : Prints msg<br/>
-`my_session_start()` : Checks if PHPSESSID exist and is vaild, if true, check if `admin` flag set in `$_SESSION`, if not set it to 0<br/>
-`print_credentials()` : Checks if `admin` key exist and print password for next Level, if its 1.<br/>
+  `isValidAdminLogin()` : Return 0<br/>
+  `isValidID($id)`    : Checks if provided id is numeric<br/>
+  `createID()`      : Returns a random number b/w 1 and 640<br/>
+  `debug($msg)`    : Prints msg<br/>
+  `my_session_start()` : Checks if PHPSESSID exist and is vaild, if true, check if `admin` flag set in `$_SESSION`, if not set it to 0<br/>
+  `print_credentials()` : Checks if `admin` key exist and print password for next Level, if its 1.<br/>
 
 
 Now, Lets focus on below segment of code:
