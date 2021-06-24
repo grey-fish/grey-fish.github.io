@@ -5,6 +5,7 @@ We predict "random" PHPSESSID to get to next Level
 We are presented with below page
 ![](./images/Level19.png)
 
+<br/>
 
 ## Solution
 As per the message, this level is similar to previous level, with only difference that session ID's are no longer sequential.
