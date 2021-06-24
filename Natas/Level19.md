@@ -10,7 +10,7 @@ We are presented with below page
 ## Solution
 As per the message, this level is similar to previous level, with only difference that session ID's are no longer sequential.
 
-In previous level we incremented the session id by 1 (till 640) and somewhere in between we got admin session.
+In previous level we incremented the session id by 1 (till 640) and somewhere in between we got <span id=green>admin</span> session.
 
 Let's see what cookie is being set here.
 ![](./images/Level19_solution.png)
