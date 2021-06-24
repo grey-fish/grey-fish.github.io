@@ -1,5 +1,5 @@
 # # whoami
-A Fellow Soul fascinated by and learning security.
+A Fellow Soul fascinated by all things security.
 
 
 ## ## Contents
