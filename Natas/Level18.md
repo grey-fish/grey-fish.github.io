@@ -74,7 +74,7 @@ if(my_session_start()) {
 <br/>
 
 ## Solution
-Loose descrption of functions<br/>
+Loose description of functions<br/>
 
   `isValidAdminLogin()` : Return 0<br/>
   `isValidID($id)`   : Checks if provided id is numeric<br/>
@@ -104,7 +104,7 @@ if(my_session_start()) {
 In the else part of above code, `admin` key is set to zero and `print_credentials` is called. So we want the condition in `if` statement to be true so that we don't go to the else block.
 Simply, `my_session_start()` returns true if `PHPSESSID` is present.
 
-Now throughout the code we never set `$_SESSION['admin']` to 1, we set it to 0 various times. So, As to reveal the password for next level
+Throughout the code we never set `$_SESSION['admin']` to 1, we set it to 0 various times. So, As to reveal the password for next level
 it must be 1 and we can't set it, so i must already be admin.
 
 To find that admin session, we bruteforce over all possible `PHPSESSID`, to find one that belongs to admin.
@@ -112,9 +112,9 @@ To find that admin session, we bruteforce over all possible `PHPSESSID`, to find
 Below is a request (in Burp) sent, when we log in.
 ![](./images/Level18_solution.png)
 
-Above we can see, PHPSESSID is being set
+Above we can see, `PHPSESSID` is being set
 
-We send this request to intruder, Set the PHPSESSID and start bruteforcing over all 640 values and we will login as admin in one of them as shown below
+We send this request to intruder, Set the `PHPSESSID` and start bruteforcing over all 640 values and we will login as admin in one of them as shown below
 ![](./images/Level18.1_solution.png)
 
 Below we see that we find a payload `109`, which reveals our password. This was session of admin.

@@ -14,3 +14,16 @@
   color: #3ddb3b;
   text-shadow: 0 0 5px rgba(104,182,255,0.5)
 }
+code.highlighter-rouge{
+  border: 1px rgba(255,255,255,0.15);
+  padding: 3px 4px;
+  border-radius: 6px;
+  font-size: 95%;
+}
+.markdown-body .highlight pre, .markdown-body pre {
+    padding: 12px;
+    overflow: auto;
+    font-size: 95%;
+    border-radius: 6px;
+    overflow-x: hidden;
+}
