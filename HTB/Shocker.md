@@ -87,7 +87,7 @@ User shelly may run the following commands on Shocker:
 
 From above we can see that we can run `perl` as root. This is nice and will help in privelege escalation.
 
-Now, we try to find a perl reverse shell. I found one at pentest monkey
+Now, we try to find a perl reverse shell. I found one at [pentest monkey](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
 
 Below is a failed attempt
 ![](./images/shocker_exploit1.png)
