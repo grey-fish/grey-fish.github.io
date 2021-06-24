@@ -34,7 +34,7 @@ See a pattern, `3#2d61646d696e`, then `3#3#2d61646d696e`, then `3#3#3#2d61646d69
 
 We now make use of burp intruder to brute force all these requests. I got it with the third time. See below
 ![](./images/Level19.4_solution.png)
-Above we can see, we uses the _clusterbomb_ attack type with 3 payloads, each going from 0 to 9.
+Above we can see, we used the _clusterbomb_ attack type with 3 payloads, each going from 0 to 9.
 
 <br/>
 Finally, password for next level is revealed.
