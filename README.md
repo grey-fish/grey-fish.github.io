@@ -18,6 +18,6 @@ This Blog serves two purpose:
 <br/>
 <div style="text-align: right;font-size: 90%;"> <img src="./assets/images/tweet1.png" width="24" /> <a href="https://twitter.com/gr3yfish">@gr3yfish</a></div>
 ```
-This blog is fairly new, i take it upon myself to upload three writeups a week. 
+Blog Created on : 12th June 2021, I take it upon myself to upload three writeups a week. 
 ```
 
