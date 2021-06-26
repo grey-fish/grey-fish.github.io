@@ -12,7 +12,7 @@ A Fellow Soul fascinated by all things security.
 
 ### ### Why this Blog
 This Blog serves two purpose:
-  - It acts as a Log Book for my future self.
+  - It acts as a <span id=grey>[Log](./timeline.md)</span> Book for my future self.
   - Anyone who is looking for help on CTFs and wargames, might find it useful.
 
 <br/>
