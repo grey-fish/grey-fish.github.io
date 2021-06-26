@@ -17,10 +17,12 @@ Above command runs nmap with default scripts `-sC`, version detection `-sV` and 
 <br/>
 
 The scan gives the following output:
+
 ![Nmap Image](./images/cronos_nmap.png)
 
 We have services running on port 22, 53 and 80. We'll check them in detail.
 
+<br/>
 First, lets check the website running on port 80. 
 
 ![](./images/cronos_apacheDefault.png)
@@ -60,7 +62,7 @@ Now i visited admin.cronos.htb and was greeted with a login form as shown below
 ![](./images/cronos_adminpanel.png)
 
 <br/>
-I tried basic payloads and got in with a simple SQL authentication bypass payload:<br/>
+Tried some basic payloads and got in with a simple SQL authentication bypass payload:<br/>
     `admin' or '1'='1'#`  or  `admin' #`     worked for me.
     
 We can see the request in Burp for the same
@@ -71,6 +73,7 @@ We can see the request in Burp for the same
 After the bypass it redirected me to a simple webpage, where two commands  `traceroute` and `ping` could be executed. 
 
 I verified if i could ping my machine, below we can see `tcpdump` capturing ping request coming to our machine.
+
 ![](./images/cronos_cmdexecution.png)
 
 Next, it was only natural to try to see if i could get <span id=green>command execution here</span>.<br/>
@@ -87,15 +90,16 @@ Perl reverse shell Payload used above:
 <br/>
 
 Below we can see, we get a session on our local machine <span id=green>:)</span>
+
 ![](./images/cronos_rshell1.png)
 
 Now, we have session to server. we see a home directory of user `noulis` and there we get our `user.txt` <span id=green>flag</span>.
 
-Next task: Priveldge escalation.
+Next task: Privilege escalation.
 <br/>
 <br/>
 
-## Priveledge Escalaiton
+## Privilege Escalaiton
 
 Make a local python server and upload the `linEnum.sh` script.<br/>
 
