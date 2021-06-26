@@ -8,8 +8,10 @@ Cronos is a Linux (ubuntu) machine which i found interesting to solve. Below i'l
 
 ## Enumeration
 Lets first scan the box with nmap to see services running. I used below command:<br/>
+
     `$ nmap -sC -sV -oA nmap/cronos 10.10.10.13`<br/>
-Above command runs nmap with default scripts (-sC), version detection (-sV) and creates output in various file formats.
+    
+Above command runs nmap with default scripts (`-sC`), version detection (`-sV`) and creates output in various file formats.
 <br/>
 
 The scan gives the following output:
