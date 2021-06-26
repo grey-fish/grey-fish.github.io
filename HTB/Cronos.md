@@ -29,14 +29,14 @@ It just gives us a default Apache page. I tried gobuster on it but found no dire
 
 <br/>
 
-Then i turned my attention to port 53, I had no idea about <span id=yellow>ISC BIND service</span>. Searching the internet provided some information.<br/>
+Then we turn our attention to port 53, I had no idea about <span id=yellow>ISC BIND service</span>. Searching the internet provided some information.<br/>
 Below is a simple description:
 > BIND (Berkeley Internet Name Domain) is an open source software that enables you to publish your Domain Name System (DNS) information on the Internet, and to resolve DNS
 queries for your users.
 
-Then i looked at `searchsploit` for known any exploits for it, spent some time with the exploits that came up, but none of them worked.
+Next, Looked at `searchsploit` for any known exploits, spent some time trying them, but none of them worked.
 
-After a while i queried the server for its <u>reverse DNS record</u>, i used below command
+After a while i queried the server for its <u>reverse DNS record</u>, i used below command:<br/>
     `dig @10.10.10.13 -x 10.10.10.13`<br/>
 
 Below we can see, that the server responded:
@@ -48,7 +48,7 @@ Now, we have new domains. So i added <span id=yellow>ns1.cronos.htb</span> and <
 Visiting cronos.htb and ns1.cronos.htb provided with a simple webpage created using Laravel and no further directories were revealed with gobuster .
 So this seemed like a dead end. :(
 
-
+<br/>
 Now, since this is a DNS Server, it tried to do <u>zone transfer</u> and it worked. See below:
 
 ![](./images/cronos_dig.png)
@@ -124,11 +124,14 @@ Below is detail of steps performed to upload PHP webshell
 
 <br/>
 Meanwhile, we set up a listener at port `4445`, and wait for shell to execute via cronjob.<br/>
-After a minute, go the session and can read the root flag :)
+After a minute, got the session and  read the root flag :)
 
 ![](./images/cronos_root.png)
 
+<br/>
 <span id=green>Cronos is Owned!!!</span>
 
 
+<br/>
 
+[<< Back](https://grey-fish.github.io/HTB/index.html)
