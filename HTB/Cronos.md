@@ -128,7 +128,7 @@ Below is detail of steps performed to upload PHP webshell
 
 <br/>
 Meanwhile, we set up a listener at port `4445`, and wait for shell to execute via cronjob.<br/>
-After a minute, got the session and  read the root flag :)
+After a minute, got the session and we are root :)
 
 ![](./images/cronos_root.png)
 
