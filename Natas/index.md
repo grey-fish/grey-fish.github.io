@@ -25,7 +25,7 @@ More about Natas can be found at their [Homepage.](https://overthewire.org/warga
 - [Level 17](./Level17.md)
 - [Level 18](./Level18.md)
 - [Level 19](./Level19.md)
-- [Level 20](./Level20.md)     <span id=grey>_Proper Writeup Pending_</span>
+- [Level 20](./Level20.md)     <span id=pending>_Proper Writeup Pending_</span>
 - Level 21
 - Level 22
 
