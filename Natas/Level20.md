@@ -198,13 +198,14 @@ Above payload sets `$_SESSION[admin]` to `1` and reveals the password for next l
 
 
 
-<span id=green>**Lessons learned**</span><br/>
-  - Before starting the challenge, i had no knowledge about the function used in Backend code.
-  - So Always read documentation of functions. I read docs for [explode](https://www.php.net/manual/en/function.explode.php), [strspn](https://www.php.net/manual/en/function.strspn.php), [session_save_path](https://www.php.net/manual/en/function.session-save-path.php) <br/>
+<span id=green>**Takeaway**</span><br/>
+  - Before starting the challenge, i had no knowledge about the various PHP functions used in Backend code.<br/>
+  - Always read the documentation. I read docs for [explode](https://www.php.net/manual/en/function.explode.php), [strspn](https://www.php.net/manual/en/function.strspn.php), [session_save_path](https://www.php.net/manual/en/function.session-save-path.php) <br/>
   - RTFM<br/>
   - When faced with large code, break it down to chunks to understand the big picture.
+<br/>
 
-This was Level 20. 
+That's all for Level 20. 
 
 <br/>
 
