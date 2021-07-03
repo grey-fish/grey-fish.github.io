@@ -196,7 +196,11 @@ Above payload sets `$_SESSION[admin]` to `1` and reveals the password for next l
 
 ![](./images/Level20_solution.png)
 
+This was Level 20. 
 
+###### Lessons learned
+  - Had to read documentation on following functions [explode](https://www.php.net/manual/en/function.explode.php), [strspn](https://www.php.net/manual/en/function.strspn.php), [session_save_path](https://www.php.net/manual/en/function.session-save-path.php)
+  - RTFM
 
 <br/>
 
