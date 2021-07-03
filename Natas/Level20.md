@@ -87,8 +87,7 @@ if(array_key_exists("name", $_SESSION)) {
 Lets take breakdown the above code, we have following functions:
 
 1. The `print_credentials()` function<br/>
-  - As in previous levels, this function will reveal the password for next level if `$_SESSION["admin"]` is equal to `1`.
-
+  - This function will reveal the password for next level if `$_SESSION["admin"]` is equal to `1`.
 
 2. The `mywrite()` function
 
@@ -101,8 +100,7 @@ Part 1
     return;
  }
 ```
-
-This function checks if `$sid` is valid (contains alphanumrics only), read about `strspn` function here
+Above function checks if `$sid` is valid (contains alphanumrics only), `strspn` function [documentation](https://www.php.net/manual/en/function.strspn.php)
 
 Part 2
 ```php
