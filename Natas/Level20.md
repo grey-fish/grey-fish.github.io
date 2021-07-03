@@ -86,12 +86,12 @@ if(array_key_exists("name", $_SESSION)) {
 
 Lets take breakdown the above code, we have following functions:
 
-1. The `print_credentials()` function<br/>
+The `print_credentials()` function<br/>
 
- - This function will reveal the password for next level if `$_SESSION["admin"]` is equal to `1`.
+  - This function will reveal the password for next level if `$_SESSION["admin"]` is equal to `1`.
 
 
-2. The `mywrite()` function
+The `mywrite()` function
 
 Part 1
 ```php
@@ -122,7 +122,7 @@ Note that each `$key - $value` pair is separated by `\n` (newline).
 
 Summary:  `$_SESSION` variable is stored in a file, each key value pair is stored on a newline separated by a space.
 
-3. Now, let see the myread() function<br/>
+Now, let see the myread() function<br/>
 Part 1
 ```php
 debug("MYREAD $sid"); 
@@ -154,26 +154,27 @@ return session_encode();
 }
 ```
 
-Here we read the contents of the file line by line, which we stored previously using mywrite function. The code reads a line and then checks if if contains a key and a value separated by space, if it is , then put that is`$_SESSION` variable as key value pair.
+Here we read the contents of the file line by line, which we stored previously using `mywrite` function. The code reads a line and then checks if it contains a key and a value separated by space, if it does, then put that in `$_SESSION` variable as a key value pair.
 
 Suppose file contains:
 ```
 name john
 hair blue
 ```
-then `$_SESSION` variable will contain key value pair like `$_SESSION['name'] = 'john'` and `$_SESSION['hair'] = 'blue'`;
+then `$_SESSION` variable will contain key value pair like `$_SESSION['name'] = 'john'` and `$_SESSION['hair'] = 'blue'`
+<br/>
 
-Alright, now lets fire up Burp, and send some requests.
+Alright, now lets fire up Burp, and send some requests.<br/>
 Below is a screenshot of the first request sent with `debug` parameter set.
 
 ![](./images/Level20.1_solution.png)
 
-Note something from above request
+Observations from above request
 
-- It's a POST request, i entered name `admin` and press enter
-- The `PHPSESSID` is set as $sid in the code. (evident from DEBUG output)
-- `$_SESSION["name"]` set to `"admin"`  (This is important)
-- Being the first request, $_SESSION variable is not stored in a file
+  - It's a POST request, sent when we entered name `admin` and press enter
+  - The `PHPSESSID` is set as `$sid` in the code. (evident from `DEBUG` output)
+  - `$_SESSION["name"]` is set to `"admin"`  (This is important)
+  - Being the first request, `$_SESSION` variable is not stored in a file yet
 
 Now send this request to Burp repeater and send the same request few times, we get this result.
 
