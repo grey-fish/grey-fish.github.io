@@ -30,5 +30,5 @@ More about Natas can be found at their [Homepage.](https://overthewire.org/warga
 - Level 22
 
 ```
-             Writeups for previous Levels will soon be uploaded
+            Last Challenge Solved: Natas Level 20
 ```
