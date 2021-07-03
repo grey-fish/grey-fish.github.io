@@ -10,7 +10,7 @@ We are presented with this webpage
 Here is the backend code
 ```php
 <?
-function debug($msg) { /* {{{ */
+function debug($msg) { 
     if(array_key_exists("debug", $_GET)) {
         print "DEBUG: $msg<br>";
     }
