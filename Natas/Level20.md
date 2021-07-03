@@ -86,19 +86,20 @@ if(array_key_exists("name", $_SESSION)) {
 
 Lets take breakdown the above code, we have following functions:
 
-1. The `print_credentials()` function 
+1. The `print_credentials()` function<br/>
   - As in previous levels, this function will reveal the password for next level if `$_SESSION["admin"]` is equal to `1`.
 
 
 2. The `mywrite()` function
+
 Part 1
 ```php
  debug("MYWRITE $sid $data"); 
-    // make sure the sid is alnum only!!
-    if(strspn($sid, "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-") != strlen($sid)) {
-    debug("Invalid SID"); 
-        return;
-    }
+ // make sure the sid is alnum only!!
+ if(strspn($sid, "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-") != strlen($sid)) {
+ debug("Invalid SID"); 
+    return;
+ }
 ```
 
 This function checks if `$sid` is valid (contains alphanumrics only), read about `strspn` function here
