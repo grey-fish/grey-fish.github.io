@@ -188,11 +188,9 @@ Now send this request to Burp repeater and send the same request again, we get t
 Above we can see $_SESSION stored and read from `/var/lib/php5/sessions//mysess_5i33p3iojt5et82337v9l9qoe0` file.
   - `DEBUG: Read [name admin]`  implies `$_SESSION['name'] = 'admin'`
 
-Now, we know that in order to reveal the password we need `$_SESSION['admin'] = 1`, so we add the following line in our POST Body
+Now, we know that in order to reveal the password we need `$_SESSION['admin'] = 1`, and to do that we append the following line in our POST Body
+`admin `
 
-Payload
-`name=admin\
-admin 1`
 
 Above payload sets `$_SESSION[admin]` to `1` and reveals the password for next level.
 
