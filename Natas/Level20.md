@@ -5,8 +5,10 @@
 <br/>
 
 ## Quest
-We are presented with this webpage
+We are presented with following webpage
+
 ![](./images/Level20.png)
+
 
 Here is the backend code
 ```php
@@ -82,10 +84,11 @@ if(array_key_exists("name", $_SESSION)) {
 
 ## Solution
 
-Lets take breakdown the above code:
+Lets take breakdown the above code, we have following functions:
 
 1. The `print_credentials()` function 
-    - As in previous levels, this function will reveal the password for next level if `$_SESSION["admin"]` is equal to `1`.
+  - As in previous levels, this function will reveal the password for next level if `$_SESSION["admin"]` is equal to `1`.
+
 
 2. The `mywrite()` function
 Part 1
