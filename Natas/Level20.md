@@ -123,6 +123,7 @@ Note that each `$key - $value` pair is separated by `\n` (newline).
 
 <span id=yellow>Summary:</span> `$_SESSION` variable is stored in a file, each key value pair is stored on a newline separated by a space.
 
+<br/>
 
 Now, lets look at `myread()` function<br/>
 
@@ -185,11 +186,11 @@ Now send this request to Burp repeater and send the same request again, we get t
 
 ![](./images/Level20.2_solution.png)
 
-Above we can see $_SESSION stored and read from `/var/lib/php5/sessions//mysess_5i33p3iojt5et82337v9l9qoe0` file.
+Above we can see `$_SESSION` stored and read from `/var/lib/php5/sessions//mysess_5i33p3iojt5et82337v9l9qoe0` file.<br/>
   - `DEBUG: Read [name admin]`  implies `$_SESSION['name'] = 'admin'`
 
-Now, we know that in order to reveal the password we need `$_SESSION['admin'] = 1`, and to do that we append the following line in our POST Body
-`admin `
+Now, we know that in order to reveal the password we need `$_SESSION['admin'] = 1`, and to do that we append the following line in our POST Body --> 
+`admin 1 `
 
 
 Above payload sets `$_SESSION[admin]` to `1` and reveals the password for next level.
@@ -199,6 +200,7 @@ Above payload sets `$_SESSION[admin]` to `1` and reveals the password for next l
 
 
 <span id=green>**Takeaway**</span><br/>
+
   - Before starting the challenge, i had no knowledge about the various PHP functions used in Backend code.<br/>
   - Always read the documentation. I read docs for [explode](https://www.php.net/manual/en/function.explode.php), [strspn](https://www.php.net/manual/en/function.strspn.php), [session_save_path](https://www.php.net/manual/en/function.session-save-path.php) <br/>
   - RTFM<br/>
