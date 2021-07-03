@@ -86,12 +86,12 @@ if(array_key_exists("name", $_SESSION)) {
 
 Lets take breakdown the above code, we have following functions:
 
-1. The `print_credentials()` function<br/>
+The `print_credentials()` function<br/>
 
- - This function will reveal the password for next level if `$_SESSION["admin"]` is equal to `1`.
+  - This function will reveal the password for next level if `$_SESSION["admin"]` is equal to `1`.
 
 
-2. The `mywrite()` function
+The `mywrite()` function in two parts:
 
 Part 1
 ```php
@@ -102,7 +102,7 @@ Part 1
     return;
  }
 ```
-Above function checks if `$sid` is valid (contains alphanumrics only), `strspn` function [documentation](https://www.php.net/manual/en/function.strspn.php)
+Above code checks if `$sid` is valid (_contains alphanumrics only_), `strspn` function [documentation](https://www.php.net/manual/en/function.strspn.php)
 
 Part 2
 ```php
@@ -117,12 +117,15 @@ foreach($_SESSION as $key => $value) {
 file_put_contents($filename, $data);
 chmod($filename, 0600);
 ```
-In above code, foreach loop loops over key value pairs of `$_SESSION` array and concatenates it as a string and store the whole string in `$data` variable.<br/>
+Above `foreach` loop, loops over key value pairs of `$_SESSION` array and concatenates it as a string and store the whole string in `$data` variable, which is then stored in a file.<br/>
+
 Note that each `$key - $value` pair is separated by `\n` (newline).
 
-Summary:  `$_SESSION` variable is stored in a file, each key value pair is stored on a newline separated by a space.
+<span id=yellow>Summary:</span> `$_SESSION` variable is stored in a file, each key value pair is stored on a newline separated by a space.
 
-3. Now, let see the myread() function<br/>
+
+Now, lets look at `myread()` function<br/>
+
 Part 1
 ```php
 debug("MYREAD $sid"); 
@@ -132,7 +135,7 @@ if(strspn($sid, "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-
   return "";
 }
 ```
-As seen previously, this function checks if `$sid` is valid (contains alphanumrics only), read about `strspn` function here
+Again, this code checks if `$sid` is valid (_contains alphanumrics only_)
 
 Part 2
 ```php
@@ -154,41 +157,44 @@ return session_encode();
 }
 ```
 
-Here we read the contents of the file line by line, which we stored previously using mywrite function. The code reads a line and then checks if if contains a key and a value separated by space, if it is , then put that is`$_SESSION` variable as key value pair.
+Above we read the contents of the file line by line, which we stored previously using `mywrite` function.<br/> The code reads a line and then checks if it contains a key and a value separated by space, if it does, then put that in `$_SESSION` variable as a key value pair.
 
 Suppose file contains:
 ```
 name john
 hair blue
 ```
-then `$_SESSION` variable will contain key value pair like `$_SESSION['name'] = 'john'` and `$_SESSION['hair'] = 'blue'`;
+then `$_SESSION` variable will contain key value pair like `$_SESSION['name'] = 'john'` and `$_SESSION['hair'] = 'blue'`
+<br/><br/>
 
-Alright, now lets fire up Burp, and send some requests.
+Alright, now lets fire up Burp, and send some requests.<br/>
+
 Below is a screenshot of the first request sent with `debug` parameter set.
 
 ![](./images/Level20.1_solution.png)
 
-Note something from above request
+Observations from above request
 
-- It's a POST request, i entered name `admin` and press enter
-- The `PHPSESSID` is set as $sid in the code. (evident from DEBUG output)
-- `$_SESSION["name"]` set to `"admin"`  (This is important)
-- Being the first request, $_SESSION variable is not stored in a file
+  - It's a POST request, sent when we entered name `admin` and press enter<br/>
+  - The `PHPSESSID` is set as `$sid` in the code. (evident from `DEBUG` output)<br/>
+  - `$_SESSION["name"]` is set to `"admin"`  (This is important)<br/>
+  - Being the first request, `$_SESSION` variable is not stored in a file yet<br/>
 
-Now send this request to Burp repeater and send the same request few times, we get this result.
+
+Now send this request to Burp repeater and send the same request again, we get this result.
 
 ![](./images/Level20.2_solution.png)
 
 Above we can see $_SESSION stored and read from `/var/lib/php5/sessions//mysess_5i33p3iojt5et82337v9l9qoe0` file.
-- `DEBUG: Read [name admin]`  implies $_SESSION['name'] = 'admin'
+  - `DEBUG: Read [name admin]`  implies `$_SESSION['name'] = 'admin'`
 
-Now, we know that in order to reveal the password we need $_SESSION['admin'] = 1, so we add the following line in our POST Body
+Now, we know that in order to reveal the password we need `$_SESSION['admin'] = 1`, so we add the following line in our POST Body
 
 Payload
-`name=admin
+`name=admin\
 admin 1`
 
-Above payload set $_SESSION[admin] to 1 and reveals the password.
+Above payload sets `$_SESSION[admin]` to `1` and reveals the password for next level.
 
 ![](./images/Level20_solution.png)
 
