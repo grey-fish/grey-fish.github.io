@@ -2,10 +2,13 @@
 > Level: Natas Level 20<br/>
 > Solved: 30th June<br/>
 > Remarks: Read PHP code and documentation<br/>
+<br/>
 
 ## Quest
-We are presented with this webpage
+We are presented with following webpage
+
 ![](./images/Level20.png)
+
 
 Here is the backend code
 ```php
@@ -81,23 +84,25 @@ if(array_key_exists("name", $_SESSION)) {
 
 ## Solution
 
-Lets take breakdown the above code:
+Lets take breakdown the above code, we have following functions:
 
-1. The `print_credentials()` function 
-    - As in previous levels, this function will reveal the password for next level if `$_SESSION["admin"]` is equal to `1`.
+1. The `print_credentials()` function<br/>
+
+ - This function will reveal the password for next level if `$_SESSION["admin"]` is equal to `1`.
+
 
 2. The `mywrite()` function
+
 Part 1
 ```php
  debug("MYWRITE $sid $data"); 
-    // make sure the sid is alnum only!!
-    if(strspn($sid, "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-") != strlen($sid)) {
-    debug("Invalid SID"); 
-        return;
-    }
+ // make sure the sid is alnum only!!
+ if(strspn($sid, "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-") != strlen($sid)) {
+ debug("Invalid SID"); 
+    return;
+ }
 ```
-
-This function checks if `$sid` is valid (contains alphanumrics only), read about `strspn` function here
+Above function checks if `$sid` is valid (contains alphanumrics only), `strspn` function [documentation](https://www.php.net/manual/en/function.strspn.php)
 
 Part 2
 ```php
@@ -112,29 +117,27 @@ foreach($_SESSION as $key => $value) {
 file_put_contents($filename, $data);
 chmod($filename, 0600);
 ```
-From above code we an see that the foreach loop loops over key value pair of `$_SESSION` array and concatenates it as a string and store the whole string in `$data` variable.
-Note that each $key $value pair is separated by "\n" (newline).
+In above code, foreach loop loops over key value pairs of `$_SESSION` array and concatenates it as a string and store the whole string in `$data` variable.<br/>
+Note that each `$key - $value` pair is separated by `\n` (newline).
 
-To summarize, `$_SESSION` variable is stored in a file, each key value pair is stored on a newline separated by a space.
+Summary:  `$_SESSION` variable is stored in a file, each key value pair is stored on a newline separated by a space.
 
-3. Now, let see the myread() function
+3. Now, let see the myread() function<br/>
 Part 1
 ```php
-function myread($sid) { 
-    debug("MYREAD $sid"); 
-    // Checks if sid is not alphanumeric
-    if(strspn($sid, "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-") != strlen($sid)) {
-    debug("Invalid SID"); 
-        return "";
-    }
+debug("MYREAD $sid"); 
+// Checks if sid is not alphanumeric
+if(strspn($sid, "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-") != strlen($sid)) {
+  debug("Invalid SID"); 
+  return "";
+}
 ```
-
-As we saw previously, this function checks if `$sid` is valid (contains alphanumrics only), read about `strspn` function here
+As seen previously, this function checks if `$sid` is valid (contains alphanumrics only), read about `strspn` function here
 
 Part 2
 ```php
 // Create a filename with full path  | session_save_path() gives dir name, rest things are concatenated
-$filename = session_save_path() . "/" . "mysess_" . $sid;       // An ex: /var/lib/php5/sessions//mysess_5i33p3iojt5et82337v9l9qoe0
+$filename = session_save_path() . "/" . "mysess_" . $sid; // Ex: /var/lib/php5/sessions//mysess_5i33p3iojt5et82337v9l9qoe0
 if(!file_exists($filename)) {  // exit if file doesn't exist
     debug("Session file doesn't exist");
     return "";
