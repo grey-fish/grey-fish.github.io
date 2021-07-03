@@ -115,8 +115,7 @@ chmod($filename, 0600);
 From above code we an see that the foreach loop loops over key value pair of `$_SESSION` array and concatenates it as a string and store the whole string in `$data` variable.
 Note that each $key $value pair is separated by "\n" (newline).
 
-To summarize, `$_SESSION` variable is stored in a file, each key value pair is stored on a newline separated by a space. 😵
-
+To summarize, `$_SESSION` variable is stored in a file, each key value pair is stored on a newline separated by a space.
 
 3. Now, let see the myread() function
 Part 1
@@ -159,30 +158,37 @@ Suppose file contains:
 name john
 hair blue
 ```
-then `$_SESSION` variable will contain key value pair like `$_SESSION['nam'] = 'john'` and `$_SESSION['hair'] = 'blue'`;
+then `$_SESSION` variable will contain key value pair like `$_SESSION['name'] = 'john'` and `$_SESSION['hair'] = 'blue'`;
 
+Alright, now lets fire up Burp, and send some requests.
+Below is a screenshot of the first request sent with `debug` parameter set.
 
+![](./images/Level20.1_solution.png)
 
+Note something from above request
 
+- It's a POST request, i entered name `admin` and press enter
+- The `PHPSESSID` is set as $sid in the code. (evident from DEBUG output)
+- `$_SESSION["name"]` set to `"admin"`  (This is important)
+- Being the first request, $_SESSION variable is not stored in a file
 
+Now send this request to Burp repeater and send the same request few times, we get this result.
 
+![](./images/Level20.2_solution.png)
 
+Above we can see $_SESSION stored and read from `/var/lib/php5/sessions//mysess_5i33p3iojt5et82337v9l9qoe0` file.
+- `DEBUG: Read [name admin]`  implies $_SESSION['name'] = 'admin'
 
+Now, we know that in order to reveal the password we need $_SESSION['admin'] = 1, so we add the following line in our POST Body
 
+Payload
+`name=admin
+admin 1`
 
-
-
-
-
-
-
-
-
-Just solved this level (30th June 2021), here's the solution image:
+Above payload set $_SESSION[admin] to 1 and reveals the password.
 
 ![](./images/Level20_solution.png)
 
-Will write a proper writeup once i get some time  :)
 
 
 <br/>
