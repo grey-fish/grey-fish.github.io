@@ -84,7 +84,7 @@ if(array_key_exists("name", $_SESSION)) {
 
 ## Solution
 
-Lets take breakdown the above code, we have following functions:
+Lets breakdown the above code, we have following functions:
 
 The `print_credentials()` function<br/>
 
@@ -158,7 +158,7 @@ return session_encode();
 }
 ```
 
-Above we read the contents of the file line by line, which we stored previously using `mywrite` function.<br/> The code reads a line and then checks if it contains a key and a value separated by space, if it does, then put that in `$_SESSION` variable as a key value pair.
+Above we read the contents of the file line by line, which were stored previously using `mywrite` function.<br/> The code reads a line and then checks if it contains a key and a value separated by space, if it does, then put that in `$_SESSION` variable as a key value pair.
 
 Suppose file contains:
 ```
@@ -197,7 +197,7 @@ Above payload sets `$_SESSION[admin]` to `1` and reveals the password for next l
 
 ![](./images/Level20_solution.png)
 
-
+<br/>
 
 <span id=green>**Takeaway**</span><br/>
 
