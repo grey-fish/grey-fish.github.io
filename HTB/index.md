@@ -2,7 +2,7 @@
 
 ## Boxes
 
-- [Shocker](./Shocker.md)
+- [Shocker](./Shocker.md)         <span id=pending>_Editing Pending_</span>
 - [Cronos](./Cronos.md)
 - [SolidState](./SolidState.md)     <span id=pending>_Writeup Pending_</span>
 
