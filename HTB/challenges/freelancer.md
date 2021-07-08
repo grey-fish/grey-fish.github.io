@@ -13,7 +13,7 @@ We are presented with a website, Lets run `gobuster` on it.
 We find following interesting directories
 
   - `/administrat`  : presents a login form<br/>
-  - `/mail`         : contains `contact_me.php` file which yields 500 Internal error.<br/>
+  - `/mail`     : contains `contact_me.php` file which yields 500 Internal error.<br/>
 
 Analyzing the source for main page reveals a link `portfolio.php?id=1`.
 
