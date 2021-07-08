@@ -57,7 +57,7 @@ When we try to access `panel.php`, we are redirected to the index page. Lets rea
 
 <br/>
 
-In the panel.php, we find our <span id=green>flag.</span>
+In the `panel.php`, we find our <span id=green>flag.</span>
 
 ![](./images/freelancer8.png)
 
