@@ -88,14 +88,14 @@ So simply send a request to first webpage with same Cookie, and it reveals the p
 ![](./images/Level21.2_solution.png)
 
 <br/>
-This was relatively easy one.
-
-<br/>
-
 <span id=green>**Takeaway**</span><br/>
 
   - Read the documentation for [session_start()](https://www.php.net/manual/en/function.session-start.php) function
   - A User session is identified with its Cookie
+
+<br/>
+This was relatively easy one.
+
 
 <br/>
 
