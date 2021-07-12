@@ -61,7 +61,7 @@ $example = "<div style='$style'>Hello world!</div>";
 
 ## Solution
 
-Reading the First section of code on Second page gives us our first hint. Below is the Bad Code. It appends whatever is in the POST Body to `$_SESSION` array. BAD Practise !
+Reading the code for Second page gives us our first hint. Below is the Bad Code. It appends whatever is in the POST Body to `$_SESSION` array. BAD Practise !
 
 ```php
 if(array_key_exists("submit", $_REQUEST)) { // Take values from POST request
@@ -71,7 +71,6 @@ if(array_key_exists("submit", $_REQUEST)) { // Take values from POST request
 }
 ```
 <br/>
-
 <span id=green>Lets exploit this. we know to solve the level, we need to add key `admin` with value `1` to `$_SESSION` array.</span>
 
 <br/>
@@ -84,7 +83,7 @@ We can see in the output that our payload has been added to `$_SESSION` array.
 
 Now, our session, identified by `PHPSESSID=yabbadabbado` has `$_SESSION[admin]` set to `1`.
 
-So we simply send this request to webpage when with the same Cookie, and it reveals password for next Level.
+So simply send a request to first webpage with same Cookie, and it reveals the password for next Level.
 
 ![](./images/Level21.2_solution.png)
 
