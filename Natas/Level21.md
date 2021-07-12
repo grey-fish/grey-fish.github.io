@@ -90,8 +90,8 @@ So simply send a request to first webpage with same Cookie, and it reveals the p
 <br/>
 <span id=green>**Takeaway**</span><br/>
 
-  - Read the documentation for [session_start()](https://www.php.net/manual/en/function.session-start.php) function
-  - A User session is identified with its Cookie
+  - Read the documentation for [session_start()](https://www.php.net/manual/en/function.session-start.php) function<br/>
+  - A User session is identified with its Cookie<br/>
 
 <br/>
 This was relatively easy one.
