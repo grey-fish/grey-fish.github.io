@@ -46,14 +46,6 @@ foreach($validkeys as $key => $defval) {
 }
 $form .= '<input type="submit" name="submit" value="Update" />';
 $form .= '</form>';
-
-$style = "background-color: ".$_SESSION["bgcolor"]."; text-align: ".$_SESSION["align"]."; font-size: ".$_SESSION["fontsize"].";";
-$example = "<div style='$style'>Hello world!</div>";
-
-?>
-
-<p>Example:</p>
-<?=$example?>
 ```
 
 <br/>
