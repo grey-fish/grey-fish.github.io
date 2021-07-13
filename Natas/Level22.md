@@ -51,9 +51,10 @@ if(array_key_exists("revelio", $_GET)) {
 ## Solution
 
 This one was surprisingly easy. From the above code we can deduce the following
-  - If `revelio` URL parameter exists, we'll be redirected to `/`
-  - Password will be revealed if we send a parameter `revelio` in the GET request
+  - If `revelio` URL parameter exists, we'll be redirected to `/` <br/>
+  - Password will be revealed if we send a parameter `revelio` in the GET request<br/>
 
+<br/>
 Below we do that by adding `?revelio=true`, we recieve a 302 redirect and password for next Level is revealed.
 
 ![](./images/Level22_solution.png)
