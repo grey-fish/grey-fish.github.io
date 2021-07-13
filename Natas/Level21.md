@@ -2,12 +2,17 @@
 > Level : Natas Level 21<br/>
 > Solved : 12th July 2021<br/>
 > Remarks : Dealing in Cookies<br/>
+<br/>
 
 ## Quest
 We are presented with below webpages
+
 ![](./images/Level21.png)
 
-The Backend code on First page is similar to previous level, it consists of `print_ceredentials` function, which reveals the password if `$_SESSION[admin] == 1`.
+<br/>
+
+The Backend code on First page is similar to previous level, it consists of `print_ceredentials` function, which reveals the password if `$_SESSION[admin] == 1`.<br/>
+
 Below is code for Second Page. Lets comment it
 ```php
 <?  
@@ -41,14 +46,6 @@ foreach($validkeys as $key => $defval) {
 }
 $form .= '<input type="submit" name="submit" value="Update" />';
 $form .= '</form>';
-
-$style = "background-color: ".$_SESSION["bgcolor"]."; text-align: ".$_SESSION["align"]."; font-size: ".$_SESSION["fontsize"].";";
-$example = "<div style='$style'>Hello world!</div>";
-
-?>
-
-<p>Example:</p>
-<?=$example?>
 ```
 
 <br/>
@@ -56,7 +53,8 @@ $example = "<div style='$style'>Hello world!</div>";
 
 ## Solution
 
-Reading the First section of code on Second page gives us our first hint. Below is the Bad Code
+Reading the code for Second page gives us our first hint. Below is the Bad Code. It appends whatever is in the POST Body to `$_SESSION` array. BAD Practise !
+
 ```php
 if(array_key_exists("submit", $_REQUEST)) { // Take values from POST request
     foreach($_REQUEST as $key => $val) {    // +and append to $_SESSION array
@@ -64,26 +62,32 @@ if(array_key_exists("submit", $_REQUEST)) { // Take values from POST request
     }
 }
 ```
-Above code appends whatever is in the POST Body to `$_SESSION` array. BAD Practise !
+<br/>
+<span id=green>Lets exploit this. we know to solve the level, we need to add key `admin` with value `1` to `$_SESSION` array.</span>
 
-Lets exploit this. we know to solve the level, we need to add key `admin` with value `1` to `$_SESSION` array.
-
+<br/>
 Below is a POST request with `admin=1` added to body. Optionally `PHPSESSID` has also been changed to identify the session.
 We can see in the output that our payload has been added to `$_SESSION` array.
+
 ![](./images/Level21.1_solution.png)
 
+<br/>
 
-Now, our session, identified by `PHPSESSID=yabbadabbado` had `$_SESSION[admin]` set to `1`.
+Now, our session, identified by `PHPSESSID=yabbadabbado` has `$_SESSION[admin]` set to `1`.
 
-So we simply send this request to webpage when with the same Cookie, which reveals password for next Level.
+So simply send a request to first webpage with same Cookie, and it reveals the password for next Level.
+
 ![](./images/Level21.2_solution.png)
+
+<br/>
+<span id=green>**Takeaway**</span><br/>
+
+  - Read the documentation for [session_start()](https://www.php.net/manual/en/function.session-start.php) function<br/>
+  - A User session is identified with its Cookie<br/>
 
 <br/>
 This was relatively easy one.
 
-<span id=green>**Takeaway**</span><br/>
-
-  - Read the documentation for `session_start()` function
 
 <br/>
 
