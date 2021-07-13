@@ -22,8 +22,6 @@ if(array_key_exists("revelio", $_GET)) {
     }
 }
 ?>
-
-
 <html>
 <head>
 <!-- This stuff in the header has nothing to do with the level -->
@@ -50,7 +48,7 @@ if(array_key_exists("revelio", $_GET)) {
 
 ## Solution
 
-This one was surprisingly easy. From the above code we can deduce the following
+This one was surprisingly easy. From the above code we can deduce the following<br/>
   - If `revelio` URL parameter exists, we'll be redirected to `/` <br/>
   - Password will be revealed if we send a parameter `revelio` in the GET request<br/>
 
