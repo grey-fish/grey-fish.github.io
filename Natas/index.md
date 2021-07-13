@@ -27,8 +27,9 @@ More about Natas can be found at their [Homepage.](https://overthewire.org/warga
 - [Level 19](./Level19.md)
 - [Level 20](./Level20.md)  
 - [Level 21](./Level21.md)
-- Level 22
-
+- [Level 22](./Level22.md)
+- Level 23
+- Level 24
 ```
         Last Challenge Solved: Natas Level 21
 ```
