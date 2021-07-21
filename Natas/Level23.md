@@ -1,7 +1,7 @@
 # Natas
 > Level : Natas Level 22<br/>
-> Solved : 13th July 2021<br/>
-> Remarks : This was Easy Peasy<br/>
+> Solved : 21st July 2021<br/>
+> Remarks : RTFM<br/>
 <br/>
 
 ## Quest
@@ -91,3 +91,6 @@ Below we see password of next level is revealed.
 
 <br/>
 
+<br/>
+
+[<< Back](https://grey-fish.github.io/Natas/index.html)
