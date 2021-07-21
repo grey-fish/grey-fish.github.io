@@ -1,11 +1,11 @@
 # Natas
-> Level : Natas Level 22<br/>
+> Level : Natas Level 23<br/>
 > Solved : 21st July 2021<br/>
 > Remarks : RTFM<br/>
 <br/>
 
 ## Quest
-We are presented with below webpages
+We are presented with below webpage
 
 ![Level 23 Image](./images/Level23.png)
 <br/>
