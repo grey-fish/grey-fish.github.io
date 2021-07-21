@@ -39,9 +39,9 @@ Password:
 
 Lets breakdown the above code. Read about [strstr](https://www.php.net/manual/en/function.strstr.php) function here.
 
-we need 2 condition to be true
-  - `strstr($_REQUEST["passwd"], "iloveyou)`
-  - `$_REQUEST["passwd"] > 10`
+we need below 2 condition to be true in order to reveal password for next Level
+  - `strstr($_REQUEST["passwd"], "iloveyou)`<br/>
+  - `$_REQUEST["passwd"] > 10`<br/>
 
 See below test sessions 
 ```php
