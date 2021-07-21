@@ -1,5 +1,5 @@
 # Natas
-> Level : Natas Level 22<br/>
+> Level : Natas Level 23<br/>
 > Solved : 13th July 2021<br/>
 > Remarks : This was Easy Peasy<br/>
 <br/>
