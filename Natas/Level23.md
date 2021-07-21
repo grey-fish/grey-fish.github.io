@@ -1,0 +1,83 @@
+# Natas
+> Level : Natas Level 22<br/>
+> Solved : 13th July 2021<br/>
+> Remarks : This was Easy Peasy<br/>
+<br/>
+
+## Quest
+We are presented with below webpages
+
+![Level 23 Image](./images/Level23.png)
+<br/>
+
+Relevant Backend code
+
+```php
+Password:
+<form name="input" method="get">
+    <input type="text" name="passwd" size=20>
+    <input type="submit" value="Login">
+</form>
+
+<?php
+    if(array_key_exists("passwd",$_REQUEST)){
+        if(strstr($_REQUEST["passwd"],"iloveyou") && ($_REQUEST["passwd"] > 10 )){
+            echo "<br>The credentials for the next level are:<br>";
+            echo "<pre>Username: natas24 Password: <censored></pre>";
+        }
+        else{
+            echo "<br>Wrong!<br>";
+        }
+    }
+    // morla / 10111
+?>  
+```
+
+<br/>
+
+## Solution
+
+Lets breakdown the above code. Read about [strstr](https://www.php.net/manual/en/function.strstr.php) function here.
+
+we need 2 condition to be true
+  - `strstr($_REQUEST["passwd"], "iloveyou)`
+  - `$_REQUEST["passwd"] > 10`
+
+See below test sessions 
+```php
+# Lets suppose passwd is 'iloveyou'
+$rand_array = [ "passwd" => "iloveyou" ];
+echo strstr($rand_array["passwd"], 'iloveyou');    // Output: iloveyou
+
+# Above returns a non-empty string, so first condition is true
+
+# Lets go for second condition
+if ($rand_array["passwd"] > 10 ){
+    echo ('True');
+} else {
+    echo ('False');
+}
+
+# Above code Prints False .
+# Note here we are comparing a string type with Number 
+```
+
+In Above code session, we showed that 1st condition can be made true. Now we look at second condition.
+
+The Second condition produces `False` because we are comparing numbers and strings.
+
+By Using the Powers of Internet and Reading the PHP documentation, i came to know about **Numeric Strings**. Here are the official [docs](https://www.php.net/manual/en/language.types.numeric-strings.php)
+In Simple words, it states
+> When a string needs to be evaluated as number, if it can be converted to an integer or it starts with an integer, then in can be converted to an integer.<br/>
+> So, '11hello' would turn into number 11 in arthmetic operations like in our case comparison
+
+So to get a number > `10`, i choose `11iloveyou` password. It satisfies both conditions. Lets test again
+
+![Level 23 Image](./images/Level23.1_solution.png)
+
+When same password is entered into for, password for next Level is revealed.
+
+![Level 23 Image](./images/Level23_solution.png)
+
+
+
