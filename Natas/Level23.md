@@ -83,5 +83,11 @@ Below we see password of next level is revealed.
 
 ![Level 23 Image](./images/Level23_solution.png)
 
+<br/>
+<span id=green>**Takeaway**</span><br/>
 
+  - Read the documentation for [strstr()](https://www.php.net/manual/en/function.strstr.php) function<br/>
+  - PHP contains *Numeric Strings*, which i found somewhat similar to what Javascript does.
+
+<br/>
 
