@@ -37,7 +37,7 @@ Password:
 
 ## Solution
 
-Lets breakdown the above code. Read about [strstr](https://www.php.net/manual/en/function.strstr.php) function here.
+Lets breakdown the above code. Read about `strstr` function [here.](https://www.php.net/manual/en/function.strstr.php)
 
 we need below 2 condition to be true in order to reveal password for next Level<br/>
 
@@ -58,8 +58,8 @@ if ($rand_array["passwd"] > 10 ){
 } else {
     echo ('False');
 }
+# Above code Prints False 
 
-# Above code Prints False .
 # Note here we are comparing a string type with Number 
 ```
 
@@ -67,10 +67,11 @@ In Above code session, we showed that 1st condition can be made true. Now we loo
 
 The Second condition produces `False` because we are comparing numbers and strings.
 
-By Using the Powers of Internet and Reading the PHP documentation, i came to know about **Numeric Strings**. <br/>Here are the official [docs](https://www.php.net/manual/en/language.types.numeric-strings.php)
-In Simple words, it states
-> When a string needs to be evaluated as number, if it can be converted to an integer or it starts with an integer, then in can be converted to an integer.<br/>
-> So, '11hello' would turn into number 11 in arthmetic operations like in our case comparison
+By Using the Powers of Internet and Reading the PHP documentation, i came to know about <span id=green>Numeric Strings.</span> <br/>Here are the official [docs](https://www.php.net/manual/en/language.types.numeric-strings.php)<br/>
+In Simple words, it states:
+> A PHP string is considered numeric if it can be interpreted as an int or a float<br/>
+> This happens when string is numeric like "1" or "1.0" etc or leading Numeric like "11hello".<br/>
+> So, '11hello' would be treated as number 11 in arthmetic operations
 
 So to get a number > `10`, i choose `11iloveyou` password. It satisfies both conditions. Lets test again
 
