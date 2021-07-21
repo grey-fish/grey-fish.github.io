@@ -39,7 +39,8 @@ Password:
 
 Lets breakdown the above code. Read about [strstr](https://www.php.net/manual/en/function.strstr.php) function here.
 
-we need below 2 condition to be true in order to reveal password for next Level
+we need below 2 condition to be true in order to reveal password for next Level<br/>
+
   - `strstr($_REQUEST["passwd"], "iloveyou)`<br/>
   - `$_REQUEST["passwd"] > 10`<br/>
 
@@ -66,7 +67,7 @@ In Above code session, we showed that 1st condition can be made true. Now we loo
 
 The Second condition produces `False` because we are comparing numbers and strings.
 
-By Using the Powers of Internet and Reading the PHP documentation, i came to know about **Numeric Strings**. Here are the official [docs](https://www.php.net/manual/en/language.types.numeric-strings.php)
+By Using the Powers of Internet and Reading the PHP documentation, i came to know about **Numeric Strings**. <br/>Here are the official [docs](https://www.php.net/manual/en/language.types.numeric-strings.php)
 In Simple words, it states
 > When a string needs to be evaluated as number, if it can be converted to an integer or it starts with an integer, then in can be converted to an integer.<br/>
 > So, '11hello' would turn into number 11 in arthmetic operations like in our case comparison
@@ -75,7 +76,9 @@ So to get a number > `10`, i choose `11iloveyou` password. It satisfies both con
 
 ![Level 23 Image](./images/Level23.1_solution.png)
 
-When same password is entered into for, password for next Level is revealed.
+<br/>
+
+Below we see password of next level is revealed. 
 
 ![Level 23 Image](./images/Level23_solution.png)
 
