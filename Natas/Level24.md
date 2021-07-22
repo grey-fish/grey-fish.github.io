@@ -48,13 +48,12 @@ echo (!NULL);     // Outputs 1
 
 So our task is to cause an error when  `if(!strcmp($_REQUEST["passwd"],"<censored>")){` executes and we'll be golden.
 
-I tried many things, but in the end what succedded was `passwd[]=hello` payload.
+I tried many things, but in the end what succedded was `passwd[]=hello` payload revealed the password.
 
 ![](./images/Level24_solution.png)
 
 <br/>
-
-Just out of curiosity, i wanted to see the contents of `$_REQUEST` superglobal after our payload. <br/>
+Out of curiosity, i wanted to see the contents of `$_REQUEST` superglobal after our payload. <br/>
 So i made a simple PHP page for that, below is the output if someone wants to know how payload works.
 
 ![](./images/Level24.1_solution.png)
@@ -64,6 +63,8 @@ So i made a simple PHP page for that, below is the output if someone wants to kn
   - This is repetitive, but RTFM, in this case, user notes helped me a lot<br/>
   - To cause error in `strcmp`, we changed one argument type to array<br/>
 
+<br/>
+This was level 24. 🎊
 <br/>
 
 [<< Back](https://grey-fish.github.io/Natas/index.html)
