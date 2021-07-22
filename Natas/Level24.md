@@ -1,7 +1,8 @@
 # Natas
-> Level : Natas Level 24
-> Solved : 22nd July 2021
-> Remarks : Errors are good
+> Level : Natas Level 24<br/>
+> Solved : 22nd July 2021<br/>
+> Remarks : Errors are good<br/>
+<br/>
 
 # Quest
 We are presented with below webpage
@@ -25,16 +26,19 @@ Relevant Backend Code
 ?> 
 ```
 
+<br/>
+
 ## Solution
-Above code use strcmp function. Which returns `0` when provided two strings are identical, `!0` is 1 , which is `True`, then password for next Level is revealed.
+Above code use [strcmp](https://www.php.net/manual/en/function.strcmp.php) function. Which returns `0` when provided two identical strings, `!0` is `1` , which is `True`, then password for next Level is revealed.
 
-So initially it seems, we need to know the `<censored>` password, to crack this. (which we can't know, it can be anything!)
+So initially it seems, we need to know the `<censored>` password, to crack this. (which can be anything!)
 
-While reading the documentation, in user contributed notes, i stumbled upon this
-> Since it may not be obvious to some people, please note that there is another possible return value for this function.
+While reading the documentation, in *user contributed notes*, i stumbled upon this:
+> Since it may not be obvious to some people, there is another possible return value for this function.<br/>
 > strcmp() will return NULL on failure.
 
-This seems interesting because in PHP:
+
+Above information is useful due to following behaviour of `NULL` in PHP :
 
 ```php
 echo (!NULL);     // Outputs 1
@@ -42,17 +46,23 @@ echo (!NULL);     // Outputs 1
 # Which is True
 ```
 
-So our task is to somehow cause an error when the line `if(!strcmp($_REQUEST["passwd"],"<censored>")){` executes and we'll be golden.
+So our task is to cause an error when  `if(!strcmp($_REQUEST["passwd"],"<censored>")){` executes and we'll be golden.
 
 I tried many things, but in the end what succedded was `passwd[]=hello` payload.
 
 ![](./images/Level24_solution.png)
 
+<br/>
 
-We have solved the level, just out of curiosity, i wanted to see the contents of `$_REQUEST` superglobal after our payload. 
-So i made a simple PHP page to output just that, below is the output if someone wants to know how this works.
+Just out of curiosity, i wanted to see the contents of `$_REQUEST` superglobal after our payload. <br/>
+So i made a simple PHP page for that, below is the output if someone wants to know how payload works.
 
 ![](./images/Level24.1_solution.png)
+
+<span id=green>**Takeaway**</span><br/>
+
+  - This is repetitive, but RTFM, in this case, user notes helped me a lot<br/>
+  - To cause error in `strcmp`, we changed one argument type to array<br/>
 
 <br/>
 
