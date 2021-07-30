@@ -33,5 +33,5 @@ More about Natas can be found at their [Homepage.](https://overthewire.org/warga
 - [Level 25](./Level25.md)       <span id=pending>Writeup Pending</span>
 - Level 26
 ```
-        Last Challenge Solved: Natas Level 24
+        Last Challenge Solved: Natas Level 25
 ```
