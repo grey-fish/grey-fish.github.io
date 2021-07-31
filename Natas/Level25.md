@@ -103,7 +103,7 @@ The `safeinclude()` function
 The `logRequest()` function
 
   - This function logs error when `safeinclude` functions finds attack attempts<br/>
-  - Notice that it directly embeds the clients `USER_AGENT` string in the log file. This can come handy later.<br/>
+  - Notice that it directly embeds the clients `USER_AGENT` string in the log file. This can come <em>handy</em> later.<br/>
   - We have path of log file as `/var/www/natas/natas25/logs/natas25_<SESSIONID>.log`<br/>
 
 
@@ -145,20 +145,20 @@ Below, we use this to see a file that we know exists -> `/var/www/natas/natas25/
 
 ![](./images/Level25.1_solution.png)
 
-Above we have successfully conducted Directory Traversal attack, but still can't display password containing file `/etc/natas_webpass/natas26` becuase of the code logic.
+Above we have successfully conducted Directory Traversal attack, but still can't display password containing file `/etc/natas_webpass/natas26` because of the code logic.
 
-We'll now poison the log file with our webshell using the `User-Agent` header (handy!) and see if it works.
+Since we can include the log file , lets poison it with our webshell using the `User-Agent` header <em>handy!</em> .
 
 Our Webshell payload:
 ```php
 <?php echo '<pre>' . shell_exec($_GET[ 'cmd']) . '</pre>';?>
 ```
 
-It Worked and we have command execution! (happiness 👻)
+We can see it works and we have command execution! (happiness 👻)
 
 ![](./images/Level25.2_solution.png)
 
-
+<br/>
 Now that we have command execution, lets reveal the password for next Level
 
 ![](./images/Level25.3_solution.png)
@@ -166,7 +166,7 @@ Now that we have command execution, lets reveal the password for next Level
 <br/>
 <span id=green>**Takeaway**</span><br/>
 
-  - Read documentation and tested the PHP function strstr and str_replace<br/>
+  - Read documentation and tested the PHP function [strstr](https://www.php.net/manual/en/function.strstr.php) and [str_replace](https://www.php.net/manual/en/function.str-replace.php)<br/>
   - Log File poisoning use case<br/>
   - Chaining multiple vulnerabilities = Win<br/>
 
