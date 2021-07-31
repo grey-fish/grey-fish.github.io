@@ -81,6 +81,7 @@ function logRequest($message){
     echo "<div align=\"right\"><h6>$__FOOTER</h6><div>";
 ?>
 ```
+<br/>
 
 ## Solution
 
@@ -88,36 +89,40 @@ Lets shift focus from awesomeness of the presented quote to finding password for
 
 Below is the Breakdown of relevant functions in Backend code.
 
-  - `setLanguage()`
-        This function checks if `lang` parameter exists in our request and then includes that file using `safeinclude()`.
-        If not present, default file to include is `language/en`
-        
-  - `safeinclude()`
-        * checks for Directory Traversal attacks, it finds and removes `../` with empty string.
-        * It also exits, when attempt is made to retrieve password file for next level (`/etc/natas_webpass/natas26`)
-        * if above two checks are passed, it includes the file
+The `setLanguage()` function
 
-  - `logRequest()`
-        * This function logs error when `safeinclude` functions finds attack attempts
-        * Notice that it directly embeds the clients `USER_AGENT` string in the log file. This can come handy later.
-        * We have path of log file as `/var/www/natas/natas25/logs/natas25_<SESSIONID>.log`
+  - This function checks if `lang` parameter exists in our request and then includes that file using `safeinclude()`.<br/>
+  - If not present, default file to include is `language/en`<br/>
+        
+The `safeinclude()` function
+
+  - checks for Directory Traversal attacks, it finds and replaces `../` with empty string.<br/>
+  - It also exits, when attempt is made to retrieve password file for next level (`/etc/natas_webpass/natas26`)<br/>
+  - if above two checks are passed, it includes the file<br/>
+
+The `logRequest()` function
+
+  - This function logs error when `safeinclude` functions finds attack attempts<br/>
+  - Notice that it directly embeds the clients `USER_AGENT` string in the log file. This can come handy later.<br/>
+  - We have path of log file as `/var/www/natas/natas25/logs/natas25_<SESSIONID>.log`<br/>
 
 
 Lets get to work now.
 
-First i tried with the usual directory traversals and got no luck (this was expected)
+Firstly tried with the usual directory traversals payloads and got no luck (this was somewhat expected)
 
 ![](./images/Level25_solution.png)
 
-After a while it turned to my local machine to test various PHP functions, below is the session log
+After a while, turned to local machine to understand various PHP functions used in Backend code.
 
-First i wanted to see how `strstr` function works. `strstr` function finds first occurence of a string and returns the whole string starting from that occurence
+First lets see how `strstr` function works. `strstr` function finds first occurence of a string and returns the whole string starting from that occurence
 
 ```php
 echo strstr('hello/../../../etc/passwd/../', '../');   # Output : ../../../etc/passwd/../
 ```
 
 Next, lets see `str_replace` . It Replaces all occurrences of the search string with the replacement string.
+
 ```php
 echo str_replace('../', '', '../../../../etc/passwd');  # Output : etc/passwd
 ```
