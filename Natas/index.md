@@ -30,8 +30,10 @@ More about Natas can be found at their [Homepage.](https://overthewire.org/warga
 - [Level 22](./Level22.md)
 - [Level 23](./Level23.md)
 - [Level 24](./Level24.md)
-- [Level 25](./Level25.md)       <span id=pending>Needs Editing</span>
+- [Level 25](./Level25.md)
 - Level 26
+- Level 27
+- Level 28
 ```
         Last Challenge Solved: Natas Level 25
 ```
