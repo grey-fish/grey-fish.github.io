@@ -31,7 +31,7 @@ More about Natas can be found at their [Homepage.](https://overthewire.org/warga
 - [Level 23](./Level23.md)
 - [Level 24](./Level24.md)
 - [Level 25](./Level25.md)
-- Level 26        <span id=pending>Writeup in Progress</span>
+- [Level 26](./Level26.md)       <span id=pending>Writeup in Progress</span>
 - Level 27
 - Level 28
 ```
