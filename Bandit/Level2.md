@@ -1,5 +1,6 @@
 # Bandit
 > Level : Bandit Level 2<br/>
+> Difficulty: Easy<br/>
 > Remarks: Autocompletion is your friend.
 
 <br/>
