@@ -1,5 +1,5 @@
 # Bandit
-> Level : Bandit Level 2
+> Level : Bandit Level 2<br/>
 > Remarks: Autocompletion is your friend.
 
 <br/>
