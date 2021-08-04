@@ -2,7 +2,15 @@
 
 Bandit was the first wargame that i completed, it's beginner friendly and a fun way to explore linux, occassionally it challenges to think out of the box.
 
-[Bandit](https://overthewire.org/wargames/bandit/) Writeups coming soon, hold up..
+Click here to know more about it [Bandit](https://overthewire.org/wargames/bandit/)
+
+- [Level 1]
+- Level 2
+- Level 3
+- Level 4
+- Level 5
+- Level 6
+- 
 
 
 
