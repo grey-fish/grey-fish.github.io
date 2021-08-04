@@ -209,8 +209,8 @@ Tzo2OiJMb2dnZXIiOjM6e3M6MTU6IgBMb2dnZXIAbG9nRmlsZSI7czozNDoiL3Zhci93d3cvbmF0YXMv
 ```
 
 Observations:
-  - We get the contents of the file storing password for next Level<br/>
-  - we can write to `img` directory, so we store log file there.<br/>
+  - We get the contents of the file storing password for next Level <br/>
+  - we can write to `img` directory, so we store log file there. <br/>
 
 We send a Logger object into a function that’s expecting arrays with coordinates, so this will give an error. But our exploit works because the objected is loaded into the `$drawing` variable, so when its life ends, the destructor will be called in turn writing our exploit to file and that's all we need.
 
