@@ -5,7 +5,7 @@ Quest: The password for the next level is stored in a file called readme located
 
 <br/>
 
-### Solution
+## Solution 1
 Log into Level 1, we see a file named `-` . Since `-` also represents `stdin` in terminal so `cat -` doesn't work.<br/>
 In order to view the file, we use absolute path or relative path as shown below.
 
@@ -20,7 +20,7 @@ Quest: The password for the next level is stored in a file called spaces in this
 
 <br/>
 
-### Solution
+## Solution 2
 
 Password for next level is in a file with spaces in its name. Its super easy, we use tab completion. Just type first letter of the file and press <u>tab</u> and name autocompletes.<br/>
 
@@ -36,7 +36,7 @@ Quest: The password for the next level is stored in a hidden file in the inhere 
 
 <br/>
 
-### Solution
+## Solution 3
 It's simple, we use `ls` command with `-a` flag to reveal hidden files as shown below
 
 ![Level 3 Image](./images/Level3.png)
@@ -50,8 +50,10 @@ Quest: The password for the next level is stored in the only human-readable file
 
 <br/>
 
-### Solution
+## Solution 4
 
 
+<br/>
+<br/>
 
 [<< Back](https://grey-fish.github.io/Bandit/index.html)
