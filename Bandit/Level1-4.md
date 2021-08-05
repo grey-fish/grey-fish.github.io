@@ -3,6 +3,7 @@
 ## Level 1
 Quest: The password for the next level is stored in a file called readme located in the home directory.
 <br/>
+
 ## Solution 1
 Log into Level 1, we see a file named `-` . Since `-` also represents `stdin` in terminal so `cat -` doesn't work.<br/>
 In order to view the file, we use absolute path or relative path as shown below.
