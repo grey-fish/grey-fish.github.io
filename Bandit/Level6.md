@@ -22,7 +22,7 @@ $ find / -type f -user bandit7 -group bandit6 -size 33c 2> /dev/null
 <br/>
 Solution Screenshot
 
-![Level 1 Image](./images/Level6.png)
+![Level 6 Image](./images/Level6.png)
 
 <br/>
 <span id=green>**Takeaway**</span><br/>
