@@ -24,7 +24,7 @@ Quest: <em>The password for the next level is stored in a file called spaces in 
 Password for next level is in a file with spaces in its name. Its super easy, we use tab completion. Just type first letter of the file and press <u>tab</u> and name autocompletes.<br/>
 
 See Below:
-![Level 2 Image](./Level2.png)
+![Level 2 Image](./images/Level2.png)
 
 <br/>
 <br/>
@@ -36,7 +36,7 @@ Quest: <em>The password for the next level is stored in a hidden file in the inh
 ### Solution
 It's simple, we use `ls` command with `-a` flag to reveal hidden files as shown below
 
-![Level 3 Image](./Level3.png)
+![Level 3 Image](./images/Level3.png)
 
 <br/>
 
