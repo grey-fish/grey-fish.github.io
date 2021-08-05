@@ -6,6 +6,7 @@ The password for the next level is stored in the file data.txt and is the only l
 <br/>
 ## Solution
 Our task is to find a line that occurs only once in a file.
+
 <br/>
 Final Command:
 ```shell
@@ -21,8 +22,8 @@ Breakdown:
   - `head`                 Print first 10 entries<br/>
 
 Above command prints number of times a unique line occurs in a file, result is sorted numerically.
-<br/>
 
+<br/>
 Solution Screenshot:
 
 ![Level 8 Image](./images/Level8.png)
