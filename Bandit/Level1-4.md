@@ -40,7 +40,15 @@ It's simple, we use `ls` command with `-a` flag to reveal hidden files as shown 
 <span id=purple>Quest:</span> The password for the next level is stored in the only human-readable file in the inhere directory
 <br/><br/>
 ### Solution 4
+Inefficient way to solve this is to manually look at each file and get the password. We don't do that here!
 
+Below i use two ways to reveal the password:
+
+  i. First approach uses `find` command to list files and pass the result to `file` command that tells which file is readable.<br/>
+
+  ii. Another way is by using grep, grep by default searches for pattern in text files only. 
+
+![Level 4 Image](./images/Level4.png)
 
 <br/>
 <br/>
