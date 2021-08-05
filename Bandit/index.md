@@ -5,7 +5,7 @@ Bandit was the first wargame that i completed, it's beginner friendly and a fun 
 More information can be found at its [Homepage](https://overthewire.org/wargames/bandit/)
 
 - [Level 1-4](./Level1-4.md)
-- Level 5
+- [Level 5](./Level5.md)
 - Level 6
 - 
 
