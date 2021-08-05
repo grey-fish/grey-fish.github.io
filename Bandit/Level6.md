@@ -1,7 +1,7 @@
 # Bandit
 
 ## Level 6
-The password for the next level is stored somewhere on the server and has all of the following properties:
+The password for the next level is stored somewhere on the server and has all of the following properties:<br/>
   - owned by user bandit7<br/>
   - owned by group bandit6<br/>
   - 33 bytes in size<br/>
