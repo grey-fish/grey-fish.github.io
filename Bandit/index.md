@@ -7,7 +7,7 @@ More information can be found at its [Homepage](https://overthewire.org/wargames
 - [Level 1-4](./Level1-4.md)
 - [Level 5](./Level5.md)
 - [Level 6](./Level6.md)
-- Level 7
+- [Level 7](./Level7.md)
 - Level 8
 - Level 9
 - Level 10
