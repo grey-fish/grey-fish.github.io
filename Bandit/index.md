@@ -8,10 +8,11 @@ More information can be found at its [Homepage](https://overthewire.org/wargames
 - [Level 5](./Level5.md)
 - [Level 6](./Level6.md)
 - [Level 7](./Level7.md)
-- Level 8
-- Level 9
+- [Level 8](./Level8.md)
+- [Level 9](./Level9.md)
 - Level 10
-- 
+- Level 11
+- Level 12
 
 
 
