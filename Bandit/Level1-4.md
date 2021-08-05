@@ -15,11 +15,9 @@ In order to view the file, we use absolute path or relative path as shown below.
 <br/>
 
 ## Level 2
-
 Quest: The password for the next level is stored in a file called spaces in this filename located in the home directory
 
 <br/>
-
 ## Solution 2
 
 Password for next level is in a file with spaces in its name. Its super easy, we use tab completion. Just type first letter of the file and press <u>tab</u> and name autocompletes.<br/>
@@ -31,11 +29,9 @@ See Below:
 <br/>
 
 ## level 3
-
 Quest: The password for the next level is stored in a hidden file in the inhere directory.
 
 <br/>
-
 ## Solution 3
 It's simple, we use `ls` command with `-a` flag to reveal hidden files as shown below
 
@@ -45,11 +41,9 @@ It's simple, we use `ls` command with `-a` flag to reveal hidden files as shown 
 <br/>
 
 ## Level 4
-
 Quest: The password for the next level is stored in the only human-readable file in the inhere directory
 
 <br/>
-
 ## Solution 4
 
 
