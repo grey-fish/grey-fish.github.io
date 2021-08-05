@@ -22,5 +22,5 @@ Click here to know more about it [Bandit](https://overthewire.org/wargames/bandi
 
 
 ```
-Bandit was completed last year, for this blog, i'll redo it and upload writeups here
+Bandit was completed last year. For this blog, i'll redo it in my free time and upload writeups here
 ```
