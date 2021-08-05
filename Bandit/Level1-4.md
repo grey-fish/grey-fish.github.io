@@ -46,7 +46,7 @@ Below i use two ways to reveal the password:
 
   i. First approach uses `find` command to list files and pass the result to `file` command that tells which file is readable.<br/>
 
-  ii. Another way is by using grep, grep by default searches for pattern in text files only. 
+  ii. Another way is by using `grep`, `grep` by default searches for pattern in text files only. 
 
 Below is the screenshot for both methods
 
