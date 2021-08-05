@@ -48,6 +48,8 @@ Below i use two ways to reveal the password:
 
   ii. Another way is by using grep, grep by default searches for pattern in text files only. 
 
+Below is the screenshot for both methods
+
 ![Level 4 Image](./images/Level4.png)
 
 <br/>
