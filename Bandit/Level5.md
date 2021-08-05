@@ -10,7 +10,7 @@ The password for the next level is stored in a file somewhere under the inhere d
 We find the file using `find` command and pass the following option:<br/>
 
   - human-readable      `-type f`<br/>
-  - 1033 bytes         `-size 1033c`  <em># Note the `c` at the end</em><br/>
+  - 1033 bytes          `-size 1033c`      <em># Note the `c` at the end</em><br/>
   - not executable     `\! -executable`<br/>
 
 
