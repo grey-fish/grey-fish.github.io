@@ -5,20 +5,22 @@ The credentials for the next level can be retrieved by submitting the password o
 
 <br/>
 ## Solution
-Running `nmap` on localhost found two ports running SSL as shown below:
+Ran `nmap` on localhost and found two ports using SSL as shown below:
 
 ![Level 16 Image](./images/Level16.1.png)
 
-No luck on port 31518, but on port 31790, get a private SSH key (hopefully for bandit17).
+<br/>
+No luck on port 31518. Port 31790 gives us a private SSH key (hopefully for bandit17).
 
 ![Level 16 Image](./images/Level16.2.png)
 
 <br/>
-Copy the key, set appropriate permissions and try to login as bandit17. 
+Coped the key to file named `bandit17`, set appropriate permissions and try to login as bandit17. 
 
 ![Level 16 Image](./images/Level16.3.png)
 
 This works!
+
 <br/>
 
 [<< Back](https://grey-fish.github.io/Bandit/index.html)
