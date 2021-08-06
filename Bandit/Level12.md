@@ -11,6 +11,7 @@ In order to get the original file back from hexdump, we use `xxd` command
 $ cat data.txt | xxd -r > data
 ```
 
+<br/>
 Screenshot:
 
 ![Level 12 Image](./images/Level12.png)
@@ -19,10 +20,12 @@ The resulting file: `data` is a gzip compressed file. Below we decompress it mul
 
 Now we uncompress the file several times using the tools depending upon filetype until password is revealed.
 
+<br/>
 Screenshot 1
 
 ![Level 12 Image](./images/Level12.1.png)
 
+<br/>
 Screenshot 2
 
 ![Level 12 Image](./images/Level12.2.png)
