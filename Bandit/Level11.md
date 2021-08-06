@@ -13,8 +13,7 @@ From the `tr` docs
 
 Lets do some tests.
 
-```shell
-                           
+```shell        
 $ echo "abcdefghjklmnopqrstuvwxyz" | tr [a-f] [A-F]
 ABCDEFghjklmnopqrstuvwxyz
   
@@ -26,7 +25,6 @@ abcdefghjkLMNOPQRSTUVWxyz
 
 $ echo "abcdefghijklmnopqrstuvwxyz" | tr b-e,u-y B-E,U-Y
 aBCDEfghijklmnopqrstUVWXYz
-
 ```
 
 Above we see usage of translate command, now lets build our solution
