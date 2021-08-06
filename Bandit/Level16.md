@@ -15,7 +15,7 @@ No luck on port 31518. Port 31790 gives us a private SSH key (hopefully for band
 ![Level 16 Image](./images/Level16.2.png)
 
 <br/>
-Coped the key to file named `bandit17`, set appropriate permissions and try to login as bandit17. 
+Copied the key to a file named `bandit17`, set appropriate permissions and try to login as bandit17. 
 
 ![Level 16 Image](./images/Level16.3.png)
 
