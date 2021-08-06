@@ -14,7 +14,7 @@ $ ssh -i sshkey.private bandit14@localhost
 ```
 
 <br/>
-Screenshots:
+Solution Screenshots:
 
 ![Level 13 Image](./images/Level13.1.png)
 ![Level 13 Image](./images/Level13.2.png)
