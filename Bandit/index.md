@@ -15,7 +15,11 @@ More information can be found at its [Homepage](https://overthewire.org/wargames
 - [Level 12](./Level12.md)
 - [Level 13](./Level13.md)
 - [Level 14](./Level14.md)
-- Level 15
+- [Level 15](./Level15.md)
+- [Level 16](./Level16.md)
+- Level 17
+- Level 18
+- Level 19
 
 
 
