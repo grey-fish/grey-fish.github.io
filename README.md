@@ -12,8 +12,8 @@ A Fellow Soul fascinated by all things security.
 <br/>
 
 ### ### Why this Blog
-This Blog serves two purpose:
-  - It acts as a Log Book for my future self.<br/>
+This Blog serves two purpose:<br/>
+  - It acts as a Log Book for future me.<br/>
   - Anyone who is looking for help on CTFs and wargames, might find it useful.<br/>
 <br/>
 <div style="text-align: right;font-size: 90%;"> <img src="./assets/images/tweet1.png" width="24" /> <a href="https://twitter.com/gr3yfish">@gr3yfish</a></div>
