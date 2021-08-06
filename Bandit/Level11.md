@@ -17,7 +17,7 @@ Lets do some tests.
                            
 $ echo "abcdefghjklmnopqrstuvwxyz" | tr [a-f] [A-F]
 ABCDEFghjklmnopqrstuvwxyz
-                                                                                                                       
+  
 $ echo "abcdefghjklmnopqrstuvwxyz" | tr a-f A-F 
 ABCDEFghjklmnopqrstuvwxyz
     
