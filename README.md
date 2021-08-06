@@ -5,7 +5,7 @@ A Fellow Soul fascinated by all things security.
 
 ## ## Contents
 - [Natas Writeups](./Natas/index.md)
-- [Bandit Writeups](./Bandit/index.html)
+- [Bandit Writeups](./Bandit/index.md)
 - [Hack the Box](./HTB/index.html)
 - [Miscellaneous](./Misc/index.md)
 
