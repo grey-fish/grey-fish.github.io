@@ -5,5 +5,9 @@ The password for the next level is stored in a file readme in the homedirectory.
 
 <br/>
 ## Solution
-This seems interesting. As stated above, when we login using our creentials, we are immediately logged out.
+This seems interesting. As stated above, when we login using our credentials, we are immediately logged out.
 
+We can solve this level by providing a <u>command</u> while logging in via SSH
+
+From the Docs:
+> 
