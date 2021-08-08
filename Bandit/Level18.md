@@ -10,4 +10,7 @@ This seems interesting. As stated above, when we login using our credentials, we
 We can solve this level by providing a <u>command</u> while logging in via SSH
 
 From the Docs:
-> 
+> If a command is specified, it is executed on the remote host instead of a login shell
+
+Final Command:
+```shell
