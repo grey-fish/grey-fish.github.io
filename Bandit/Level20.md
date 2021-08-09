@@ -15,6 +15,7 @@ Solution Screenshot with 2 concurrent session:
 
 ![Level 20 Image](./images/Level20.png)
 
+<br/>
 <span id=green>**Takeaway**</span><br/>
 
   - If `nc -l <port_num> doesn't work, try `nc -lp <port_num>`.<br/>
