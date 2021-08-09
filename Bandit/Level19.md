@@ -6,10 +6,9 @@ To gain access to the next level, you should use the setuid binary in the homedi
 <br/>
 ## Solution
 
-The executables with setuids set are major source of privesc.
-
-<br/> 
 Below we see that even though we are logged in as `bandit19`, the executable `bandit20-do` allows us to execute commands as user `bandit20`.
+
+> The executables with setuids set are major source of privesc.
 
 As we can execute command as `bandit20` and only `bandit20` can view its password file, hence we get the password.
 
