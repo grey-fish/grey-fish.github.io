@@ -19,6 +19,7 @@ total 24K
 -rw-r--r-- 1 root root  62 Jul 11  2020 cronjob_bandit17_root
 ```
 
+<br/>
 Lets see what is in file `cronjob_bandit22`
 ```shell
 #!/bin/bash
@@ -28,6 +29,7 @@ cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 
 Above script outputs password of next Level to the file mentioned in `tmp` dir and is readable. So we get our password
 
+<br/>
 Solution Screenshot:
 
 ![Level 21 Image](./images/Level21.png)
