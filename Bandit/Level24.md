@@ -34,7 +34,9 @@ bandit24@bandit:~$ nc localhost 30002 < /tmp/payload24
 
 Solution Screenshot:
 
-![Level 24 Image](./images/Level24.md)
+![Level 24 Image](./images/Level24.png)
+![Level 24 Image](./images/Level24.1.png)
+
 
 <br/>
 
