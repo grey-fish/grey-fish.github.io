@@ -30,7 +30,7 @@ bandit24@bandit:~$ for i in {1000..10000}; do echo "UoMYTrfrBFHyQXmg6gzctqAwOmw1
 Now provide this file as input to netcat and this will reveal password for next Level.
 
 <br/>
-Final Command:
+<u>Final Command:</u>
 ```shell
 bandit24@bandit:~$ nc localhost 30002 < /tmp/payload24
 ```
