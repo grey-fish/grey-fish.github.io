@@ -24,7 +24,7 @@ More information can be found at its [Homepage](https://overthewire.org/wargames
 - [Level 21](./Level21.md)
 - [Level 22](./Level22.md)
 - [Level 23](./Level23.md)
-- Level 24
+- [Level 24](./Level24.md)
 - Level 25
 
 
