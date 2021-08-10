@@ -32,16 +32,20 @@ done
 ```
 
 Breakdown of Above Script: <br/>
+
   - Look for a file owned by user `bandit23` in `/var/spool/bandit24`<br/>
   - If its there, run that file and terminate it if it runs for more than 60 seconds
 
 Below steps were taken to reveal password for next Level:
 
-1. Create a file `/tmp/payload.sh` file.
-2. Put a simple command to output password.
+1. Create a file `/tmp/payload.sh` file (<em>logged in as bandit23</em>).
+2. Put a simple command to output password in this file.
 ```shell
+#!/bin/bash
+
 cat /etc/bandit_pass/bandit24 > /tmp/bandit24_passwd
 ```
+3. Make the file executable using `chmod` and copy to `/var/spool/bandit24` directory.
 3. Wait, cronjob will run `payload.sh` as user bandit24 and then delete it.
 4. As result, we can find the password in `/tmp/bandit24_passwd` file.
 
