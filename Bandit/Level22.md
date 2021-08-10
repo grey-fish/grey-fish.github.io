@@ -33,7 +33,7 @@ $ echo I am user bandit23 | md5sum | cut -d ' ' -f 1
 Now we find passoword for next Level in `/tmp/8ca319486bfbbc3663ea0fbe81326349` file.
   
 <br/>
-Solution Screenshot
+Solution Screenshot:
 
 ![Level 22 Image](./images/Level22.png)
 
