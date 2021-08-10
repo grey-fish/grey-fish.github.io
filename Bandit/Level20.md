@@ -18,7 +18,7 @@ Solution Screenshot with 2 concurrent session:
 <br/>
 <span id=green>**Takeaway**</span><br/>
 
-  - If `nc -l <port_num> doesn't work, try `nc -lp <port_num>`.<br/>
+  - If `nc -l <port_num>` doesn't work, try `nc -lp <port_num>`.<br/>
 
 <br/>
 
