@@ -14,7 +14,7 @@ Screenshot:
 
 ![Level 28 Image](./images/Level28.1.png)
 
-
+<br/>
 Perhaps the password was there sometime in the past. So we check the `git log`.  Here's the output
 
 ```shell
@@ -38,9 +38,10 @@ Date:   Thu May 7 20:14:49 2020 +0200
     initial commit of README.md      
 ```
 
-We have 3 commits, inspect these using `git checkout` command which restores the working tree depending upon the HEAD. Simply put it restores the repo to a state when commit was made.
+We have 3 commits, inspect these using `git checkout` command which restores the working tree depending upon the HEAD. Simply put it restores the repo to a state when commit was made.<br/>
 We find that password was present in second commit and removed afterwards.
 
+<br/>
 Solution Screenshot:
 
 ![Level 28 Image](./images/Level28.2.png)
@@ -50,7 +51,7 @@ Nice!!!
 <br/>
 <span id=green>**Takeaway**</span><br/>
 
-  - Never store password in repo files, they can be accessed even after removal<br/>
+  - Never store password in git repo files, they can be accessed even after removal<br/>
 
 <br/>
 
