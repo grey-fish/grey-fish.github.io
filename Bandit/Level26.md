@@ -15,7 +15,10 @@ Now it's an easy task of just using it to read the password file .i.e. `/etc/ban
 
 <br/>
 Solution Screenshot:
+
 ![Level 26 Image](./images/Level26.png)
+
+Simple Enough!
 
 <br/>
 

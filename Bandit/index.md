@@ -26,9 +26,11 @@ More information can be found at its [Homepage](https://overthewire.org/wargames
 - [Level 23](./Level23.md)
 - [Level 24](./Level24.md)
 - [Level 25](./Level25.md)    <span id=pending><em>In Progress</em></span>
-- Level 26
-- Level 27
+- [Level 26](./Level26.md)
+- [Level 27](./Level27.md)
 - Level 28
+- Level 29
+- Level 30
 
 
 
