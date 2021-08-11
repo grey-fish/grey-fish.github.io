@@ -45,7 +45,7 @@ Now as per docs, press `v` and we be dropped into a terminal. Now we can bring t
 Under normal conditions, we would be able to type `:shell` from vim and would be dropped into a shell, but its not the case here. 
 Lets see what is our `shell` variable set to and change it.
 
-<img src="./images/Level25.3.png" width="450" height="250" />    <img src="./images/Level25.4.png" width="450" height="250"/>
+<img src="./images/Level25.3.png" width="400"  />    <img src="./images/Level25.4.png" width="400" />
 
 We an see its, `/usr/bin/showtext`.
 
