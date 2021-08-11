@@ -44,13 +44,13 @@ Now as per docs, press `v` and we be dropped into a terminal. Now we can bring t
 Under normal conditions, we would be able to type `:shell` from vim and would be dropped into a shell, but its not the case here. 
 Lets see what is our `shell` variable set to and change it.
 
-![Level25 Image](./images/Level25.3.png) -> ![Level25 Image](./images/Level25.4.png)
+![Level25 Image](./images/Level25.3.png) ![Level25 Image](./images/Level25.4.png)
 
 We an see its, `/usr/bin/showtext`.
 
 We change it to `/bin/bash` and execute `:shell` and we are dropped into a proper shell !
 
-![Level25 Image](./images/Level25.5.png) -> ![Level25 Image](./images/Level25.6.png)
+![Level25 Image](./images/Level25.5.png|250) -> ![Level25 Image](./images/Level25.6.png|250)
 
 We have successfully completed the level and gained shell.
 
