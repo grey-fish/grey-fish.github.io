@@ -23,7 +23,8 @@ First we look at how to install pyenv and then go to my workflow.
 
 ```shell
 kali@kali:~$ sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
-             libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
+             libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev \
+             libffi-dev liblzma-dev python3-openssl git
 
 kali@kali:~$ curl https://pyenv.run | bash
 ```
@@ -35,7 +36,8 @@ kali@kali:~$ curl https://pyenv.run | bash
 # Here my default shell is zsh
 kali@kali:~$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc 
 kali@kali:~$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc 
-kali@kali:~$ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init --path)"\nfi' >> ~/.zshrc  # Note the slight change 
+# Note the slight change here
+kali@kali:~$ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init --path)"\nfi' >> ~/.zshrc 
 kali@kali:~$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 ```
 <br/>
