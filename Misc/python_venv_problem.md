@@ -4,9 +4,10 @@ tags : #python 🐍
 # Python Virtual Environments
 It began when i tried to install `altdns`  in Kali but couldn't as it relied on Python 2 (even though Kali defaults to python2). Naturally, i wanted a permanent fix for this problem. 
 
+<br/>
 ## What is the Problem?
 I want to be able to run / install a python program irrespective of what python version is installed on my pc. 
-<br/>
+
 <br/>
 
 ## Solution
@@ -21,7 +22,8 @@ First we look at how to install pyenv and then go to my workflow.
 1.Installing Python ( For ubuntu or Kali )
 
 ```shell
-kali@kali:~$ sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
+kali@kali:~$ sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
+             libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
 
 kali@kali:~$ curl https://pyenv.run | bash
 ```
@@ -33,7 +35,7 @@ kali@kali:~$ curl https://pyenv.run | bash
 # Here my default shell is zsh
 kali@kali:~$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc 
 kali@kali:~$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc 
-kali@kali:~$ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init --path)"\nfi' >> ~/.zshrc         # Note the slight change here
+kali@kali:~$ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init --path)"\nfi' >> ~/.zshrc  # Note the slight change 
 kali@kali:~$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 ```
 <br/>
@@ -44,8 +46,8 @@ kali@kali:~$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 kali@kali:~$ exec $SHELL
 ```
 Note: Restart if using GUI or log off and log in again if using GUI
-<br/>
 
+<br/>
 Now we have pyenv installed. We can check via `pyenv versions`
 
 ```shell
