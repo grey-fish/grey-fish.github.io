@@ -26,18 +26,21 @@ exit 0
 ```
 So, whenever bandit26 logs in, `/usr/bin/showtext` runs and user gets logged out due to `exit 0` command.
 
-
+<br/>
 Our Objective is to get the shell. Here is how we do it.
-Look at the contents of `/usr/bin/showtext`, there is a `more` command, we can use it to execute external commands.
+Look at the contents of `/usr/bin/showtext`, there is a `more` command, we can use it to <span id=green>execute external commands</span>.
 
 From `more` docs:
->  v         Start up an editor at current line.  The editor is taken from the environmentvariable VISUAL if defined,<br/>
->            or EDITOR if VISUAL is not defined,  or  defaults to vi if neither VISUAL nor EDITOR is defined.
+>  v         Start up an editor at current line.  The editor is taken from the environmentvariable VISUAL,<br/>
+>             if defined, or EDITOR if VISUAL is not defined,  or  defaults to vi if neither VISUAL nor EDITOR is defined.
 
-In order to do that, shrink the terminal size and login so that we can get command bar at end and then press v. See below:
+In order to do that, shrink the terminal size and login so that we can get command bar at end and then press `v`. 
+
+See below:
 
 ![Level25 Image](./images/Level25.1.png)
 
+<br/>
 Now as per docs, press `v` and we be dropped into a terminal. Now we can bring terminal to normal size.
 
 ![Level25 Image](./images/Level25.2.png)
@@ -58,7 +61,9 @@ We have successfully completed the level and gained shell.
 <br/>
 <span id=green>**Takeaway**</span><br/>
 
-  - .<br/>
+  - A Simple command like `more` used incorrectly can compromise the system.<br/>
+  - To Check if a parameter is set in vim, use `:set <param_name> ?`<br/>
+  - There is always a way!<br/>
 
 <br/>
 
