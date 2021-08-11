@@ -18,6 +18,8 @@ Solution Screenshot:
 
 ![Level 26 Image](./images/Level26.png)
 
+Simple Enough!
+
 <br/>
 
 [<< Back](https://grey-fish.github.io/Bandit/index.html)
