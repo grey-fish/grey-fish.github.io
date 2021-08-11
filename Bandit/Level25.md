@@ -32,7 +32,8 @@ Look at the contents of `/usr/bin/showtext`, there is a `more` command, we can u
 
 From `more` docs:
 >  v         Start up an editor at current line.  The editor is taken from the environmentvariable VISUAL,<br/>
->             if defined, or EDITOR if VISUAL is not defined,  or  defaults to vi if neither VISUAL nor EDITOR is defined.
+>            if defined, or EDITOR if VISUAL is not defined,  or  defaults to vi if neither VISUAL nor EDITOR.
+>            is defined
 
 In order to do that, shrink the terminal size and login so that we can get command bar at end and then press `v`. 
 
