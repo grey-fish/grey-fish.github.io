@@ -64,7 +64,7 @@ We have successfully completed the level and gained shell.
 <span id=green>**Takeaway**</span><br/>
 
   - A Simple command like `more` used incorrectly can compromise the system.<br/>
-  - To Check if a parameter is set in vim, use `:set <param_name> ?`<br/>
+  - To Check current value of parameter in vim, use `:set <param_name> ?`<br/>
   - There is always a way!<br/>
 
 <br/>
