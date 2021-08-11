@@ -9,8 +9,10 @@ I vividly remember even after an year, how this Level astonished me. Personally 
 
 We Log in as user bandit25, and we see a private SSH key for bandit26 user. So we login using the private SSH key as user bandit26, and we are displayed a text and logged out.
 
-Q: Why does this happen? 
-A: Default shell for bandit26 is changed to a custom shell script `/usr/bin/showtext`. See Below:
+Q: Why does this happen? <br/>
+A: Default shell for bandit26 is changed to a custom shell script `/usr/bin/showtext`. 
+
+See Below:
 ```shell
 bandit25@bandit:~$ cat /etc/passwd | grep bandit26
 bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext          <----
@@ -24,19 +26,22 @@ exit 0
 ```
 So, whenever bandit26 logs in, `/usr/bin/showtext` runs and user gets logged out due to `exit 0` command.
 
-
+<br/>
 Our Objective is to get the shell. Here is how we do it.
-Look at the contents of `/usr/bin/showtext`, there is a `more` command, we can use it to execute external commands.
+Look at the contents of `/usr/bin/showtext`, there is a `more` command, we can use it to <span id=green>execute external commands</span>.
 
 From `more` docs:
->  v         Start up an editor at current line.  The editor is taken from the environment
-             variable VISUAL if defined, or EDITOR if VISUAL is not defined,  or  defaults
-             to vi if neither VISUAL nor EDITOR is defined.
+>  v         Start up an editor at current line.  The editor is taken from the environmentvariable VISUAL,<br/>
+>            if defined, or EDITOR if VISUAL is not defined,  or defaults to vi if neither VISUAL nor <br/>
+>            EDITOR is defined
 
-In order to do that, shrink the terminal size and login so that we can get command bar at end and then press v. See below:
+In order to do that, shrink the terminal size and login so that we can get command bar at end and then press `v`. 
+
+See below:
 
 ![Level25 Image](./images/Level25.1.png)
 
+<br/>
 Now as per docs, press `v` and we be dropped into a terminal. Now we can bring terminal to normal size.
 
 ![Level25 Image](./images/Level25.2.png)
@@ -44,20 +49,23 @@ Now as per docs, press `v` and we be dropped into a terminal. Now we can bring t
 Under normal conditions, we would be able to type `:shell` from vim and would be dropped into a shell, but its not the case here. 
 Lets see what is our `shell` variable set to and change it.
 
-![Level25 Image](./images/Level25.3.png) -> ![Level25 Image](./images/Level25.4.png)
+<img src="./images/Level25.3.png" width="450" height="250" />  --->  <img src="./images/Level25.4.png" width="450" height="250"/>
 
 We an see its, `/usr/bin/showtext`.
 
+<br/>
 We change it to `/bin/bash` and execute `:shell` and we are dropped into a proper shell !
 
-![Level25 Image](./images/Level25.5.png) -> ![Level25 Image](./images/Level25.6.png)
+<img src="./images/Level25.5.png" width="450" height="250" />  --->  <img src="./images/Level25.6.png" width="450" height="250"/>
 
 We have successfully completed the level and gained shell.
 
 <br/>
 <span id=green>**Takeaway**</span><br/>
 
-  - .<br/>
+  - A Simple command like `more` used incorrectly can compromise the system.<br/>
+  - To Check current value of parameter in vim, use `:set <param_name> ?`<br/>
+  - There is always a way!<br/>
 
 <br/>
 
