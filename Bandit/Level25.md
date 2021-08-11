@@ -32,8 +32,8 @@ Look at the contents of `/usr/bin/showtext`, there is a `more` command, we can u
 
 From `more` docs:
 >  v         Start up an editor at current line.  The editor is taken from the environmentvariable VISUAL,<br/>
->            if defined, or EDITOR if VISUAL is not defined,  or  defaults to vi if neither VISUAL nor EDITOR.
->            is defined
+>            if defined, or EDITOR if VISUAL is not defined,  or defaults to vi if neither VISUAL nor <br/>
+>            EDITOR is defined
 
 In order to do that, shrink the terminal size and login so that we can get command bar at end and then press `v`. 
 
@@ -53,6 +53,7 @@ Lets see what is our `shell` variable set to and change it.
 
 We an see its, `/usr/bin/showtext`.
 
+<br/>
 We change it to `/bin/bash` and execute `:shell` and we are dropped into a proper shell !
 
 <img src="./images/Level25.5.png" width="450" height="250" />  --->  <img src="./images/Level25.6.png" width="450" height="250"/>
