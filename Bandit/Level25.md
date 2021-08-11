@@ -50,7 +50,7 @@ We an see its, `/usr/bin/showtext`.
 
 We change it to `/bin/bash` and execute `:shell` and we are dropped into a proper shell !
 
-![Level25 Image|250](./images/Level25.5.png) -> ![Level25 Image|250](./images/Level25.6.png)
+![Level25 Image| width=250](./images/Level25.5.png) -> ![Level25 Image| width=250](./images/Level25.6.png)
 
 We have successfully completed the level and gained shell.
 
