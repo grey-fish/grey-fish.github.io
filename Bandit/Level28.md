@@ -45,6 +45,8 @@ We find that password was present in second commit and removed afterwards.
 Solution Screenshot:
 
 ![Level 28 Image](./images/Level28.2.png)
+![Level 28 Image](./images/Level28.3.png)
+
 
 Nice!!!
 
