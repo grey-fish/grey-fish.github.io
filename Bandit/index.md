@@ -25,7 +25,7 @@ More information can be found at its [Homepage](https://overthewire.org/wargames
 - [Level 22](./Level22.md)
 - [Level 23](./Level23.md)
 - [Level 24](./Level24.md)
-- [Level 25](./Level25.md)    <span id=pending><em>In Progress</em></span>
+- [Level 25](./Level25.md) 
 - [Level 26](./Level26.md)
 - [Level 27](./Level27.md)
 - [Level 28](./Level28.md)
@@ -38,7 +38,6 @@ More information can be found at its [Homepage](https://overthewire.org/wargames
 
 <br/>
 <br/>
-
 
 ```
 Bandit was completed last year. For this blog, i'll redo it in my free time and upload writeups here
