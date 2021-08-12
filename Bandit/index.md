@@ -30,12 +30,11 @@ More information can be found at its [Homepage](https://overthewire.org/wargames
 - [Level 27](./Level27.md)
 - [Level 28](./Level28.md)
 - [Level 29](./Level29.md)
-- Level 30
-
-
-
-
-
+- [Level 30](./Level30.md)
+- Level 31
+- Level 32
+- Level 33
+- Level 34
 
 
 
