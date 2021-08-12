@@ -27,13 +27,15 @@ key.txt
 Use -f if you really want to add them.
 ```
 
-According to error, we `.gitignore` file is causing issues. Check its content and we know why.<br/>
+According to error, we `.gitignore` file is causing issues. Check its content and we know why.
+<br/>
 `.gitignore` file's content
 
 ```
 *.txt
 ```
 
+<br/>
 So i just remove the `.gitignore` file and push the `key.txt` file again and this reveals the password.
 
 <br/>
